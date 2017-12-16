@@ -1,0 +1,160 @@
+.film-de-ban{
+    width:100%;
+    height:400px;
+    margin-top:25px;
+    margin-bottom:50px;
+    overflow: hidden;
+}
+.film-de-ban img{
+    transform:scale(1.28);
+}
+.film-de-contenter{
+    width:80%;
+    height:auto;
+    margin:0 auto;
+    padding-bottom:25px;
+}
+.film-de-title{
+    width:90%;
+    height:50px;
+    margin:0 auto;
+    padding-bottom:50px;
+    font-size:19px;
+    color:#0e0e0e;
+    font-family: Arial;
+    text-align: center;
+    line-height:50px ;
+}
+.film-de-word{
+    width:90%;
+    min-height:400px;
+    height:auto;
+    margin:0 auto;
+    padding-top:40px;
+    padding-bottom:20px;
+    font-size:17px;
+    color:#0e0e0e;
+    font-family: Arial;
+}
+.film-de-total-score{
+     width:90%;
+     height:30px;
+     margin:0 auto;
+     padding-bottom:20px;
+     font-size:17px;
+     color:#0e0e0e;
+     font-family: Arial;
+ }
+.film-de-total-score span {
+    color:#1a1a1a;
+}
+
+/*打星评分部分*/
+.film-de-score{
+    width:90%;
+    height:60px;
+    maring:0 auto;
+}
+.star-rating {
+    font-family: 'FontAwesome';
+    margin: 50px auto;
+}
+.star-rating > fieldset {
+    border: none;
+    display: inline-block;
+}
+.star-rating > fieldset:not(:checked) > input {
+    position: absolute;
+    top: -9999px;
+    clip: rect(0, 0, 0, 0);
+}
+.star-rating > fieldset:not(:checked) > label {
+    float: right;
+    width: 1em;
+    padding: 0 .05em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 200%;
+    color: #16a085;
+}
+.star-rating > fieldset:not(:checked) > label:before {
+    content: '\f006  ';
+}
+.star-rating > fieldset:not(:checked) > label:hover,
+.star-rating > fieldset:not(:checked) > label:hover ~ label {
+    color: #1abc9c;
+    text-shadow: 0 0 3px #1abc9c;
+}
+.star-rating > fieldset:not(:checked) > label:hover:before,
+.star-rating > fieldset:not(:checked) > label:hover ~ label:before {
+    content: '\f005  ';
+}
+.star-rating > fieldset > input:checked ~ label:before {
+    content: '\f005  ';
+}
+.star-rating > fieldset > label:active {
+    position: relative;
+    top: 2px;
+}
+/*.score{*/
+    /*margin:20px auto;*/
+    /*width:600px;*/
+/*}*/
+/*.score .default-statu{*/
+    /*height: 47px;*/
+    /*width:251px;*/
+    /*float: left;*/
+/*}*/
+/*.score-expression,.score-praise,.score-heart,.score-star,.score-medal,*/
+/*.score-water,.score-crown,.score-flower{*/
+    /*overflow: hidden;*/
+/*}*/
+/*.score .default-statu .default-icon{*/
+    /*background-image: url(../img/icon.png);*/
+    /*background-repeat: no-repeat;*/
+    /*background-position: top right;*/
+    /*display: inline-block;*/
+    /*height: 47px;*/
+    /*width:50.16px;*/
+    /*cursor: pointer;*/
+/*}*/
+/*.score-expression .default-statu .default-icon{*/
+    /*background-position: top right;*/
+/*}*/
+/*.score-praise .default-statu .default-icon{*/
+    /*background-position: right -47px;*/
+/*}*/
+/*.score-heart .default-statu .default-icon{*/
+    /*background-position: right -94px;*/
+/*}*/
+/*.score-star .default-statu .default-icon{*/
+    /*background-position: right -141px;*/
+/*}*/
+/*.score-medal .default-statu .default-icon{*/
+    /*background-position: right -188px;*/
+/*}*/
+/*.score-water .default-statu .default-icon{*/
+    /*background-position: right -235px;*/
+/*}*/
+/*.score-crown .default-statu .default-icon{*/
+    /*background-position: right -282px;*/
+/*}*/
+/*.score-flower .default-statu .default-icon{*/
+    /*background-position: right bottom ;*/
+/*}*/
+/*.score-description{*/
+    /*width:249px;*/
+    /*height: 47px;*/
+    /*line-height: 47px;*/
+    /*text-align: center;*/
+    /*float: left;*/
+/*}*/
+/*.result{*/
+    /*margin:10px auto;*/
+    /*width:200px;*/
+/*}*/
+/*.result-score{*/
+    /*color:green;*/
+    /*font-size: large;*/
+/*}*/
