@@ -1,6 +1,8 @@
 package com.onetoone.ssh.entity;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable{
 	private int id;	//	用户ID
 	private String username;	// 用户昵称
 	private String password;	//用户密码

@@ -6,9 +6,19 @@
 <struts>
 	<constant name="struts.enable.DynamicMethodInvocation" value="true"/>
 	<constant name="struts.objectFactory" value="spring" />
+	<!-- 静态资源映射 -->
+	<constant name="struts.action.excludePattern" value="/static/.*?" />
 	<package name="001pck" extends="struts-default">
 		<action name="Index" class="myTestAction">
-			<result name="success">/WEB-INF/views/index.jsp</result>
+			<result name="success">/WEB-INF/web/home.jsp</result>
+		</action>
+		<action name="*LoginAction" class="loginAction" method="{1}execute">
+			<result name="getsuccess">/WEB-INF/web/login.jsp</result>
+			<result name="postsuccess"></result>
+		</action>
+		<action name="*RegisterAction" class="registerAction" method="{1}execute">
+			<result name="getsuccess">/WEB-INF/web/register.jsp</result>
+			<result name="postsuccess">/WEB-INF/web/login.jsp</result>
 		</action>
 	</package>
 </struts>
