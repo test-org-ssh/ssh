@@ -6,6 +6,8 @@ $('.login').on('submit', function(e) {
     var $this = $(this),
         $state = $this.find('button > .state');
     $this.addClass('loading');
+    
+    // 这下面是原本就被注释掉的代码
 //$state.html('Authenticating');
 //setTimeout(function() {
 //  $this.addClass('ok');
@@ -17,3 +19,5 @@ $('.login').on('submit', function(e) {
 //  }, 4000);
 //}, 3000);
 });
+
+/*这种形式的注释里面都是正常代码，取消可用*/

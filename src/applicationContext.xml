@@ -30,9 +30,24 @@
 			<ref bean="userdao"/>
 		</property> 
     </bean>
+    <!-- Form Bean -->
+    <!-- <bean id="userForm" class="com.onetoone.ssh.form.UserForm" scope="prototype">
+		<property name="username" value=""></property>
+		<property name="password" value=""></property>
+		<property name="confirm" value=""></property>
+	</bean> -->
+    <!-- Action Bean -->
 	<bean id="myTestAction" class="com.onetoone.ssh.action.TestAction" scope="prototype">
 		<property name="usermanager">  
             <ref bean="usermanager" />  
         </property>
+	</bean>
+	<bean id="loginAction" class="com.onetoone.ssh.action.LoginAction" scope="prototype">
+		
+	</bean>
+	<bean id="registerAction" class="com.onetoone.ssh.action.RegisterAction" scope="prototype">
+		<!-- <property name="userform">
+			<ref bean="userForm"/>
+		</property> -->
 	</bean>
 </beans>

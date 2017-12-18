@@ -10,7 +10,7 @@ public class TestAction extends ActionSupport{
 		System.out.println("开始调用");
 		usermanager.saveUser();
 		System.out.println("调用结束");
-		return "success";
+		return SUCCESS;
 	}
 	public UserManager getUsermanager() {
 		return usermanager;
