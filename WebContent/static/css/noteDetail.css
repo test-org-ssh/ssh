@@ -1,0 +1,125 @@
+ html, body 
+ {
+    margin: 0;
+    padding: 0;
+    background-color: #F2F2F2;
+   font-family: "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+            
+}
+
+  header {
+
+   text-align: center;
+
+  }
+
+#main {
+
+/*max-width: 960px;*/
+    width: 70%;
+    margin-left: 15%;
+    margin: 0 auto;
+    height:auto;
+ }
+ .confirm{
+                outline:none;
+                height:50px;
+                width:60px;
+                border:0px;
+                background-color:#F7F7F7;
+                cursor: pointer;
+            }
+.cancle{
+               outline:none;
+                height:50px;
+                width:60px;
+                border:0px;
+                background-color:#F7F7F7;
+                cursor: pointer;
+                margin-left: 80%;
+                margin-right: 50px;
+
+  }
+.tmp{
+    width: 100%;
+    height:100px;
+  }
+.user_box{
+   width: 100%;
+   height: 100px;
+}
+.user_pho{
+     width:10%;
+     height: 100px;
+     border-radius: 50%;
+     float: left;
+     overflow: hidden;
+}
+.main_content{
+    width:100%;
+    height:auto;
+    border-left: solid 2px #ccc;
+    margin-top: 20px;
+}
+.style_zs{
+    width: 100%;
+   height: 50px;
+}
+.style_zss{
+    width:4%;
+    float: right;
+    height: 50px;
+    text-align: right;
+}
+.style_zss_border{
+    width:95%;
+    float: left;
+    height: 50px;
+    border-top: solid 2px #ccc;
+}
+.title_box{
+    width: 100%;
+   height: 50px;
+   text-align: center;
+}
+.content_box{
+    width: 100%;
+   height: auto;
+   font-size: 18px;
+}
+.note_info_box{
+    width:100%;
+    height:50px;
+    margin-bottom: 50px;
+}
+.icon_box{
+    margin-top: 20px;
+    height:20px;
+    width:80px; 
+    margin-right:40px;
+    font-size:14px;
+    float:left;
+}
+.comment_box{
+    width:100%;
+    height:auto;
+    background-color: #fff;
+    padding-top: 10px;
+     padding-bottom: 10px;
+}
+.comment_box_circle{
+    width:96%;
+    margin-left: 2%;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    height:auto;
+    text-align: left;
+  
+}
+
+.foot{
+    width:100%;
+    height:200px;
+    
+    text-align: center;
+}
