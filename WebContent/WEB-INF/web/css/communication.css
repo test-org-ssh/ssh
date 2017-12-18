@@ -1,0 +1,319 @@
+
+
+#BOX{
+  width: 100%;
+  height: 100%;
+  background-color:#E8E8E8;
+}
+#nav_box{
+  width :100%;
+  height:120px;
+  background-color:#24292c;
+  margin-bottom:70px;
+  margin-top:-8px;
+  position:fixed;
+	z-index:99999;
+}
+.nav_b{
+  width :100%;
+  height:120px;
+  margin-bottom:70px;
+}
+.nav_box{
+	width: 80%;
+	margin-left: 10%;
+	height: 100%;
+	float:left;
+	
+}
+.logo_box{
+	width:20%;
+	height:100%;
+	float:left;
+	color:#FFF;                 
+}
+.searchbox{
+	width:25%;
+	height:100%;
+	margin-left:74%;
+	font-size:14px;
+}
+.zc_search_box{
+	width:24%;
+	height:100%;
+	float:right;
+	color:#CCC;
+	
+}
+.login_search_box{
+	width:5%;
+	height:100%;
+	float:right;
+	margin-right:4%;
+	color:#CCC;
+	font-size:14px;
+	
+}
+.search_boxfor_Three{
+	width:75%;
+	height:35px;
+	float:left;
+	margin-top:40px;
+}
+.serach_input{
+	width:98%;
+	height:30px;
+	border-left:0px;
+	border-top:0px;
+	border-right:0px;
+	border-bottom:0px;
+	background-color:#24292c;
+	outline:none;
+	color:#CCC;
+	font-size:14px;
+	border-radius:15px;
+}
+.three_input{
+	float:left;
+	width:60%;
+	height:35px;
+	border-right:0px;
+	border-top:solid #CCC thin ;
+	border-left:solid #CCC thin ;
+	border-bottom:solid #CCC thin ;
+	border-top-left-radius:10px;
+	border-bottom-left-radius:10px;
+}
+.three_right{
+	border-top-right-radius:10px;
+	border-bottom-right-radius:10px;
+	float:right;
+	width:20%;
+	height:35px;
+	color:#CCC;
+	margin-right:19%;
+	border-right:solid #CCC thin ;
+	border-top:solid #CCC thin ;
+	border-bottom:solid #CCC thin ;
+	text-align:center;
+	
+}
+.titile_box{
+	width:52%;
+	height:100%;	
+	float:left;
+	margin-left:5px;
+	font-size:14px;
+	color:#CCC;
+}
+.title2 ul{
+	width:100%;
+	list-style:none;
+	height:40px;
+	margin:0;
+	cursor:pointer;
+}
+.title2 li{
+	display:inline;
+	text-align:center;
+	line-height:30px;
+	height:30px;
+	margin:42px;
+
+}
+.title2 a:link,a:visited{
+ 	text-decoration:none;  /*超链接无下划线*/
+ 	color:#ccc;
+}
+.title ul{
+	width:96%;
+	list-style:none;
+	height:30px;
+	margin:0;
+	cursor:pointer;
+}
+.title li{
+	display:inline;
+	text-align:center;
+	line-height:28px;
+	height:28px;
+	margin:40px;
+
+}
+.title{
+	margin-top:8%;
+	width:90%;
+	height:30%;
+	float:left;
+}
+.title2{
+	width:90%;
+	height:30%;
+	float:left;
+}
+#main_box{
+  width:100%;
+  height:1600px;
+}
+#color_box{
+  	height:auto;
+	width: 80%;
+	margin-left: 10%;
+	float:left;
+	background-color:#FFF;
+	z-index:98;
+}
+.white{
+	width:100%;
+	height:50px;
+	z-index:8;
+}
+.circle_box{
+	
+	margin-bottom: 50px;
+	height: 420px;
+	
+}
+.sidebar_box{
+	width:5%;
+	height:100%;
+	float:right;
+	margin-left:94%;
+	position:fixed;
+	z-index:99;
+}
+a:link,a:visited{
+ text-decoration:none;  /*超链接无下划线*/
+ color:#333;
+}
+#returntop_box{
+	width:98%;
+	height:60px;
+	margin-top:5px;
+}
+#sendText_box{
+	width: 98%;
+	height: 60px;
+	margin-top:300px;
+}
+.user_PHO{
+	width:80%;
+	margin-left:5%;
+	height:100px;
+	border-radius:50%;
+	border:solid #333;
+	text-align:center;
+	overflow:hidden;
+	margin-top:-30px;
+}
+.circle_left_box{
+	
+	height:100%;
+	float:left;
+	width:12%;
+}
+.circle_right_box{
+	margin-left: 12%;
+	height: 100%;
+	width: 88%;
+}
+.position_main_box_L{
+	width:5%;
+	float:left;
+	height:100%;
+	background-color:#FFF;
+	
+}
+.style_icon{
+	width:98%;
+	height:50px;
+	border-right-width: medium;
+	border-right-style: solid;
+	border-right-color: #CCC;
+}
+.style_border{
+	width: 98%;
+	height: 290px;
+	border-right-width: medium;
+	border-right-style: solid;
+	border-right-color: #CCC;
+}
+.white_style_border{
+	width: 98%;
+	height:100%;
+	border-top-width: medium;
+	border-top-style: solid;
+	border-top-color: #CCC;
+}
+.white_icon{
+	width: 50px;
+	height:100%;
+	float:right;
+}
+.position_main_box{
+	width:90%;
+	float:left;
+	height:350px;
+	
+}
+.position_main_box_R{
+	width:5%;
+	float:right;
+	height:100%;
+	background-color:#FFF;
+	
+}
+.content_title{
+	width: 100%;
+	height: 40px;
+}
+.content_box{
+	width: 100%;
+	height: 250px;
+	overflow: hidden;
+}
+.do_box{
+	width:100%;
+	height:80px;
+	
+}
+.next_box{
+	width:100%;
+	height:25px;
+	
+}
+.next_icon{
+	widht:50px;
+	height:25px;
+	overflow:hidden;
+	float:left;	
+	margin-right:5px;
+}
+.next_txt{
+	widht:20px;
+	height:25px;
+	overflow:hidden;
+	float:left;	
+	font-size:14px;
+	
+}
+.lib_box{
+	margin-top:15px;
+	height:20px;
+	width:100px;	
+	float:left;
+	font-size:14px;
+}
+.icon_box{
+	margin-top:15px;
+	height:20px;
+	width:50px;	
+	margin-right:50px;
+	font-size:14px;
+	float:right;
+}
+.foot_box{
+  width: 100%;
+  height:300px;
+  background-color:#CCC;
+}

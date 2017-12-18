@@ -1,0 +1,150 @@
+@charset "utf-8";
+/* CSS Document */
+#BOX{
+  width: 100%;
+  height: 100%;
+  background-color:#E8E8E8;
+}
+#main_box{
+  width:100%;
+  height:1600px;
+}
+.temp{
+	width:100%;
+	height:100px;
+}
+.backPIC_box{
+	width:100%;
+	height:410px;
+	margin-top:-80px;
+	border:dashed thin #ccc;
+}
+.back_tmp{
+	width:100%;
+	height:150px;
+}
+.back_pic{
+	width:100%;
+	height: 140px;
+	
+}
+.back_pic_l{
+	width:15%;
+	height:140px;
+	margin-left: 40%;
+}
+.back_pic_l_p{
+	width:70%;
+	margin-left: 15%;
+	
+	border-radius: 50%;
+	overflow: hidden;
+	height: 140px;
+}
+.back_sign{
+	with:100%;
+	height:30px;
+	
+}
+.back_sign_s{
+	width:30%;
+	margin-left: 40%;
+	height: 30px;
+	
+}
+.back_name{
+	with:100%;
+	height:30px;
+	
+}
+.back_name_n{
+	width:5%;
+	margin-left: 45%;
+	height: 30px;
+	text-align: center ;
+}
+.back_follow{
+	with:100%;
+	height:50px;
+}
+.back_follow_f{
+	width:15%;
+	margin-left: 40%;
+	height: 50px;
+	border:dashed thin #ccc;
+}
+.show_sendNote_box{
+	width:80%;
+	height:800px;
+	margin-left: 10%;
+	border-bottom: dashed thin #ccc;
+}
+/* 发送的帖子css*/
+.myNote_box{
+	width:100%;
+	height:700px;
+}
+.myNote_box_header{
+	width:100%;
+	height:50px;
+	text-align: right;
+}
+.sent_circle_box{
+	width:96%;
+	height:200px;
+	margin-right: 2%;
+	
+}
+.sent_circle_style{
+	width:100%;
+	height:20px;
+	text-align: center;
+	border-bottom:solid 2px #999;
+}
+.sent_circle_title{
+	width:100%;
+	height:30px;
+	text-align: left;
+	border-left:solid 2px #999;
+}
+.sent_circle_content{
+	width:100%;
+	height:100px;
+	overflow: hidden;
+}
+.sent_circle_info{
+	width:100%;
+	height:30px;
+}
+.sent_circle_time{
+	width:100%;
+	height:20px;
+	text-align: right;
+	color: #666;
+	border-bottom:solid 10px #fff;
+}
+.sent_circle_info_icon{
+	height:20px;
+	width:80px;	
+	margin-left:40px;
+	font-size:14px;
+	float:left;
+}
+.sent_white{
+	width:100%;
+	height:10px;
+	background-color: #fff;
+	margin-top: 2px;
+}
+.next_page{
+	width:10%;
+	height:50px;
+	float: right;
+	text-align: right;
+	margin-right: 4%;
+}
+.foot_box{
+	width: 100%;
+	height:500px;
+	background-color: #A19FC7;
+}
