@@ -89,7 +89,10 @@
                         </div>
                         <div class="lib_box"><span class="iconfont icon-biaoqian1" style="font-size:20px;"></span>#安利君#</div>
                         <div class="icon_box"><i class="iconfont icon-xiaoxi1" style="font-size:20px;"></i>(9)</div>
-                        <div class="icon_box"><i class="iconfont  icon-xihuan1" style="font-size:20px;"></i>(110)</div>
+                         <div class="icon_box" id="userID">
+                            <span class="iconfont  icon-xihuan1" style="font-size:20px;" id="userID1" onclick="like(1);"></span>
+                            (<span id="likeNum1">11</span>)
+                        </div>
                         
                     </div>
                 </div>
@@ -124,7 +127,10 @@
                         </div>
                         <div class="lib_box"><span class="iconfont icon-biaoqian1" style="font-size:20px;"></span>#安利君#</div>
                         <div class="icon_box"><i class="iconfont icon-xiaoxi1" style="font-size:20px;"></i>(9)</div>
-                        <div class="icon_box"><i class="iconfont  icon-xihuan1" style="font-size:20px;"></i>(110)</div>
+                        <div class="icon_box" id="userID2">
+                            <span class="iconfont  icon-xihuan1" style="font-size:20px;" id="userID2" onclick="like(2);"></span>
+                            (<span id="likeNum2">11</span>)
+                        </div>
                         
                     </div>
                 </div>
@@ -161,7 +167,10 @@
                         </div>
                         <div class="lib_box"><span class="iconfont icon-biaoqian1" style="font-size:20px;"></span>#安利君#</div>
                         <div class="icon_box"><i class="iconfont icon-xiaoxi1" style="font-size:20px;"></i>(9)</div>
-                        <div class="icon_box"><i class="iconfont  icon-xihuan1" style="font-size:20px;"></i>(110)</div>
+                       <div class="icon_box" id="userID3">
+                            <span class="iconfont  icon-xihuan1" style="font-size:20px;" id="userID3" onclick="like(3);"></span>
+                            (<span id="likeNum3">11</span>)
+                        </div>
                         
                     </div>
                 </div>
@@ -182,6 +191,17 @@ function returnTop() {
   sdelay= setTimeout('returnTop()',2);
  }
 }
+function like(num)
+{ 
+    var str1 = "likeNum" + num;
+    var str2 = "userID" + num;
+    var num=document.getElementById(str1).innerText; 
+    var numm=parseInt(num)+1;
+    document.getElementById(str1).innerText = numm;
+    document.getElementById(str2).style.color = "red";
+
+}
+
 </script>
 </body>
 </html>
