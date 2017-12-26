@@ -5,13 +5,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <title>论坛</title>
+<%
+	String path = request.getContextPath();
+%>
 <link href="<%=path %>/static/css/communication.css" rel="stylesheet" style="text/css"/>
 <link href="<%=path %>/static/assets/font/download12/font_503801_6ri7xb94hdr3haor/iconfont.css" rel="stylesheet" style="text/css"/>
 
 </head>
-<%
-	String path = request.getContextPath();
-%>
+
 <body>
 
 <div id ="BOX">

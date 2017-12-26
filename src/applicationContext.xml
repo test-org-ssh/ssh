@@ -50,4 +50,8 @@
 			<ref bean="userForm"/>
 		</property> -->
 	</bean>
+	
+	<bean id="myselfAction" class="com.onetoone.ssh.action.MyselfAction" scope="prototype">
+		
+	</bean>
 </beans>

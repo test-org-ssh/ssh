@@ -20,5 +20,10 @@
 			<result name="getsuccess">/WEB-INF/web/register.jsp</result>
 			<result name="postsuccess">/WEB-INF/web/login.jsp</result>
 		</action>
+	
+		<action name="*MyselfAction" class="myselfAction" method="{1}execute">
+			<result name="getsuccess">/WEB-INF/web/myself.jsp</result>
+			<result name="postsuccess"></result>
+		</action>
 	</package>
 </struts>
