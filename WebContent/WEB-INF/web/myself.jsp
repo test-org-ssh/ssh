@@ -5,15 +5,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>个人中心</title>
-<link href="css/myself.css" rel="stylesheet" style="text/css"/>
+<%
+	String path = request.getContextPath();
+%>
+<link href="<%=path %>/static/css/myself.css" rel="stylesheet" style="text/css"/>
 
 <link href="<%=path %>/static/assets/font/download/font_503801_bot9w7zulk3s1yvi/iconfont.css" rel="stylesheet" style="text/css"/>
 <script src="<%=path %>/static/js/jquery.min.js" type="text/javascript"></script>
 
 </head>
-<%
-	String path = request.getContextPath();
-%>
+
 <body>
 
 <div id ="BOX">
@@ -22,7 +23,7 @@
     	<div class="nav_box">
             <div class="logo_box">
             	<!--<p class="css408AFFC97A373E36" style="font-size:40px">OneTOone</p>-->
-                <img src="<%=path %>/static/img\logo.png">
+                <img src="img\logo.png">
             </div>
             <div class="titile_box">
                 <div class="title">
@@ -35,10 +36,10 @@
                   </div>
                  <div class="title2">
                      <ul>
-                         <a href="home.html"><li>&nbsp;首页</li></a>
-                         <a href="film_list.html"><li>&nbsp;影视</li></a>
-                         <a href="communication.html"><li>论坛</li></a>
-                         <li><a href="myself.html" style="color:#ccc;">个人中心</a></li>
+                     	<li>&nbsp;首页</li>
+                        <li>&nbsp;影视</li>
+                        <li><a href="communication.html" style="color:#ccc;">论坛</a></li>
+                     	<li>个人中心</li>
                      </ul>
                 </div>
                 
@@ -48,16 +49,16 @@
                     <div class="three_right"><span class="iconfont icon-search" style="font-size:28px;"></span></div>
                     <div class="three_input"><input type="text" value="搜索" class="serach_input" /></div>   
                 </div>
-                <div class="zc_search_box"><a href="register.html"><span class="iconfont icon-zhuce-" style="font-size:20px;"></span> 注册</div></a>
-            </div>
-        </div><!--classnav_box-->
-        <div class="login_search_box"><a href="login.html"><span class="iconfont icon-denglu-copy" style="font-size:24px"></span>登录</div> </a><!--login-->
+             	<div class="zc_search_box"><span class="iconfont icon-zhuce-" style="font-size:20px;"></span> 注册</div>
+            </div>         
+       </div><!--classnav_box-->
+       <div class="login_search_box"><span class="iconfont icon-denglu-copy" style="font-size:24px"></span>登录</div> <!--login-->
     </div><!--idnav_box-->
     <div class="nav_b"> </div>
      <!--body-->
         <div class="backPIC_box"><!--backPIC_boxback_tmp-->
             <div class="back_tmp"></div>
-            <div class="back_pic"><div class="back_pic_l"><div class="back_pic_l_p"><img src="<%=path %>/static/img\user.jpg" width="100%" height="100%"></div></div></div>
+            <div class="back_pic"><div class="back_pic_l"><div class="back_pic_l_p"><img src="img\user.jpg" width="100%" height="100%"></div></div></div>
             <div class="back_name"><div class="back_name_n">USER</div></div>
             <div class="back_sign"><div class="back_sign_s">I WANT TO A CAT,AND U?&nbsp;&nbsp;<sapn class="iconfont icon-shuxie2" style="font-size: 24px;"></sapn></div></div>
             
@@ -247,7 +248,7 @@
                              <sapn class="iconfont icon-zhankai12-copy" style="font-size:46px;color:#E8C516;"></sapn>
                         </div>
                         <div class="follow_circle"><!--follow_circle-->
-                            <div class="follow_pho"><a href="themselfHome.html"><img src="<%=path %>/static/img\user4.jpg" width="100%" height="100%"></a></div>
+                            <div class="follow_pho"><img src="img\user4.jpg" width="100%" height="100%"></div>
                             <div class="follow_info">
                                 <br>&nbsp;&nbsp;
                                 LAYI
@@ -261,7 +262,7 @@
                             </div>
                         </div><!--follow_circle-->
                          <div class="follow_circle"><!--follow_circle-->
-                            <div class="follow_pho"><img src="<%=path %>/static/img\user1.jpg" width="100%" height="100%"></div>
+                            <div class="follow_pho"><img src="img\user1.jpg" width="100%" height="100%"></div>
                             <div class="follow_info">
                                 <br>&nbsp;&nbsp;
                                 LAYI
@@ -275,7 +276,7 @@
                             </div>
                         </div><!--follow_circle-->
                          <div class="follow_circle"><!--follow_circle-->
-                            <div class="follow_pho"><img src="<%=path %>/static/img\user3.jpg" width="100%" height="100%"></div>
+                            <div class="follow_pho"><img src="img\user3.jpg" width="100%" height="100%"></div>
                             <div class="follow_info">
                                 <br>&nbsp;&nbsp;
                                 LAYI
@@ -289,7 +290,7 @@
                             </div>
                         </div><!--follow_circle-->
                          <div class="follow_circle"><!--follow_circle-->
-                            <div class="follow_pho"><img src="<%=path %>/static/img\user5.jpg" width="100%" height="100%"></div>
+                            <div class="follow_pho"><img src="img\user2.jpg" width="100%" height="100%"></div>
                             <div class="follow_info">
                                 <br>&nbsp;&nbsp;
                                 LAYI
@@ -297,32 +298,16 @@
                                  what U need  what U need  what U need 
                             </div>
                             <div class="follow_status">
-                                <br>
-                                <sapn class="iconfont icon-yiguanzhu2" style="font-size:30px;color:#666;margin-right:10px;"></sapn>
-                                
+                                <div class="follo_status_gz" id="follo_status_gz2" onclick="follogz(2);">
+                                  <sapn class="iconfont icon-guanzhu10" style="font-size:30px;color:#666;"></sapn>
+                                </div>
+                                <div class="follo_status_ygz" id="follo_status_ygz2" onclick="folloygz(2);">
+                                  <sapn class="iconfont icon-yiguanzhu2" style="font-size:30px;color:#666;"></sapn>
+                                </div>
                             </div>
                         </div><!--follow_circle-->
                          <div class="follow_circle"><!--follow_circle-->
-                            <div class="follow_pho"><img src="<%=path %>/static/img\user2.jpg" width="100%" height="100%"></div>
-                            <div class="follow_info">
-                                <br>&nbsp;&nbsp;
-                                LAYI
-                                <br><br>&nbsp;&nbsp;
-                                 what U need  what U need  what U need 
-                            </div>
-                            <div class="follow_status">
-                                <br>
-                                <sapn class="iconfont icon-yiguanzhu2" style="font-size:30px;color:#666;margin-right:10px;"></sapn>
-                                
-                            </div>
-                        </div><!--follow_circle-->
-                    </div><!--followingPeo_box-->
-                    <div class="fans_box" id="fans_box"><!--fansboxcopy from follow-->
-                         <div class="follow_header_style">
-                            <sapn class="iconfont icon-zhankai12-copy" style="font-size:46px;color:#FFB2B2;"></sapn>
-                        </div>
-                        <div class="follow_circle"><!--follow_circle-->
-                            <div class="follow_pho"><a href="themselfHome.html " target="_blank"><img src="<%=path %>/static/img\user4.jpg" width="100%" height="100%"></a></div>
+                            <div class="follow_pho"><img src="img\user2.jpg" width="100%" height="100%"></div>
                             <div class="follow_info">
                                 <br>&nbsp;&nbsp;
                                 LAYI
@@ -338,74 +323,96 @@
                                 </div>
                             </div>
                         </div><!--follow_circle-->
-                         <div class="follow_circle"><!--follow_circle-->
-                            <div class="follow_pho"><img src="<%=path %>/static/img\user1.jpg" width="100%" height="100%"></div>
-                            <div class="follow_info">
+                    </div><!--followingPeo_box-->
+                    <div class="fans_box" id="fans_box"><!--fansboxcopy from follow-->
+                         <div class="fans_header_style">
+                            <sapn class="iconfont icon-zhankai12-copy" style="font-size:46px;color:#FFB2B2;"></sapn>
+                        </div>
+                       <div class="fans_circle"><!--fans_circle-->
+                            <div class="fans_pho"><img src="img\user4.jpg" width="100%" height="100%"></div>
+                            <div class="fans_info">
                                 <br>&nbsp;&nbsp;
                                 LAYI
                                 <br><br>&nbsp;&nbsp;
                                  what U need  what U need  what U need 
                             </div>
-                             <div class="follow_status">
-                                <div class="follo_status_gz" id="follo_status_gz2" onclick="follogz(2);">
+                           <div class="fans_status">
+                                <div class="fans_status_gz" id="fans_status_gz5" onclick="fansgz(5);">
                                   <sapn class="iconfont icon-guanzhu10" style="font-size:30px;color:#666;"></sapn>
                                 </div>
-                                <div class="follo_status_ygz" id="follo_status_ygz2" onclick="folloygz(2);">
+                                <div class="fans_status_ygz" id="fans_status_ygz5" onclick="fansygz(5);">
                                   <sapn class="iconfont icon-yiguanzhu2" style="font-size:30px;color:#666;"></sapn>
                                 </div>
                             </div>
-                        </div><!--follow_circle-->
-                         <div class="follow_circle"><!--follow_circle-->
-                            <div class="follow_pho"><img src="<%=path %>/static/img\user3.jpg" width="100%" height="100%"></div>
-                            <div class="follow_info">
+                        </div><!--fans_circle-->
+                        <div class="fans_circle"><!--fans_circle-->
+                            <div class="fans_pho"><img src="img\user4.jpg" width="100%" height="100%"></div>
+                            <div class="fans_info">
                                 <br>&nbsp;&nbsp;
                                 LAYI
                                 <br><br>&nbsp;&nbsp;
                                  what U need  what U need  what U need 
                             </div>
-                             <div class="follow_status">
-                                <div class="follo_status_gz" id="follo_status_gz3" onclick="follogz(3);">
+                           <div class="fans_status">
+                                <div class="fans_status_gz" id="fans_status_gz4" onclick="fansgz(4);">
                                   <sapn class="iconfont icon-guanzhu10" style="font-size:30px;color:#666;"></sapn>
                                 </div>
-                                <div class="follo_status_ygz" id="follo_status_ygz3" onclick="folloygz(3);">
+                                <div class="fans_status_ygz" id="fans_status_ygz4" onclick="fansygz(4);">
                                   <sapn class="iconfont icon-yiguanzhu2" style="font-size:30px;color:#666;"></sapn>
                                 </div>
                             </div>
-                        </div><!--follow_circle-->
-                         <div class="follow_circle"><!--follow_circle-->
-                            <div class="follow_pho"><img src="<%=path %>/static/img\user5.jpg" width="100%" height="100%"></div>
-                            <div class="follow_info">
+                        </div><!--fans_circle-->
+                        <div class="fans_circle"><!--fans_circle-->
+                            <div class="fans_pho"><img src="img\user4.jpg" width="100%" height="100%"></div>
+                            <div class="fans_info">
                                 <br>&nbsp;&nbsp;
                                 LAYI
                                 <br><br>&nbsp;&nbsp;
                                  what U need  what U need  what U need 
                             </div>
-                             <div class="follow_status">
-                                <div class="follo_status_gz" id="follo_status_gz" onmousedown="status_change(event);">
+                           <div class="fans_status">
+                                <div class="fans_status_gz" id="fans_status_gz3" onclick="fansgz(3);">
                                   <sapn class="iconfont icon-guanzhu10" style="font-size:30px;color:#666;"></sapn>
                                 </div>
-                                <div class="follo_status_ygz" id="follo_status_ygz" onmousedown="status_ygz(event)">
+                                <div class="fans_status_ygz" id="fans_status_ygz3" onclick="fansygz(3);">
                                   <sapn class="iconfont icon-yiguanzhu2" style="font-size:30px;color:#666;"></sapn>
                                 </div>
                             </div>
-                        </div><!--follow_circle-->
-                         <div class="follow_circle"><!--follow_circle-->
-                            <div class="follow_pho"><img src="<%=path %>/static/img\user2.jpg" width="100%" height="100%"></div>
-                            <div class="follow_info">
+                        </div><!--fans_circle-->
+                        <div class="fans_circle"><!--fans_circle-->
+                            <div class="fans_pho"><img src="img\user4.jpg" width="100%" height="100%"></div>
+                            <div class="fans_info">
                                 <br>&nbsp;&nbsp;
                                 LAYI
                                 <br><br>&nbsp;&nbsp;
                                  what U need  what U need  what U need 
                             </div>
-                            <div class="follow_status">
-                                <div class="follo_status_gz" id="follo_status" onmousedown="status_change(event);">
-                                  <sapn  class="iconfont icon-guanzhu10" style="font-size:30px;color:#666;"></sapn>
+                           <div class="fans_status">
+                                <div class="fans_status_gz" id="fans_status_gz2" onclick="fansgz(2);">
+                                  <sapn class="iconfont icon-guanzhu10" style="font-size:30px;color:#666;"></sapn>
                                 </div>
-                                <div class="follo_status_ygz" id="follo_status_ygz" onmousedown="status_ygz(event)" >
+                                <div class="fans_status_ygz" id="fans_status_ygz2" onclick="fansygz(2);">
                                   <sapn class="iconfont icon-yiguanzhu2" style="font-size:30px;color:#666;"></sapn>
                                 </div>
                             </div>
-                        </div><!--follow_circle-->
+                        </div><!--fans_circle-->
+                         <div class="fans_circle"><!--fans_circle-->
+                            <div class="fans_pho"><img src="img\user4.jpg" width="100%" height="100%"></div>
+                            <div class="fans_info">
+                                <br>&nbsp;&nbsp;
+                                LAYI
+                                <br><br>&nbsp;&nbsp;
+                                 what U need  what U need  what U need 
+                            </div>
+                           <div class="fans_status">
+                                <div class="fans_status_gz" id="fans_status_gz1" onclick="fansgz(1);">
+                                  <sapn class="iconfont icon-guanzhu10" style="font-size:30px;color:#666;"></sapn>
+                                </div>
+                                <div class="fans_status_ygz" id="fans_status_ygz1" onclick="fansygz(1);">
+                                  <sapn class="iconfont icon-yiguanzhu2" style="font-size:30px;color:#666;"></sapn>
+                                </div>
+                            </div>
+                        </div><!--fans_circle-->
 
                     </div><!--fansbox copyfrom follow-->
             </div><!--div_box-->
@@ -417,7 +424,6 @@
   
    </div><!--mainbox--></div><!--box-->
 
-<script type="text/javascript" src="<%=path %>/static/assets/jquery/jquery-3.2.0.js"></script>
 <script  type="text/javascript" >
      function status_change(e){    
         if(!e){    
@@ -457,64 +463,74 @@
       }   
 </script>
 <script type="text/javascript">
-        function change() {
-            document.getElementById('change_box').style.display = 'block';
-            document.getElementById('myNote_box').style.display = 'none';
-            document.getElementById('likedNote_box').style.display = 'none';
-            document.getElementById('following').style.display = 'none';
-            document.getElementById('fans_box').style.display = 'none';
-        }
 
-        function follow() {
-            document.getElementById('following').style.display = 'block';
-            document.getElementById('change_box').style.display = 'none';
-            document.getElementById('myNote_box').style.display = 'none';
-            document.getElementById('likedNote_box').style.display = 'none';
-            document.getElementById('fans_box').style.display = 'none';
-        }
+function change(){
+    document.getElementById('change_box').style.display='block'; 
+    document.getElementById('myNote_box').style.display='none';
+    document.getElementById('likedNote_box').style.display='none';
+    document.getElementById('following').style.display='none';
+    document.getElementById('fans_box').style.display='none';
+}
+function follow(){
+    document.getElementById('following').style.display='block';
+    document.getElementById('change_box').style.display='none';
+     document.getElementById('myNote_box').style.display='none';
+    document.getElementById('likedNote_box').style.display='none';
+    document.getElementById('fans_box').style.display='none';
+}
+function like(){
+    document.getElementById('following').style.display='none';
+    document.getElementById('change_box').style.display='none';
+     document.getElementById('myNote_box').style.display='none';
+    document.getElementById('likedNote_box').style.display='block';
+    document.getElementById('fans_box').style.display='none';
+}
 
-        function like() {
-            document.getElementById('following').style.display = 'none';
-            document.getElementById('change_box').style.display = 'none';
-            document.getElementById('myNote_box').style.display = 'none';
-            document.getElementById('likedNote_box').style.display = 'block';
-            document.getElementById('fans_box').style.display = 'none';
-        }
-
-        function note() {
-            document.getElementById('following').style.display = 'none';
-            document.getElementById('change_box').style.display = 'none';
-            document.getElementById('myNote_box').style.display = 'block';
-            document.getElementById('likedNote_box').style.display = 'none';
-            document.getElementById('fans_box').style.display = 'none';
-        }
-
-        function fans() {
-            document.getElementById('fans_box').style.display = 'block';
-            document.getElementById('following').style.display = 'none';
-            document.getElementById('change_box').style.display = 'none';
-            document.getElementById('myNote_box').style.display = 'none';
-            document.getElementById('likedNote_box').style.display = 'none';
-        }
-
-       // $(document).ready(function() {
-            function follogz(num)
+function note(){
+    document.getElementById('following').style.display='none';
+    document.getElementById('change_box').style.display='none';
+     document.getElementById('myNote_box').style.display='block';
+    document.getElementById('likedNote_box').style.display='none';
+    document.getElementById('fans_box').style.display='none';
+}
+function fans(){
+    document.getElementById('fans_box').style.display='block';
+    document.getElementById('following').style.display='none';
+    document.getElementById('change_box').style.display='none';
+    document.getElementById('myNote_box').style.display='none';
+    document.getElementById('likedNote_box').style.display='none';
+}
+ function fansgz(num)
             {
-                var str1 = "follo_status_gz" + num;
-                var str2 ="follo_status_ygz" +num;
+                var str1 = "fans_status_gz" + num;
+                var str2 ="fans_status_ygz" +num;
                 document.getElementById(str1).style.display = 'none';
                 document.getElementById(str2).style.display = 'block';
             }
 
-            function folloygz(num)
+function fansygz(num)
             {
-                var str1 = "follo_status_gz" + num;
-                var str2 ="follo_status_ygz" +num;
+                var str1 = "fans_status_gz" + num;
+                var str2 ="fans_status_ygz" +num;
                 document.getElementById(str1).style.display = 'block';
                 document.getElementById(str2).style.display = 'none';
             }
 
-     //    })
+function follogz(num)
+{
+    var str1 = "follo_status_gz" + num;
+    var str2 ="follo_status_ygz" +num;
+    document.getElementById(str1).style.display = 'none';
+    document.getElementById(str2).style.display = 'block';
+}
+
+function folloygz(num)
+{
+    var str1 = "follo_status_gz" + num;
+    var str2 ="follo_status_ygz" +num;
+    document.getElementById(str1).style.display = 'block';
+    document.getElementById(str2).style.display = 'none';
+}
 </script>
 
 </body>

@@ -21,6 +21,11 @@
 		<action name="*RegisterAction" class="registerAction" method="{1}execute">
 			<result name="success">/WEB-INF/web/register.jsp</result>
 		</action>
+	
+		<action name="*MyselfAction" class="myselfAction" method="{1}execute">
+			<result name="getsuccess">/WEB-INF/web/myself.jsp</result>
+			<result name="postsuccess"></result>
+		</action>
 	</package>
 	<package name="default" extends="json-default">
         <!-- 下面是我们要声明配置的action -->

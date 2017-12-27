@@ -3,6 +3,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<%
+	String path = request.getContextPath();
+%>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>USER</title>
 	<link rel="stylesheet" href="">
@@ -11,9 +14,7 @@
 	<link href="<%=path %>/static/assets/font/download12/font_503801_6ri7xb94hdr3haor/iconfont.css" rel="stylesheet" style="text/css"/>
 
 </head>
-<%
-	String path = request.getContextPath();
-%>
+
 <body>
 	<div id ="BOX">
 	<div id="main_box">
@@ -60,8 +61,15 @@
             <div class="back_name"><div class="back_name_n">USER</div></div>
             <div class="back_sign"><div class="back_sign_s">I WANT TO A CAT,AND U?</div></div>
             <div class="back_follow"><div class="back_follow_f">
-                <span class="iconfont icon-yiguanzhu2" style="font-size:28px;color:#333;margin-left:40px;"></span>
-                <span class="iconfont icon-shouye1" style="font-size:28px;color:#333;margin-left:50px;"></span>
+                <div class="back_follow_fL" id="follo_status_ygz1" onclick="folloygz(1);">
+                <span class="iconfont icon-yiguanzhu2" style="font-size:28px;color:#333;margin-left:40px;cursor: pointer;"></span>
+                </div>
+                <div class="back_follow_fL_none" id="follo_status_gz1" onclick="follogz(1);">
+                <span class="iconfont icon-guanzhu10" style="font-size:28px;color:#333;margin-left:40px;cursor: pointer;"></span>
+                </div>
+                <div class="back_follow_fR">
+                <span class="iconfont icon-shouye1" style="font-size:28px;color:#333;margin-left:50px;cursor: pointer;"></span>
+                </div>
             </div></div>
             
      </div>
@@ -128,6 +136,24 @@
  <!--sendnote-->
     <div class="foot_box"></div>
 </div><!--mainbox--></div><!--box-->
+<script type="text/javascript" charset="utf-8">
+function follogz(num)
+            {
+                var str1 = "follo_status_gz" + num;
+                var str2 ="follo_status_ygz" +num;
+                document.getElementById(str1).style.display = 'none';
+                document.getElementById(str2).style.display = 'block';
+            }
 
+function folloygz(num)
+            {
+                var str1 = "follo_status_gz" + num;
+                var str2 ="follo_status_ygz" +num;
+                document.getElementById(str1).style.display = 'block';
+                document.getElementById(str2).style.display = 'none';
+            }
+
+
+</script>
 </body>
 </html>
