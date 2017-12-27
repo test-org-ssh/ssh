@@ -104,7 +104,7 @@
         </div>
     </div>
     <div class="footer-content">
-        @2016 Power by 成都信息工程大学
+        @2017 Power by 成都信息工程大学
     </div>
 </body>
     <script type="text/javascript" src="<%=path %>/static/assets/jquery/jquery-3.2.0.js"></script>
