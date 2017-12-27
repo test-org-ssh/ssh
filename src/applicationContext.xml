@@ -51,7 +51,12 @@
 		</property> -->
 	</bean>
 	
-	<bean id="myselfAction" class="com.onetoone.ssh.action.MyselfAction" scope="prototype">
-		
-	</bean>
+	<bean id="myselfAction" class="com.onetoone.ssh.action.MyselfAction" scope="prototype"></bean>
+	<!-- 影视列表 -->
+	<bean id="FilmListAction" class="com.onetoone.ssh.action.FilmListAction" scope="prototype"></bean>
+	<!-- 影视详情 -->
+	<bean id="FilmDetailAction" class="com.onetoone.ssh.action.FilmDetailAction" scope="prototype"></bean>
+	<!-- 帖子详情 -->
+	<bean id="NoteDetailAction" class="com.onetoone.ssh.action.NoteDetailAction" scope="prototype"></bean>
+
 </beans>

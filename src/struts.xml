@@ -25,5 +25,17 @@
 			<result name="getsuccess">/WEB-INF/web/myself.jsp</result>
 			<result name="postsuccess"></result>
 		</action>
+		<action name="FilmListAction" class="FilmListAction" method="execute">
+			<result name="success">/WEB-INF/web/film_list.jsp</result>
+			
+		</action>
+		<action name="FilmDetailAction" class="FilmDetailAction" method="execute">
+			<result name="success">/WEB-INF/web/film_detail.jsp</result>
+			
+		</action>
+		<action name="NoteDetailAction" class="NoteDetailAction" method="execute">
+			<result name="success">/WEB-INF/web/noteDetail.jsp</result>
+			
+		</action>
 	</package>
 </struts>

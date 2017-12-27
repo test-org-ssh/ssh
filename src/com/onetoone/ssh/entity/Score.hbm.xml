@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+                            "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+                            "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >  
+  
+<hibernate-mapping package="com.onetoone.ssh.entity">  
+    <class name="Score" table="score">  
+        <id name="id" column="id">  
+            <generator class="native"></generator>  
+        </id>  
+        <property name="score" column="score" type="java.lang.Float"  
+            not-null="true" scale="1"></property>  
+        <many-to-one name="fi" class="FilmIntroduction" column="film_id" />
+    </class>  
+</hibernate-mapping>

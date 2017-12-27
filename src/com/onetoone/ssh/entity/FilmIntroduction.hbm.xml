@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+                            "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+                            "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >  
+  
+<hibernate-mapping package="com.onetoone.ssh.entity">  
+    <class name="FilmIntroduction" table="film_introduction">  
+        <id name="id" column="id">  
+            <generator class="native"></generator>  
+        </id>  
+        <property name="name" column="film_name" type="java.lang.String"  
+            not-null="true" length="20"></property>  
+        <property name="picPath" column="pic_path" type="java.lang.String"  
+            not-null="true"/>  
+        <property name="description" column="description" type="java.lang.String"/>  
+        <property name="score" column="score" type="java.lang.Float" scale="1"/>
+     
+        <set name="scoreSet"  inverse="true" table="score">
+            <key column="film_id"></key>
+            <one-to-many class="Score"/>
+        </set>
+  
+    </class>  
+</hibernate-mapping>
