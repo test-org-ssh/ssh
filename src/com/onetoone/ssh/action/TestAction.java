@@ -14,6 +14,7 @@ public class TestAction extends ActionSupport{
 	}
 	public UserManager getUsermanager() {
 		return usermanager;
+		 //
 	}
 	public void setUsermanager(UserManager usermanager) {
 		this.usermanager = usermanager;
