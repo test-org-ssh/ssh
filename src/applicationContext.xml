@@ -23,9 +23,9 @@
 	<bean id="hibernateTemplete" class="org.springframework.orm.hibernate5.HibernateTemplate">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-	<bean id="userdao" class="com.onetoone.ssh.dao.UserDao">	
+	<bean id="userdao" class="com.onetoone.ssh.dao.UserDao" scope="prototype">	
 	</bean>
-	<bean id="usermanager" class="com.onetoone.ssh.serviceImpl.UserManagerImpl"> 
+	<bean id="usermanager" class="com.onetoone.ssh.serviceImpl.UserManagerImpl" scope="prototype"> 
 		<property name="userdao">
 			<ref bean="userdao"/>
 		</property> 
@@ -43,15 +43,16 @@
         </property>
 	</bean>
 	<bean id="loginAction" class="com.onetoone.ssh.action.LoginAction" scope="prototype">
-		
+		<property name="usermanager">
+			<ref bean="usermanager" />
+		</property>
 	</bean>
 	<bean id="registerAction" class="com.onetoone.ssh.action.RegisterAction" scope="prototype">
 		<!-- <property name="userform">
 			<ref bean="userForm"/>
 		</property> -->
-	</bean>
-	
-	<bean id="myselfAction" class="com.onetoone.ssh.action.MyselfAction" scope="prototype">
-		
+		<property name="usermanager">
+			<ref bean="usermanager" />
+		</property>
 	</bean>
 </beans>

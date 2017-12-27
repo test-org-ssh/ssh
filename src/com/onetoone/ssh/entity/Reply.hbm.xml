@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+                            "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+                            "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >  
+<hibernate-mapping package="com.onetoone.ssh.entity">  
+    <class name="Reply" table="reply">  
+        <id name="id" column="id">  
+            <generator class="native"></generator>  
+        </id> 
+        <property name="content" column="content" type="java.lang.String" not-null="true"></property> 
+        <many-to-one name="postTie" class="PostTie" column="reply_to_tieid" />
+        <many-to-one name="getuser" class="User" column="reply_to_userid" />
+        <many-to-one name="giveuser" class="User" column="reply_from_userid" />
+    </class>  
+</hibernate-mapping>

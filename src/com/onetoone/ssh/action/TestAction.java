@@ -8,7 +8,6 @@ public class TestAction extends ActionSupport{
 	@Override
 	public String execute() throws Exception {
 		System.out.println("开始调用");
-		usermanager.saveUser();
 		System.out.println("调用结束");
 		return SUCCESS;
 	}

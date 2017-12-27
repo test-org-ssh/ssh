@@ -7,37 +7,51 @@ import java.util.Map;
 
 import org.apache.struts2.ServletActionContext;
 
+import com.onetoone.ssh.entity.User;
 import com.onetoone.ssh.form.UserForm;
+import com.onetoone.ssh.service.UserManager;
 import com.onetoone.ssh.util.MD5Util;
 import com.opensymphony.xwork2.ActionSupport;
 
 
 public class RegisterAction extends ActionSupport{
+	Map<String,Object> returndata=new HashMap<String,Object>();
+	private UserManager usermanager;
 	private String username;
-	private String returndata;
 	private UserForm userform;
 	
 	public String getexecute(){
-		System.out.println("请求到这里啦_注册页");
 		return "success";
 	}
 	
 	public String postexecute(){
-		System.out.println("用户名"+userform.getUsername());
-		System.out.println("密码"+userform.getPassword());
+		System.out.println("qingqiudap");
+		User user = new User();
 		try {
-			System.out.println("确认密码"+MD5Util.md5Encode(userform.getConfirm()));
+			// 注册时部分信息采用默认信息，如头像、背景图
+			user.setBgimg("moren");
+			user.setFnum(0);
+			user.setJianjie("暂无简介");
+			user.setPhoto("moren");
+			user.setStatus(1);
+			// 设置用户名和密码
+			user.setUsername(userform.getUsername());
+			user.setPassword(MD5Util.md5Encode(userform.getConfirm()));
+			usermanager.saveUser(user);
+			System.out.println("注册成功");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return "success";
+		return "regsuccess";
 	}
 
 	public String checkName(){
 		System.out.println("username="+username);
-		Map<String,Object> map=new HashMap<String,Object>();
-        map.put("backusername", username+"retun");  
-        map.put("success", true);
+		
+		int res = usermanager.checkUsername(username);
+		
+		returndata.put("status",res);  
+		returndata.put("success", true);
         
         return SUCCESS;
 	}
@@ -58,12 +72,21 @@ public class RegisterAction extends ActionSupport{
 		this.username = username;
 	}
 
-	public String getReturndata() {
+
+	public Map<String, Object> getReturndata() {
 		return returndata;
 	}
 
-	public void setReturndata(String returndata) {
+	public void setReturndata(Map<String, Object> returndata) {
 		this.returndata = returndata;
+	}
+
+	public UserManager getUsermanager() {
+		return usermanager;
+	}
+
+	public void setUsermanager(UserManager usermanager) {
+		this.usermanager = usermanager;
 	}
 	
 	

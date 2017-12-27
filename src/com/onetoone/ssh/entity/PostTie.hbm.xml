@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+                            "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+                            "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >  
+  
+<hibernate-mapping package="com.onetoone.ssh.entity">  
+    <class name="PostTie" table="post_tie">  
+        <id name="id" column="id">  
+            <generator class="native"></generator>  
+        </id>  
+        <property name="userId" column="user_id" type="java.lang.Integer"  
+            not-null="true" length="20"></property> 
+        <property name="title" column="title" type="java.lang.String"  
+            not-null="true" length="20"></property> 
+        <property name="topic" column="topic" type="java.lang.String"  
+            not-null="true" length="20"></property> 
+        <property name="content" column="content" type="java.lang.String"  
+            not-null="true" ></property> 
+        <property name="picPath" column="pic_path" type="java.lang.String"  
+            not-null="true"/>  
+        <property name="agreeNum" column="agree_num" type="java.lang.Integer"/>
+    </class>  
+</hibernate-mapping>
