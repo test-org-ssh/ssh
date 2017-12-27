@@ -6,10 +6,10 @@ public class LoginAction extends ActionSupport{
 	
 	public String getexecute(){
 		System.out.println("请求到这里啦");
-		return "getsuccess";
+		return "success";
 	}
 	
 	public String postexecute(){
-		return "postsuccess";
+		return "success";
 	}
 }

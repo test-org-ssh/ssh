@@ -18,12 +18,15 @@
 <div class="wrapper">
     <form name="frm" method="POST" action="<%=path %>/postRegisterAction" class="login">
         <p class="title">Register</p>
-        <input name="userform.username" type="text" placeholder="Username" autofocus/>
+        <input name="userform.username" id="username" type="text" placeholder="Username" onBlur="checkName(this.value);" autofocus/>
         <i class="fa fa-user"></i>
-        <input name="userform.password" type="password" placeholder="Password" value=""/>
+        <span class="username_tip"></span>
+        <input name="userform.password" id="password" type="password" placeholder="Password" value=""/>
         <i class="fa fa-key"></i>
-        <input name="userform.confirm" type="password" placeholder="Repeat password" />
+        <span class="password_tip"></span>
+        <input name="userform.confirm" id="confirm" type="password" placeholder="Repeat password" />
         <i class="fa fa-key"></i>
+        <span class="confirm_tip"></span>
         <button id="register">
         <!--     <i class="spinner"></i> -->
             <span><!--  class="state" -->Register</span>
@@ -41,6 +44,31 @@
 <!-- 这个JS给注释了，提交不成功——王海雪 -->
 <%-- <script  src="<%=path %>/static/js/register.js"></script> --%>
 <script type="text/javascript">
+function checkName(userName) {
+    if ($.trim(userName).length == 0) {
+        $(".username_tip").html("请输入用户名");
+        return;
+    } else{
+    	$(".username_tip").html("");
+    }
+    var mytest={
+            'username':$('#username').val(),
+        };
+    $.ajax({
+        url:'checkName',
+        type:'post',
+        data:mytest,
+        dataType:"json",
+        success:function(data){
+            //有时候感觉接受的数据总是显示各种乱七八糟的错误，你可以先alert看下，传回的是什么东西
+            alert(data);
+            //随便的显示一下传回的数据喽
+            var backdata=JSON.parse(data); //传回的是json字符串，要先把它转换成js中的类对象，对于json字符串和json对象自己去百度
+            $('#username_tip').html(backdata.backusername);
+        }
+    });
+}
+
 $('#register').onclick=function(){
 	$('frm').submit();
 };
