@@ -152,7 +152,7 @@ a:hover{text-decoration:underline;}
 .futures_bg{
     position:absolute;
     z-index:1;
-    top:500px;
+    top:800px;
     left:-200px;
     opacity: 0.1;
     width:1300px !important;
