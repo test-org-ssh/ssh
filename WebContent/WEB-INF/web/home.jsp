@@ -64,7 +64,7 @@
                 <div class="wrap_layer">
                     <div class="wrap_tab"><a class="tab active" href="<%=path%>/Index">Home</a></div>
                     <div class="wrap_tab"><a class="tab" href="film_list.jsp">影视</a></div>
-                    <div class="wrap_tab"><a class="tab" href="communication.jsp">论坛</a></div>
+                    <div class="wrap_tab"><a class="tab" href="<%=path %>/getCommunicationAction">论坛</a></div>
                     <div class="wrap_tab last_wrap_tab"><a class="tab" href="<%=path %>/getMyselfAction">个人中心</a></div>
                 </div>
             </div>

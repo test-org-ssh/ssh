@@ -4,6 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<%
+	String path = request.getContextPath();
+%>
 <title>OneTOone影视详情页</title>
     <link rel="stylesheet" href="<%=path %>/static/css/film_detail.css">
     <link rel="stylesheet" href="<%=path %>/static/assets/bootstrap/css/bootstrap.min.css">
@@ -12,9 +15,7 @@
     <link href="<%=path %>/static/css/communication.css" rel="stylesheet" style="text/css"/>
     <link href="<%=path %>/static/assets/font/download12/font_503801_6ri7xb94hdr3haor/iconfont.css" rel="stylesheet" style="text/css"/>
 </head>
-<%
-	String path = request.getContextPath();
-%>
+
 <body>
 <div id="nav_box">
     <div class="nav_box">

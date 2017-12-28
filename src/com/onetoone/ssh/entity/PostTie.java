@@ -1,5 +1,7 @@
 package com.onetoone.ssh.entity;
 
+/*帖子*/
+
 //测试 需要外键
 public class PostTie {
 	private int id;//发帖id

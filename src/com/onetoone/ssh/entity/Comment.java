@@ -1,13 +1,17 @@
 package com.onetoone.ssh.entity;
 
-public class Comment {
+
+
+import java.io.Serializable;
+
+public class Comment implements Serializable{
 	private int id;//评论的id
 	/*private int postId;//发帖表中对应的帖子id
 	private int userId;//评论的用户的id*/
 	private String content;//评论的内容
 	
-	private PostTie postTie;//映射一对多的关系
-	private User user;//映射一对多的关系  
+	private PostTie postTie;//映射一对多的关系   
+	private User user;//映射一对多的关系   
 	
 	
 	public PostTie getPostTie() {

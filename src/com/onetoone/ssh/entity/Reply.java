@@ -1,6 +1,10 @@
 package com.onetoone.ssh.entity;
 
-public class Reply {
+
+
+import java.io.Serializable;
+
+public class Reply implements Serializable{
 
 	private int id;//»Ø¸´id
 	/*private int postId;//Ìû×Óid
