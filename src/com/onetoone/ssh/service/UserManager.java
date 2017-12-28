@@ -16,5 +16,7 @@ public interface UserManager {
 	 */
 	public int checkUsername(String username);
 	
-	public User checkPwd(UserForm userform);
+	public int checkPwd(UserForm userform);
+	
+	public User getMySelf(String username);
 }

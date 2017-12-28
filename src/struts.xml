@@ -4,35 +4,56 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-	<constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
 	<constant name="struts.objectFactory" value="spring" />
 	<!-- 静态资源映射 -->
 	<constant name="struts.action.excludePattern" value="/static/.*?" />
 	<package name="001pck" extends="struts-default">
-		<action name="Index" class="myTestAction">
+		<interceptors>
+			<!-- 配置未登录进行操作的拦截器 -->
+			<interceptor name="loginInterceptor" class="com.onetoone.ssh.filter.LoginFilter">
+			</interceptor>
+			<!-- 重新封装一个默认的拦截器栈 -->
+			<interceptor-stack name="myDefaultStack">
+				<interceptor-ref name="loginInterceptor">
+					<param name="excludeMethods">index,register,getregister,getloginexecute,postloginexecute</param>
+				</interceptor-ref>
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+		<!-- 为这个包设置默认的拦截器栈 -->
+		<default-interceptor-ref name="myDefaultStack" />
+		<!-- 设置全局的返回值 -->
+		<global-results>
+			<result name="login">/WEB-INF/web/login.jsp</result>
+		</global-results>
+		<action name="Index" class="myTestAction" method="index">
 			<result name="success">/WEB-INF/web/home.jsp</result>
 		</action>
-		<action name="*LoginAction" class="loginAction" method="{1}execute">
+		<action name="*LoginAction" class="loginAction" method="{1}loginexecute">
 			<result name="success">/WEB-INF/web/login.jsp</result>
 			<result name="loginsuccess">/WEB-INF/web/home.jsp</result>
 			<result name="error">/WEB-INF/web/login.jsp</result>
 		</action>
-		<action name="*RegisterAction" class="registerAction" method="{1}execute">
+		<action name="getRegisterAction" class="registerAction" method="getregister">
 			<result name="success">/WEB-INF/web/register.jsp</result>
+		</action>
+		<action name="postRegisterAction" class="registerAction" method="register">
 			<result name="regsuccess">/WEB-INF/web/home.jsp</result>
 		</action>
-
-		<action name="*CommunicationAction" class="communicationAction" method="{1}execute">
+		<action name="*CommunicationAction" class="communicationAction"
+			method="{1}execute">
 			<result name="success">/WEB-INF/web/communication.jsp</result>
 		</action>
 
 		<action name="FilmListAction" class="FilmListAction" method="execute">
 			<result name="success">/WEB-INF/web/film_list.jsp</result>
-			
+
 		</action>
-		<action name="FilmDetailAction" class="FilmDetailAction" method="execute">
+		<action name="FilmDetailAction" class="FilmDetailAction"
+			method="execute">
 			<result name="success">/WEB-INF/web/film_detail.jsp</result>
-			
+
 		</action>
 		<action name="getNoteDetail*" class="NoteDetailAction" method="getNoteDetailexecute">
 			<result name="success">/WEB-INF/web/noteDetail.jsp</result>
@@ -40,22 +61,24 @@
 		</action>
 	</package>
 	<package name="default" extends="json-default">
-        <!-- 下面是我们要声明配置的action -->
-         <action name="checkName" class="registerAction" method="checkName">
-             <!-- 注意2个地方，最上面package继承（extends）的是json-default，下面result的type是json -->
-            <result name="success" type="json">
-                <!-- 这里的name=root是返回json数据时的一种类型，root是json字符串中只包含该对象的属性，而其他类型，可能会在返回的json类型中额外包含其他的属性和值 ，不一一说了-->
-                <!-- 然后这个returndata 是我们action里定义的返回的json。 -->
-                <param name="root">returndata</param>
-            </result>
-        </action>
-        <action name="checkPwd" class="loginAction" method="checkPwd">
-             <!-- 注意2个地方，最上面package继承（extends）的是json-default，下面result的type是json -->
-            <result name="success" type="json">
-                <!-- 这里的name=root是返回json数据时的一种类型，root是json字符串中只包含该对象的属性，而其他类型，可能会在返回的json类型中额外包含其他的属性和值 ，不一一说了-->
-                <!-- 然后这个returndata 是我们action里定义的返回的json。 -->
-                <param name="root">returndata</param>
-            </result>
-        </action>
-    </package>
+		<!-- 下面是我们要声明配置的action -->
+		<action name="checkName" class="registerAction" method="checkName">
+			<!-- 注意2个地方，最上面package继承（extends）的是json-default，下面result的type是json -->
+			<result name="success" type="json">
+				<!-- 这里的name=root是返回json数据时的一种类型，root是json字符串中只包含该对象的属性，而其他类型，可能会在返回的json类型中额外包含其他的属性和值 
+					，不一一说了 -->
+				<!-- 然后这个returndata 是我们action里定义的返回的json。 -->
+				<param name="root">returndata</param>
+			</result>
+		</action>
+		<action name="checkPwd" class="loginAction" method="checkPwd">
+			<!-- 注意2个地方，最上面package继承（extends）的是json-default，下面result的type是json -->
+			<result name="success" type="json">
+				<!-- 这里的name=root是返回json数据时的一种类型，root是json字符串中只包含该对象的属性，而其他类型，可能会在返回的json类型中额外包含其他的属性和值 
+					，不一一说了 -->
+				<!-- 然后这个returndata 是我们action里定义的返回的json。 -->
+				<param name="root">returndata</param>
+			</result>
+		</action>
+	</package>
 </struts>

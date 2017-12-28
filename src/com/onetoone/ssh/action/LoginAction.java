@@ -14,34 +14,44 @@ public class LoginAction extends ActionSupport{
 	private UserManager usermanager;
 	private String username;
 	private String password;
-	private UserForm userform;
+	private UserForm userform=new UserForm();
 	
-	public String getexecute(){
+	public String getloginexecute(){
 		System.out.println("请求到这里啦");
 		return "success";
 	}
 	
-	public String postexecute(){
-System.out.println("username="+username);
-		User user = usermanager.checkPwd(userform);
-		int res = 0;
+	public String postloginexecute(){
+		System.out.println("username="+username);/*
+		User user = usermanager.checkPwd(userform);*/
+		User user = usermanager.getMySelf(userform.getUsername());
 		
 		if (user != null){
 			System.out.println("登录成功");
 			ActionContext ac = ActionContext.getContext();
 			ac.getSession().put("myself",user);
 			System.out.println("User的信息"+user.getUsername()+user.getPassword());
-			res = 1;
+	
 		} else {
+	
 			return ERROR;
 		}
-		
-		returndata.put("status",res);  
-		returndata.put("success", true);
         
 		return "loginsuccess";
 	}
 	
+	public String checkPwd(){
+		System.out.println("进入了checkPwd");
+		userform.setUsername(username);
+		userform.setPassword(password);
+		System.out.println();
+		int res = usermanager.checkPwd(userform);
+		
+		returndata.put("status",res);  
+		returndata.put("success", true);
+        
+		return SUCCESS;
+	}
 	public Map<String, Object> getReturndata() {
 		return returndata;
 	}
@@ -72,6 +82,14 @@ System.out.println("username="+username);
 
 	public void setUserform(UserForm userform) {
 		this.userform = userform;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	
 	

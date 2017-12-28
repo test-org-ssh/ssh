@@ -20,11 +20,11 @@ public class RegisterAction extends ActionSupport{
 	private String username;
 	private UserForm userform;
 	
-	public String getexecute(){
+	public String getregister(){
 		return "success";
 	}
 	
-	public String postexecute(){
+	public String register(){
 		System.out.println("qingqiudap");
 		User user = new User();
 		try {

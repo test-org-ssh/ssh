@@ -34,22 +34,33 @@ public class UserManagerImpl implements UserManager{
 	public void saveUser(User user) {
 		userdao.insertUser(user);
 	}
-	@Override
-	public User checkPwd(UserForm userform) {
+	
+	public User getMySelf(String username){
+		User user = null;
+		user = userdao.getUserByName(username).get(0);
+		if (user == null){
+			user = new User();
+		}
+		return user;
+	}
+	
+	public int checkPwd(UserForm userform) {
+		int res=0;
 		List<User> userlist;
 		User user = new User();
-		System.out.println("检查之前");
-		System.out.println("form传的数据"+userform.getUsername());
 		userlist = userdao.getUserByName(userform.getUsername());
 		System.out.println("jianchazhihou ");
 		if (userlist == null){
+			System.out.println("整个list == null");
 			userlist = new ArrayList<User>();
 		} else {
 			user = userlist.get(0);
-
+			System.out.println("user的密码"+user.getPassword());
+			System.out.println("userform密码"+userform.getPassword());
 			try {
 				if(user.getPassword().equals(MD5Util.md5Encode(userform.getPassword()))){
-				
+					System.out.println("密码是"+userform.getPassword());
+					res = 1;
 				}
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
@@ -57,7 +68,7 @@ public class UserManagerImpl implements UserManager{
 			}
 		}
 		
-		return user;
+		return res;
 	}
 
 	
