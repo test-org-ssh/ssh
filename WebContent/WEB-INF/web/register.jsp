@@ -12,19 +12,27 @@
     <link rel="stylesheet" href="<%=path %>/static/assets/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="<%=path %>/static/assets/normalize/normalize.min.css">
     <link href='<%=path %>/static/css/register.css' rel='stylesheet' type='text/css'>
+	<style type="text/css">
+	.username_tip,.password_tip,.confirm_tip{
+		float:left;
+		color:white;
+		opacity:0.5;
+		background-color: red;
+	}
+	</style>
 </head>
 
 <body>
 <div class="wrapper">
-    <form name="frm" method="POST" action="<%=path %>/postRegisterAction" class="login">
+    <form name="frm" id="frm" method="POST" action="<%=path %>/postRegisterAction" class="login">
         <p class="title">Register</p>
         <input name="userform.username" id="username" type="text" placeholder="Username" onBlur="checkName(this.value);" autofocus/>
         <i class="fa fa-user"></i>
         <span class="username_tip"></span>
-        <input name="userform.password" id="password" type="password" placeholder="Password" value=""/>
+        <input name="userform.password" id="password" type="password" placeholder="Password" onBlur="checkPwd(this.value);" value=""/>
         <i class="fa fa-key"></i>
         <span class="password_tip"></span>
-        <input name="userform.confirm" id="confirm" type="password" placeholder="Repeat password" />
+        <input name="userform.confirm" id="confirm" type="password" placeholder="Repeat" onBlur="checkConfirm(this.value);" value=""/>
         <i class="fa fa-key"></i>
         <span class="confirm_tip"></span>
         <button id="register">
@@ -60,17 +68,61 @@ function checkName(userName) {
         data:mytest,
         dataType:"json",
         success:function(data){
-            //有时候感觉接受的数据总是显示各种乱七八糟的错误，你可以先alert看下，传回的是什么东西
-            alert(data);
-            //随便的显示一下传回的数据喽
-            var backdata=JSON.parse(data); //传回的是json字符串，要先把它转换成js中的类对象，对于json字符串和json对象自己去百度
-            $('#username_tip').html(backdata.backusername);
+            res = data.status;
+            if (res != 0){
+            	$('.username_tip').html("用户名已存在");	
+            } else{
+            	$('.username_tip').html("");
+            }
         }
     });
 }
-
+function checkPwd(pwd) {
+    if ($.trim(pwd).length == 0) {
+        $(".password_tip").html("密码不能为空");
+        return;
+    } else{
+    	$(".password_tip").html("");
+    }
+}
+function checkConfirm(pwd2) {
+	pwd1 = $('#password').val();
+	alert("pwd1"+pwd1);
+    if ($.trim(pwd2).length == 0) {
+        $(".confirm_tip").html("两次密码不一样");
+        return;
+    }
+    if($.trim(pwd2) != pwd1){
+    	
+    	 $(".confirm_tip").html("密码不一样");
+    	 return;
+    }else{
+    	$(".confirm_tip").html("");
+    }
+}
 $('#register').onclick=function(){
-	$('frm').submit();
+	username=$('#username').val();
+	if ($.trim(userName).length == 0) {
+        $(".username_tip").html("请输入用户名");
+        return;
+    }
+	pwd = $('#password').val();
+	if ($.trim(pwd).length == 0) {
+        $(".password_tip").html("密码不能为空");
+        return;
+    }
+	pwd1 = $('#password').val();
+	alert("pwd1"+pwd1);
+	if ($.trim(pwd2).length == 0) {
+        $(".confirm_tip").html("两次密码不一样");
+        return;
+    }
+	else if($.trim(pwd2) != pwd1){
+    	
+    	 $(".confirm_tip").html("密码不一样");
+    	 return;
+    }
+	$('#frm').submit();
 };
 </script>
 </body>

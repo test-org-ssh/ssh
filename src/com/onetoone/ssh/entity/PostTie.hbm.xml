@@ -19,5 +19,6 @@
         <property name="picPath" column="pic_path" type="java.lang.String"  
             not-null="true"/>  
         <property name="agreeNum" column="agree_num" type="java.lang.Integer"/>
+        <property name="commentNum" column="comment_num" type="java.lang.Integer"/>     
     </class>  
 </hibernate-mapping>

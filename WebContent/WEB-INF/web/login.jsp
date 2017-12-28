@@ -16,12 +16,14 @@
 
 <body>
   <div class="wrapper">
-  <form class="login">
+  <form name="frm" method="POST" action="<%=path %>/postLoginAction"  class="login">
     <p class="title">Log in</p>
-    <input type="text" placeholder="Username" autofocus/>
+    <input name="userform.username" id="username" type="text" placeholder="Username" onBlur="checkName(this.value);" autofocus/>
     <i class="fa fa-user"></i>
-    <input type="password" placeholder="Password" />
+	<span class="username_tip"></span>   
+    <input  name="userform.password" id="password" type="password" placeholder="Password" />
     <i class="fa fa-key"></i>
+    <span class="password_tip"></span>
     <a href="#">Forgot your password?</a>
     <button>
       <i class="spinner"></i>
@@ -38,7 +40,53 @@
 </div>
   <script src="<%=path %>/static/assets/jquery/jquery-3.2.0.js"></script>
 
-    <script  src="<%=path %>/static/js/login.js"></script>
-
+<%--     <script  src="<%=path %>/static/js/login.js"></script> --%>
+<script type="text/javascript">
+function checkName(userName) {
+    if ($.trim(userName).length == 0) {
+        $(".username_tip").html("请输入用户名");
+        return;
+    } else{
+    	$(".username_tip").html("");
+    }
+    var mytest={
+            'username':$('#username').val(),
+        };
+    $.ajax({
+        url:'checkName',
+        type:'post',
+        data:mytest,
+        dataType:"json",
+        success:function(data){
+            res = data.status;
+            if (res == 0){
+            	$('.username_tip').html("该用户不存在");	
+            } else{
+            	$('.username_tip').html("");
+            }
+        }
+    });
+}
+/* function slogin(userName) {
+    var mytest={
+            'username':$('#username').val(),
+            'password':$('#password').val(),
+        };
+    $.ajax({
+        url:'checkPwd',
+        type:'post',
+        data:mytest,
+        dataType:"json",
+        success:function(data){
+            res = data.status;
+            if (res == 0){
+            	$('.username_tip').html("密码错误");	
+            } else{
+            	$('frm').submit();
+            }
+        }
+    });
+} */
+</script>
 </body>
 </html>

@@ -1,7 +1,9 @@
 package com.onetoone.ssh.entity;
 
+import java.io.Serializable;
+
 //测试 需要外键
-public class PostTie {
+public class PostTie implements Serializable{
 	private int id;//发帖id
 	private int userId;//发帖人id
 	private String title;//标题
@@ -9,8 +11,14 @@ public class PostTie {
 	private String content;//内容 
 	private String picPath;//图片地址
 	private int agreeNum;//点赞数
-	
+	private int commentNum;//评论条数
 
+	public int getCommentNum() {
+		return commentNum;
+	}
+	public void setCommentNum(int commentNum) {
+		this.commentNum = commentNum;
+	}
 	public int getId() {
 		return id;
 	}

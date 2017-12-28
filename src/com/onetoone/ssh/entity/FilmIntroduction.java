@@ -1,9 +1,13 @@
 package com.onetoone.ssh.entity;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-public class FilmIntroduction {
+import com.onetoone.ssh.entity.Score;
+
+
+public class FilmIntroduction implements Serializable{
 
 	private int id;//影视id
 	private String name;//影视名称

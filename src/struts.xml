@@ -14,17 +14,12 @@
 		</action>
 		<action name="*LoginAction" class="loginAction" method="{1}execute">
 			<result name="success">/WEB-INF/web/login.jsp</result>
+			<result name="loginsuccess">/WEB-INF/web/home.jsp</result>
+			<result name="error">/WEB-INF/web/login.jsp</result>
 		</action>
 		<action name="*RegisterAction" class="registerAction" method="{1}execute">
 			<result name="success">/WEB-INF/web/register.jsp</result>
-		</action>
-		<action name="*RegisterAction" class="registerAction" method="{1}execute">
-			<result name="success">/WEB-INF/web/register.jsp</result>
-		</action>
-	
-		<action name="*MyselfAction" class="myselfAction" method="{1}execute">
-			<result name="getsuccess">/WEB-INF/web/myself.jsp</result>
-			<result name="postsuccess"></result>
+			<result name="regsuccess">/WEB-INF/web/home.jsp</result>
 		</action>
 		<action name="FilmListAction" class="FilmListAction" method="execute">
 			<result name="success">/WEB-INF/web/film_list.jsp</result>
@@ -34,14 +29,21 @@
 			<result name="success">/WEB-INF/web/film_detail.jsp</result>
 			
 		</action>
-		<action name="NoteDetailAction" class="NoteDetailAction" method="execute">
+		<action name="getNoteDetail*" class="NoteDetailAction" method="getNoteDetailexecute">
 			<result name="success">/WEB-INF/web/noteDetail.jsp</result>
-			
 		</action>
 	</package>
 	<package name="default" extends="json-default">
         <!-- 下面是我们要声明配置的action -->
          <action name="checkName" class="registerAction" method="checkName">
+             <!-- 注意2个地方，最上面package继承（extends）的是json-default，下面result的type是json -->
+            <result name="success" type="json">
+                <!-- 这里的name=root是返回json数据时的一种类型，root是json字符串中只包含该对象的属性，而其他类型，可能会在返回的json类型中额外包含其他的属性和值 ，不一一说了-->
+                <!-- 然后这个returndata 是我们action里定义的返回的json。 -->
+                <param name="root">returndata</param>
+            </result>
+        </action>
+        <action name="checkPwd" class="loginAction" method="checkPwd">
              <!-- 注意2个地方，最上面package继承（extends）的是json-default，下面result的type是json -->
             <result name="success" type="json">
                 <!-- 这里的name=root是返回json数据时的一种类型，root是json字符串中只包含该对象的属性，而其他类型，可能会在返回的json类型中额外包含其他的属性和值 ，不一一说了-->

@@ -23,9 +23,48 @@
 	<bean id="hibernateTemplete" class="org.springframework.orm.hibernate5.HibernateTemplate">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-	<bean id="userdao" class="com.onetoone.ssh.dao.UserDao">	
+	<bean id="userdao" class="com.onetoone.ssh.dao.UserDao" scope="prototype">	
 	</bean>
-	<bean id="usermanager" class="com.onetoone.ssh.serviceImpl.UserManagerImpl"> 
+	
+	<bean id="agreeDao" class="com.onetoone.ssh.dao.AgreeDao" scope="prototype"></bean>
+	<bean id="commentDao" class="com.onetoone.ssh.dao.CommentDao" scope="prototype"></bean>
+	<bean id="filmDao" class="com.onetoone.ssh.dao.FilmDao" scope="prototype"></bean>
+	<bean id="replyDao" class="com.onetoone.ssh.dao.ReplyDao" scope="prototype"></bean>
+	<bean id="scoreDao" class="com.onetoone.ssh.dao.ScoreDao" scope="prototype"></bean>
+	<bean id="tieDao" class="com.onetoone.ssh.dao.TieDao" scope="prototype"></bean>
+		
+	
+    <bean id="agreemanager" class="com.onetoone.ssh.serviceImpl.AgreeManagerImpl" scope="prototype"> 
+		<property name="agreeDao">
+			<ref bean="agreeDao"/>
+		</property> 
+    </bean>
+    <bean id="commentmanager" class="com.onetoone.ssh.serviceImpl.CommentManagerImpl" scope="prototype"> 
+		<property name="commentDao">
+			<ref bean="commentDao"/>
+		</property> 
+    </bean>
+    <bean id="filmmanager" class="com.onetoone.ssh.serviceImpl.FilmManagerImpl" scope="prototype"> 
+		<property name="filmDao">
+			<ref bean="filmDao"/>
+		</property> 
+    </bean>
+    <bean id="replymanager" class="com.onetoone.ssh.serviceImpl.ReplyManagerImpl" scope="prototype"> 
+		<property name="replyDao">
+			<ref bean="replyDao"/>
+		</property> 
+    </bean>
+    <bean id="scoremanager" class="com.onetoone.ssh.serviceImpl.ScoreManagerImpl" scope="prototype"> 
+		<property name="scoreDao">
+			<ref bean="scoreDao"/>
+		</property> 
+    </bean>
+    <bean id="tiemanager" class="com.onetoone.ssh.serviceImpl.TieManagerImpl" scope="prototype"> 
+		<property name="tieDao">
+			<ref bean="tieDao"/>
+		</property> 
+    </bean>
+	<bean id="usermanager" class="com.onetoone.ssh.serviceImpl.UserManagerImpl" scope="prototype"> 
 		<property name="userdao">
 			<ref bean="userdao"/>
 		</property> 
@@ -43,20 +82,31 @@
         </property>
 	</bean>
 	<bean id="loginAction" class="com.onetoone.ssh.action.LoginAction" scope="prototype">
-		
+		<property name="usermanager">
+			<ref bean="usermanager" />
+		</property>
 	</bean>
 	<bean id="registerAction" class="com.onetoone.ssh.action.RegisterAction" scope="prototype">
 		<!-- <property name="userform">
 			<ref bean="userForm"/>
 		</property> -->
+
 	</bean>
 	
 	<bean id="myselfAction" class="com.onetoone.ssh.action.MyselfAction" scope="prototype"></bean>
 	<!-- 影视列表 -->
-	<bean id="FilmListAction" class="com.onetoone.ssh.action.FilmListAction" scope="prototype"></bean>
+	<bean id="FilmListAction" class="com.onetoone.ssh.action.FilmListAction" scope="prototype">
+	</bean>
 	<!-- 影视详情 -->
 	<bean id="FilmDetailAction" class="com.onetoone.ssh.action.FilmDetailAction" scope="prototype"></bean>
 	<!-- 帖子详情 -->
-	<bean id="NoteDetailAction" class="com.onetoone.ssh.action.NoteDetailAction" scope="prototype"></bean>
+	<bean id="NoteDetailAction" class="com.onetoone.ssh.action.NoteDetailAction" scope="prototype">
+		<property name="commentmanager">
+			<ref bean="commentmanager" />
+		</property>
+		<property name="replymanager">
+			<ref bean="replymanager" />
+		</property>
+	</bean>
 
 </beans>

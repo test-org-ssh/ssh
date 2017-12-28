@@ -1,6 +1,8 @@
 package com.onetoone.ssh.entity;
 
-public class Score {
+import java.io.Serializable;
+
+public class Score implements Serializable{
 	private int id;//评分id
 	/*private int filmId;//影视id*/
 	private float score;//影视评分
