@@ -13,7 +13,14 @@ public class Reply implements Serializable{
 	private PostTie postTie;//映射一对多的关系
 	private User giveuser;//映射一对多的关系 给予回复的用户id
 	private User getuser;//映射一对多关系 被回复的用户id
+	private Comment comment;//映射一对多的关系 回复的那条评论
 	
+	public Comment getComment() {
+		return comment;
+	}
+	public void setComment(Comment comment) {
+		this.comment = comment;
+	}
 	public PostTie getPostTie() {
 		return postTie;
 	}

@@ -1,6 +1,5 @@
 package com.onetoone.ssh.entity;
 
-
 import java.io.Serializable;
 
 public class Agree implements Serializable{

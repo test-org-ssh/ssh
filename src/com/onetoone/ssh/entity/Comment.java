@@ -1,7 +1,6 @@
 package com.onetoone.ssh.entity;
 
 import java.io.Serializable;
-
 public class Comment implements Serializable{
 	private int id;//评论的id
 	/*private int postId;//发帖表中对应的帖子id
@@ -10,6 +9,7 @@ public class Comment implements Serializable{
 	
 	private PostTie postTie;//映射一对多的关系   
 	private User user;//映射一对多的关系   
+	
 	
 	
 	public PostTie getPostTie() {

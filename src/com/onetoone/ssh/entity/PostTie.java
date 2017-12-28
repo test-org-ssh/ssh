@@ -1,6 +1,5 @@
 package com.onetoone.ssh.entity;
 
-
 import java.io.Serializable;
 
 
@@ -13,8 +12,14 @@ public class PostTie implements Serializable{
 	private String content;//内容 
 	private String picPath;//图片地址
 	private int agreeNum;//点赞数
-	
+	private int commentNum;//评论条数
 
+	public int getCommentNum() {
+		return commentNum;
+	}
+	public void setCommentNum(int commentNum) {
+		this.commentNum = commentNum;
+	}
 	public int getId() {
 		return id;
 	}
