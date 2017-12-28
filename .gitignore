@@ -4,3 +4,4 @@
   merge = refs/heads/master
 
 .idea
+*.cfg.xml
