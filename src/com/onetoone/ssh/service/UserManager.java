@@ -1,5 +1,8 @@
 package com.onetoone.ssh.service;
 
+import java.util.List;
+
+import com.onetoone.ssh.entity.PostTie;
 import com.onetoone.ssh.entity.User;
 import com.onetoone.ssh.form.UserForm;
 
@@ -19,4 +22,9 @@ public interface UserManager {
 	public int checkPwd(UserForm userform);
 	
 	public User getMySelf(String username);
+	/**
+	 * 获取所有用户
+	 * @return
+	 */
+	public List<User> getAllUser();
 }

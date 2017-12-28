@@ -23,6 +23,8 @@
 	<bean id="hibernateTemplete" class="org.springframework.orm.hibernate5.HibernateTemplate">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+	
+	<!-- dao bean -->
 	<bean id="userdao" class="com.onetoone.ssh.dao.UserDao" scope="prototype">	
 	</bean>
 	<bean id="posttiedao" class="com.onetoone.ssh.dao.PostTieDao" scope="prototype">	
@@ -34,7 +36,7 @@
 	<bean id="scoreDao" class="com.onetoone.ssh.dao.ScoreDao" scope="prototype"></bean>
 	<bean id="tieDao" class="com.onetoone.ssh.dao.TieDao" scope="prototype"></bean>
 		
-	
+	<!-- manager bean -->
     <bean id="agreemanager" class="com.onetoone.ssh.serviceImpl.AgreeManagerImpl" scope="prototype"> 
 		<property name="agreeDao">
 			<ref bean="agreeDao"/>
@@ -75,12 +77,14 @@
 			<ref bean="userdao"/>
 		</property> 
     </bean>
+    
     <!-- Form Bean -->
     <!-- <bean id="userForm" class="com.onetoone.ssh.form.UserForm" scope="prototype">
 		<property name="username" value=""></property>
 		<property name="password" value=""></property>
 		<property name="confirm" value=""></property>
 	</bean> -->
+	
     <!-- Action Bean -->
 	<bean id="myTestAction" class="com.onetoone.ssh.action.TestAction" scope="prototype">
 		<property name="usermanager">  
@@ -119,6 +123,9 @@
 	<bean id="communicationAction" class="com.onetoone.ssh.action.CommunicationAction" scope="prototype">
 		<property name="manager">
 			<ref bean="posttiemanager" />
+		</property>
+		<property name="usermanager">
+			<ref bean="usermanager" />
 		</property>
 	</bean>
 </beans>

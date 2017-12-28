@@ -9,6 +9,7 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.onetoone.ssh.entity.PostTie;
 import com.onetoone.ssh.entity.User;
 import com.onetoone.ssh.util.ApplicationContextUtil;
 
@@ -64,6 +65,30 @@ public class UserDao {
         session.close();
     	
     	return userlist;
+	}
+	
+	/**
+	 * 获取所有用户
+	 * @return
+	 */
+	public List<User> getAllUser(){
+		Session session = factory.openSession();
+    	Transaction tx = session.beginTransaction();
+		List<User> list=null;
+		
+		session = factory.openSession();
+		tx = session.beginTransaction();
+		
+		Query query = session.createQuery("from User");
+		list = query.list();
+		if (list == null){
+			list = new ArrayList<User>();
+		}
+		
+		tx.commit();
+        session.close();
+        
+		return list;
 	}
 	
 }

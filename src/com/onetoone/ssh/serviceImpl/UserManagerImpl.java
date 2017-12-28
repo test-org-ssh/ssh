@@ -70,6 +70,17 @@ public class UserManagerImpl implements UserManager{
 		
 		return res;
 	}
+	@Override
+	public List<User> getAllUser() {
+		List<User> list = null;
+		list = userdao.getAllUser();
+		
+		if (list == null){
+			list = new ArrayList<User>();
+		}
+		
+		return list;
+	}
 
 	
 }

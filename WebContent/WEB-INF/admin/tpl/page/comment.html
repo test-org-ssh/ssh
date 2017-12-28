@@ -1,6 +1,6 @@
 <div ng-controller="CommentMgmtCtrl">
     <div class="wrapper-md bg-light b-b">
-        <h1 class="m-n font-thin h3">评论管理</h1>
+        <h1 class="m-n font-thin h3">璇勮绠＄悊</h1>
     </div>
     <div class="wrapper-md ng-scope">
         <toaster-container></toaster-container>
@@ -10,22 +10,22 @@
                 </div>
                 <div class="input-group col-sm-2" style="right: 1%">
                     <input id="_keyword" type="text" class="form-control input-sm w-sm inline m-r" ng-model="keyword"
-                           placeholder="输入搜索关键词"/> <span class="input-group-btn">
+                           placeholder="杈撳叆鎼滅储鍏抽敭璇�/> <span class="input-group-btn">
                             <button id="searchBtn" class="btn m-b-xs btn-sm btn-primary btn-addon"
-                                    ng-click="loadData()">搜索</button>
+                                    ng-click="loadData()">鎼滅储</button>
                     </span>
                 </div>
             </div>
             <div>
-                <!-- 表格 -->
+                <!-- 琛ㄦ牸 -->
                 <table class="table table-striped b-t m-b-none">
                     <thead>
                     <tr>
                         <th></th>
-                        <th>头像</th>
-                        <th>用户名</th>
-                        <th>停用/启用</th>
-                        <th>操作</th>
+                        <th>澶村儚</th>
+                        <th>鐢ㄦ埛鍚�</th>
+                        <th>鍋滅敤/鍚敤</th>
+                        <th>鎿嶄綔</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -41,28 +41,28 @@
                                         ng-class="item.status == 0 ? 'btn-danger' : 'btn-success'"
                                         ng-click="switchStatus(item)">
                                     <div ng-show="item.status == 0 ? true : false"><i
-                                            class="m-r-xs fa fa-unlock-alt fa-fw"></i>停用
+                                            class="m-r-xs fa fa-unlock-alt fa-fw"></i>鍋滅敤
                                     </div>
                                     <div ng-show="item.status == 1 ? true : false"><i
-                                            class="m-r-xs fa fa-unlock-alt fa-fw"></i>启用
+                                            class="m-r-xs fa fa-unlock-alt fa-fw"></i>鍚敤
                                     </div>
                                 </button>
                             </td>
                             <td>
                                 <button class="btn btn-success m-b-xs btn-sm" ng-click="detail(item)">
-                                    <i class="m-r-xs fa fa-pencil fa-fw"></i>查看修改
+                                    <i class="m-r-xs fa fa-pencil fa-fw"></i>鏌ョ湅淇敼
                                 </button>
                                 <button class="btn btn-danger m-b-xs btn-sm" ng-click="remove(item)">
-                                    <i class="m-r-xs fa fa-times fa-fw"></i>删除
+                                    <i class="m-r-xs fa fa-times fa-fw"></i>鍒犻櫎
                                 </button>
                             </td>
                         </tr>
                     </div>
                     </tbody>
                 </table>
-                <!-- 分页控件 -->
+                <!-- 鍒嗛〉鎺т欢 -->
                 <div my-pagination page-object="userPageObject"></div>
-                <!-- 分页控件 -->
+                <!-- 鍒嗛〉鎺т欢 -->
             </div>
         </div>
     </div>

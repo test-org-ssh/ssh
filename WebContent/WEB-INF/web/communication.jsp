@@ -1,3 +1,4 @@
+<%@page import="com.onetoone.ssh.entity.User"%>
 <%@page import="com.onetoone.ssh.entity.PostTie"%>
 <%@page import="java.util.Map"%>
 <%@page import="java.util.HashMap"%>
@@ -13,10 +14,22 @@
 <%
 	String path = request.getContextPath();
 	Map<Integer,PostTie> posttiemap = null;
+	Map<Integer,User> usermap = null;
+	User user = null;
+	
 	posttiemap = (Map<Integer,PostTie>)session.getAttribute("posttiemap");
+	usermap = (Map<Integer,User>)session.getAttribute("usermap");
+	user = (User)session.getAttribute("myself");
+	
 	if (posttiemap == null){
 		posttiemap = new HashMap<Integer,PostTie>();
 		out.print("weikong");
+	}
+	if (usermap == null){
+		usermap = new HashMap<Integer,User>();
+	}
+	if (user == null){
+		user = new User();
 	}
 %>
 <link href="<%=path %>/static/css/communication.css" rel="stylesheet"
@@ -105,7 +118,14 @@
 				<div class="white"></div>
 				<div class="circle_box">
 					<div class="circle_left_box">
-						<div class="user_PHO">PHOTO</div>
+						<div class="user_PHO">
+						<c:forEach items="${usermap}" var="u">
+							
+							<c:if test="${u.value.id==m.value.userId}">
+								<img style="width:100px; height:100px;" alt="用户头像" src="<%=path %>${u.value.photo }" />
+							</c:if>
+						</c:forEach>
+						</div>
 					</div>
 					<div class="circle_right_box">
 						<div class="position_main_box_L">
