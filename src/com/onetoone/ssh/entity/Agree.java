@@ -1,6 +1,8 @@
 package com.onetoone.ssh.entity;
 
-public class Agree {
+import java.io.Serializable;
+
+public class Agree implements Serializable{
 
 	private int id;//点赞的id
 	/*private int giveAgreeId;//点赞的用户id

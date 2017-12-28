@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class User implements Serializable{
 	private int id;	//	用户ID
-	private String username;	// 用户昵称
+	private String username;	// 用户昵称(最长7个中文，14个英文)
 	private String password;	//用户密码
 	private String photo;	//用户头像
 	private String jianjie;	//用户简介
