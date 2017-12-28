@@ -31,7 +31,6 @@ public class UserDao {
     	Transaction tx = session.beginTransaction();
         user.setUsername(user.getUsername());
         user.setPassword(user.getPassword());
-        user.setBgimg(user.getBgimg());
         user.setFnum(user.getFnum());
         user.setJianjie(user.getJianjie());
         user.setPhoto(user.getPhoto());

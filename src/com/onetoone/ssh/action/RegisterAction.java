@@ -29,10 +29,9 @@ public class RegisterAction extends ActionSupport{
 		User user = new User();
 		try {
 			// 注册时部分信息采用默认信息，如头像、背景图
-			user.setBgimg("moren");
 			user.setFnum(0);
-			user.setJianjie("暂无简介");
-			user.setPhoto("moren");
+			user.setJianjie("电影就是一场人生，人生就像一场电影");
+			user.setPhoto("/static/img/user1.jpg");
 			user.setStatus(1);
 			// 设置用户名和密码
 			user.setUsername(userform.getUsername());

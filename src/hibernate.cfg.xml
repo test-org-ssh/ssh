@@ -15,11 +15,7 @@
          <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
          <property name="connection.url">jdbc:mysql://localhost:3306/onetoone</property>
          <property name="connection.username">root</property>
-         <property name="connection.password"></property>
-
-
-      
-
+         <property name="connection.password">root</property>
          
          <mapping resource="com/onetoone/ssh/entity/User.hbm.xml"/>
          <mapping resource="com/onetoone/ssh/entity/PostTie.hbm.xml"/>
@@ -28,6 +24,7 @@
          <mapping resource="com/onetoone/ssh/entity/FilmIntroduction.hbm.xml"/>
          <mapping resource="com/onetoone/ssh/entity/Reply.hbm.xml"/>
          <mapping resource="com/onetoone/ssh/entity/Score.hbm.xml"/>
+         <mapping resource="com/onetoone/ssh/entity/Follow.hbm.xml"/>
     </session-factory>
     
 </hibernate-configuration>

@@ -25,7 +25,8 @@
 	</bean>
 	<bean id="userdao" class="com.onetoone.ssh.dao.UserDao" scope="prototype">	
 	</bean>
-	
+	<bean id="posttiedao" class="com.onetoone.ssh.dao.PostTieDao" scope="prototype">	
+	</bean>
 	<bean id="agreeDao" class="com.onetoone.ssh.dao.AgreeDao" scope="prototype"></bean>
 	<bean id="commentDao" class="com.onetoone.ssh.dao.CommentDao" scope="prototype"></bean>
 	<bean id="filmDao" class="com.onetoone.ssh.dao.FilmDao" scope="prototype"></bean>
@@ -64,6 +65,11 @@
 			<ref bean="tieDao"/>
 		</property> 
     </bean>
+    <bean id="posttiemanager" class="com.onetoone.ssh.serviceImpl.PostTieManagerImpl" scope="prototype"> 
+		<property name="posttiedao">
+			<ref bean="posttiedao"/>
+		</property> 
+    </bean>
 	<bean id="usermanager" class="com.onetoone.ssh.serviceImpl.UserManagerImpl" scope="prototype"> 
 		<property name="userdao">
 			<ref bean="userdao"/>
@@ -90,7 +96,9 @@
 		<!-- <property name="userform">
 			<ref bean="userForm"/>
 		</property> -->
-
+		<property name="usermanager">
+			<ref bean="usermanager" />
+		</property>
 	</bean>
 	
 	<bean id="myselfAction" class="com.onetoone.ssh.action.MyselfAction" scope="prototype"></bean>
@@ -108,5 +116,9 @@
 			<ref bean="replymanager" />
 		</property>
 	</bean>
-
+	<bean id="communicationAction" class="com.onetoone.ssh.action.CommunicationAction" scope="prototype">
+		<property name="manager">
+			<ref bean="posttiemanager" />
+		</property>
+	</bean>
 </beans>
