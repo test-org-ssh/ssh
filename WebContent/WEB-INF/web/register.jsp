@@ -26,7 +26,7 @@
 <div class="wrapper">
     <form name="frm" id="frm" method="POST" action="<%=path %>/postRegisterAction" class="login">
         <p class="title">Register</p>
-        <input name="userform.username" id="username" type="text" placeholder="Username" onBlur="checkName(this.value);" autofocus/>
+        <input name="userform.username" id="username" type="text" placeholder="Username" onBlur="checkName(this.value);" maxlength="7" autofocus/>
         <i class="fa fa-user"></i>
         <span class="username_tip"></span>
         <input name="userform.password" id="password" type="password" placeholder="Password" onBlur="checkPwd(this.value);" value=""/>

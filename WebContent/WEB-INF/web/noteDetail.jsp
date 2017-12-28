@@ -3,6 +3,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<%
+	String path = request.getContextPath();
+	
+
+%>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <title>【XXX】帖子详情</title>
 
@@ -11,9 +16,7 @@
        <link href="<%=path %>/static/assets/font/download12/font_503801_6ri7xb94hdr3haor/iconfont.css" rel="stylesheet" style="text/css"/>
 
     </head>
-<%
-	String path = request.getContextPath();
-%>
+
     <body>
         
 

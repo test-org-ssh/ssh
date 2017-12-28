@@ -21,6 +21,9 @@
 			<result name="success">/WEB-INF/web/register.jsp</result>
 			<result name="regsuccess">/WEB-INF/web/home.jsp</result>
 		</action>
+		<action name="*CommunicationAction" class="communicationAction" method="{1}execute">
+			<result name="success">/WEB-INF/web/communication.jsp</result>
+		</action>
 	</package>
 	<package name="default" extends="json-default">
         <!-- 下面是我们要声明配置的action -->
