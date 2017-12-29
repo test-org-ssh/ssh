@@ -1,19 +1,20 @@
 package com.onetoone.ssh.action;
 
-import java.text.DecimalFormat;
 import java.util.List;
 
 import com.onetoone.ssh.service.UserManager;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ActionContext;
 import com.onetoone.ssh.dao.FilmDao;
+import com.onetoone.ssh.dao.PostTieDao;
 import com.onetoone.ssh.entity.*;
 import com.onetoone.ssh.service.*;
 
 public class TestAction extends ActionSupport{
 	//声明service
 	private UserManager usermanager;
-	private FilmManager filmManager;
+	private FilmManager filmmanager;
+	private PostTieManager posttiemanager;
 
 	public String index() throws Exception {
 		System.out.println("开始调用");
@@ -21,7 +22,7 @@ public class TestAction extends ActionSupport{
 		
 		//获取FilmManager实例，调用getAllFilmDao()方法
 		//将结果保存到List集合里
-		List<FilmDao> filmDaoList = filmManager.getAllFilmDao();
+		List<FilmDao> filmDaoList = filmmanager.getAllFilmDao();
 		
 		System.out.println("结果集："+filmDaoList.size());
 		
@@ -29,6 +30,12 @@ public class TestAction extends ActionSupport{
 		ActionContext ac = ActionContext.getContext();
 		//将filmDaoList集合添加到session里
 		ac.getSession().put("filmDaoList", filmDaoList);
+		
+		
+		List<PostTie> postTieList = posttiemanager.getAllPostTie();
+		System.out.println("结果集："+postTieList.size());
+		ac.getSession().put("postTieList", postTieList);
+		
 		
 		return SUCCESS;
 	}
@@ -41,10 +48,17 @@ public class TestAction extends ActionSupport{
 	}
 	
 	public FilmManager getFilmManager() {
-		return filmManager;
+		return filmmanager;
 	}
-	public void setFilmManager(FilmManager filmManager) {
-		this.filmManager = filmManager;
+	public void setFilmManager(FilmManager filmmanager) {
+		this.filmmanager = filmmanager;
+	}
+	
+	public PostTieManager getPostTieManager() {
+		return posttiemanager;
+	}
+	public void setPostTieManager(PostTieManager posttiemanager) {
+		this.posttiemanager = posttiemanager;
 	}
 	
 }

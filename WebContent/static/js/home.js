@@ -17,4 +17,12 @@ $(document).ready(function(){
             navFix.removeClass("navFix");
         }
     })
+    
+    $(".forum-box").find(".forum-box-content").each(function(){
+    	var maxwidth = 190;
+    	if($(this).text().length>maxwidth){
+    		$(this).text($(this).text().substring(0,maxwidth));
+			$(this).html($(this).html()+'…');
+    	}
+    })
 })

@@ -10,4 +10,5 @@ public interface PostTieManager {
 	 * @return
 	 */
 	public List<PostTie> getAllPostTie();
+	
 }
