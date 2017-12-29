@@ -80,7 +80,18 @@
                     Film sharing
                 </div>
                 <div class="film-wrap">
-                    <div class="film-box">
+                	<s:iterator value="#filmDaoList" status="bcs">
+                		<div class="film-box left">
+                			<div class="film-box-img">
+                				<a href="film_detail.jsp" target="_blank"> <img src="<%=path %><s:property value="pic_path"></s:property>"></a>
+                			</div>
+                			<div class="film-box-word">
+                            	<a href="film_detailjsp" target="_blank"><span class="film-box-word-name"><s:property value="film_name"></s:property></span></a>
+                            	<span class="film-box-word-grade">评分：<s:property value="score"></s:property></span>
+                        	</div>
+                		</div>
+                	</s:iterator>
+                    <!--<div class="film-box">
                         <div class="film-box-img">
                             <a href="film_detail.jsp" target="_blank"> <img src="<%=path %>/static/img/move.jpg"></a>
                         </div>
@@ -133,7 +144,7 @@
                             <a href="#"><span class="film-box-word-name">奇门遁甲</span></a>
                             <span class="film-box-word-grade">评分：5</span>
                         </div>
-                    </div>
+                    </div>  -->
                 </div>
             </div>
 

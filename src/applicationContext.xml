@@ -90,6 +90,12 @@
 		<property name="usermanager">  
             <ref bean="usermanager" />  
         </property>
+        <property name="filmmanager">  
+            <ref bean="filmmanager" />  
+        </property>
+        <property name="posttiemanager">  
+            <ref bean="posttiemanager" />  
+        </property>
 	</bean>
 	<bean id="loginAction" class="com.onetoone.ssh.action.LoginAction" scope="prototype">
 		<property name="usermanager">
