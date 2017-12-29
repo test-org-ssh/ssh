@@ -9,6 +9,12 @@ import com.onetoone.ssh.dao.FilmDao;
 import com.onetoone.ssh.dao.PostTieDao;
 import com.onetoone.ssh.entity.*;
 import com.onetoone.ssh.service.*;
+import com.onetoone.ssh.serviceImpl.*;
+import java.util.HashMap;
+import java.util.Map;
+import org.apache.struts2.ServletActionContext;
+
+
 
 public class TestAction extends ActionSupport{
 	//ÉùÃ÷service

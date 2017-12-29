@@ -87,9 +87,9 @@
 	
     <!-- Action Bean -->
 	<bean id="myTestAction" class="com.onetoone.ssh.action.TestAction" scope="prototype">
-		<property name="usermanager">  
+		<!-- <property name="usermanager">  
             <ref bean="usermanager" />  
-        </property>
+        </property> -->
         <property name="filmmanager">  
             <ref bean="filmmanager" />  
         </property>
