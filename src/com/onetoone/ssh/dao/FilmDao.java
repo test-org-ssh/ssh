@@ -39,7 +39,7 @@ public class FilmDao {
     		//打印输出到控制台
              //System.out.println(filmIntroduction);
              System.out.println(filmIntroduction.getPicPath());
-             System.out.println(filmIntroduction.getName());
+             //System.out.println(filmIntroduction.getName());
     	}
 
     	//事务提交

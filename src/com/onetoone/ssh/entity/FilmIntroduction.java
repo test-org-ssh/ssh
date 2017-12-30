@@ -39,7 +39,7 @@ public class FilmIntroduction implements Serializable{
 		return picPath;
 	}
 	public void setPicPath(String picPath) {
-		picPath = picPath;
+		this.picPath = picPath;
 	}
 	public String getDescription() {
 		return description;
