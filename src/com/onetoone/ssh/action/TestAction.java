@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.onetoone.ssh.service.UserManager;
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.ActionContext;
 import com.onetoone.ssh.dao.FilmDao;
 import com.onetoone.ssh.dao.PostTieDao;
@@ -36,6 +37,7 @@ public class TestAction extends ActionSupport{
 		ActionContext ac = ActionContext.getContext();
 		//将filmDaoList集合添加到session里
 		ac.getSession().put("filmDaoList", filmDaoList);
+		ac.put("filmDaoList", filmDaoList);
 		
 		
 //		List<PostTie> postTieList = posttiemanager.getAllPostTie();

@@ -31,7 +31,9 @@
 	</bean>
 	<bean id="agreeDao" class="com.onetoone.ssh.dao.AgreeDao" scope="prototype"></bean>
 	<bean id="commentDao" class="com.onetoone.ssh.dao.CommentDao" scope="prototype"></bean>
-	<bean id="filmDao" class="com.onetoone.ssh.dao.FilmDao" scope="prototype"></bean>
+	<bean id="filmDao" class="com.onetoone.ssh.dao.FilmDao" scope="prototype">
+		
+	</bean>
 	<bean id="replyDao" class="com.onetoone.ssh.dao.ReplyDao" scope="prototype"></bean>
 	<bean id="scoreDao" class="com.onetoone.ssh.dao.ScoreDao" scope="prototype"></bean>
 	<bean id="tieDao" class="com.onetoone.ssh.dao.TieDao" scope="prototype"></bean>

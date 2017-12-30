@@ -6,11 +6,12 @@
 <%
 	String path = request.getContextPath();
 %>
+<%@ taglib uri="/struts-tags" prefix="s" %>
 <head>
     <meta charset="UTF-8">
     <title>OneTOone首页</title>
-    <link rel="stylesheet" href="<%=path %>/static/css/home.css">
-    <link rel="stylesheet" href="<%=path %>/static/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/static/css/home.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/static/assets/bootstrap/css/bootstrap.min.css">
 </head>
 <body>
     <div id="ban-content">
@@ -18,20 +19,20 @@
             <div id="myCarousel" class="carousel slide">
                 <!--&lt;!&ndash; 轮播（Carousel）指标 &ndash;&gt;-->
                 <!--<ol class="carousel-indicators">-->
-                    <!--<li data-target="#myCarousel" data-slide-to="0" class="active"></li>-->
+                  <!--<li data-target="#myCarousel" data-slide-to="0" class="active"></li>-->
                     <!--<li data-target="#myCarousel" data-slide-to="1"></li>-->
                     <!--<li data-target="#myCarousel" data-slide-to="2"></li>-->
                 <!--</ol>-->
                 <!-- 轮播（Carousel）项目 -->
                 <div class="carousel-inner">
                     <div class="item active">
-                        <img src="<%=path %>/static/img/ban_2.jpg" alt="First slide">
+                        <img src="${pageContext.request.contextPath }/static/img/ban_2.jpg" alt="First slide">
                     </div>
                     <div class="item">
-                        <img src="<%=path %>/static/img/ban_1.jpg" alt="Second slide">
+                        <img src="${pageContext.request.contextPath }/static/img/ban_1.jpg" alt="Second slide">
                     </div>
                     <div class="item">
-                        <img src="<%=path %>/static/img/ban_3.jpg" alt="Third slide">
+                        <img src="${pageContext.request.contextPath }/static/img/ban_3.jpg" alt="Third slide">
                     </div>
                 </div>
                  <!--&lt;!&ndash;轮播（Carousel）导航&ndash;&gt;-->
@@ -50,10 +51,10 @@
             </div>
             <div class="home-btn">
                 <div class="login">
-                    <a href="<%=path %>/getLoginAction" target="_blank"><button class="btn">Login</button></a>
+                    <a href="${pageContext.request.contextPath }/getLoginAction" target="_blank"><button class="btn">Login</button></a>
                 </div>
                 <div class="register">
-                    <a href="<%=path %>/getRegisterAction" target="_blank"><button class="btn">Register</button></a>
+                    <a href="${pageContext.request.contextPath }/getRegisterAction" target="_blank"><button class="btn">Register</button></a>
                 </div>
             </div>
         </div>
@@ -62,10 +63,10 @@
         <div class="anchor_layer" id="navHeight">
             <div class="nav_wrap" id="nav_wrap">
                 <div class="wrap_layer">
-                    <div class="wrap_tab"><a class="tab active" href="<%=path%>/Index">Home</a></div>
+                    <div class="wrap_tab"><a class="tab active" href="${pageContext.request.contextPath }/Index">Home</a></div>
                     <div class="wrap_tab"><a class="tab" href="film_list.jsp">影视</a></div>
-                    <div class="wrap_tab"><a class="tab" href="<%=path %>/getCommunicationAction">论坛</a></div>
-                    <div class="wrap_tab last_wrap_tab"><a class="tab" href="<%=path %>/getMyselfAction">个人中心</a></div>
+                    <div class="wrap_tab"><a class="tab" href="${pageContext.request.contextPath }/getCommunicationAction">论坛</a></div>
+                    <div class="wrap_tab last_wrap_tab"><a class="tab" href="${pageContext.request.contextPath }/getMyselfAction">个人中心</a></div>
                 </div>
             </div>
         </div>
@@ -73,24 +74,25 @@
                         
                         
     <div id="main-content" >
-        <img class="futures_bg" src="<%=path %>/static/img/icon__slack.svg" width="1620" height="1620">
+        <img class="futures_bg" src="${pageContext.request.contextPath }/static/img/icon__slack.svg" width="1620" height="1620">
         <div class="main-wrap">
             <div class="film-content">
                 <div class="film-title">
                     Film sharing
                 </div>
-                <div class="film-wrap">
-                	<!--<s:iterator value="#filmDaoList" status="bcs">
-                		<div class="film-box left">
+                <div class="film-wrap" style="width:500px;height:500px;">
+                	<s:iterator value="#filmDaoList" status="bcs">
+               			<div class="film-box">
                 			<div class="film-box-img">
-                				<a href="film_detail.jsp" target="_blank"> <img src="<%=path %><s:property value="pic_path"></s:property>"></a>
+                				<a href="film_detail.jsp" target="_blank"> <img src="${pageContext.request.contextPath }/static/img/film/1.jpg"></a>
                 			</div>
                 			<div class="film-box-word">
-                            	<a href="film_detailjsp" target="_blank"><span class="film-box-word-name"><s:property value="film_name"></s:property></span></a>
+                            	<a href="film_detailjsp" target="_blank"><span class="film-box-word-name"><s:property value="name"></s:property></span></a>
                             	<span class="film-box-word-grade">评分：<s:property value="score"></s:property></span>
                         	</div>
                 		</div>
-                	</s:iterator> -->
+                	</s:iterator>
+                	
                     <!--<div class="film-box">
                         <div class="film-box-img">
                             <a href="film_detail.jsp" target="_blank"> <img src="<%=path %>/static/img/move.jpg"></a>
@@ -230,7 +232,7 @@
     </div>
 
 </body>
-    <script type="text/javascript" src="<%=path %>/static/assets/jquery/jquery-3.2.0.js"></script>
-    <script type="text/javascript" src="<%=path %>/static/assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="<%=path %>/static/js/home.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath }/static/assets/jquery/jquery-3.2.0.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath }/static/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath }/static/js/home.js"></script>
 </html>
