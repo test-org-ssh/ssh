@@ -206,12 +206,12 @@ a:hover{text-decoration:underline;}
     width:250px;
     height:350.453px;
     background-color:#dddddd;
-    padding-top:10px;
     margin:0 auto;
+    overflow:hidden;
 }
 .film-box-img a img{
     max-width:100%;
-    height:auto;
+    max-width:100%;
     vertical-align: middle;
     text-align: center;
 }
