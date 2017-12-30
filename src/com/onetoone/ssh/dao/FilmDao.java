@@ -37,9 +37,7 @@ public class FilmDao {
     	//将集合遍历循环
     	for(FilmIntroduction filmIntroduction:list){
     		//打印输出到控制台
-             //System.out.println(filmIntroduction);
-             System.out.println(filmIntroduction.getPicPath());
-             //System.out.println(filmIntroduction.getName());
+            System.out.println(filmIntroduction);
     	}
 
     	//事务提交
