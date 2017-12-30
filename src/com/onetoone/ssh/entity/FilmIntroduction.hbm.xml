@@ -11,7 +11,7 @@
         <property name="name" column="film_name" type="java.lang.String"  
             not-null="true" length="20"></property>  
         <property name="picPath" column="pic_path" type="java.lang.String"  
-            not-null="true"/>  
+            not-null="false"/>  
         <property name="description" column="description" type="java.lang.String" length="10050"/>  
         <property name="score" column="score" type="java.lang.Float" scale="1"/>
      

@@ -80,7 +80,7 @@
                     Film sharing
                 </div>
                 <div class="film-wrap">
-                	<s:iterator value="#filmDaoList" status="bcs">
+                	<!--<s:iterator value="#filmDaoList" status="bcs">
                 		<div class="film-box left">
                 			<div class="film-box-img">
                 				<a href="film_detail.jsp" target="_blank"> <img src="<%=path %><s:property value="pic_path"></s:property>"></a>
@@ -90,7 +90,7 @@
                             	<span class="film-box-word-grade">评分：<s:property value="score"></s:property></span>
                         	</div>
                 		</div>
-                	</s:iterator>
+                	</s:iterator> -->
                     <!--<div class="film-box">
                         <div class="film-box-img">
                             <a href="film_detail.jsp" target="_blank"> <img src="<%=path %>/static/img/move.jpg"></a>
@@ -153,7 +153,7 @@
                     Hot topic
                 </div>
                 <div class="forum-wrap">
-                	<s:iterator value="#postTieList" status="bcs">
+                	<!-- <s:iterator value="#postTieList" status="bcs">
                 		<div class="forum-box forum-left">
 	                        <a href="noteDetail.jsp"><span class="forum-box-title"><s:property value="title"></s:property></span></a>
 	                        <a href="noteDetail.jsp"><div class="forum-box-content"><s:property value="content"></s:property> </div></a>
@@ -166,7 +166,7 @@
 	                            <span class="forum-count">(<s:property value="comment_num"></s:property>)</span>
 	                        </div>
 	                    </div>
-                	</s:iterator>
+                	</s:iterator> -->
                     <!--<div class="forum-box">
                         <a href="noteDetail.jsp" target="_blank"><span class="forum-box-title">奇门遁甲</span></a>
                         <a href="noteDetail.jsp" target="_blank"><div class="forum-box-content">奇幻3D巨制《奇门遁甲》由徐克监制、编剧，袁和平执导，将于2017年12月15日贺岁档震撼公映。该片讲述的是一个妖孽横行，天象大乱的时代，外星妖物侵袭而来。此时江湖上精通“奇门遁甲”之术的神秘组织“雾隐门”挺身而出，其首领老大（伍佰 饰）、弟子诸葛青云（大鹏 饰）

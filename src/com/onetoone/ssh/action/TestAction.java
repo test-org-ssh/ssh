@@ -28,7 +28,7 @@ public class TestAction extends ActionSupport{
 		
 		//获取FilmManager实例，调用getAllFilmDao()方法
 		//将结果保存到List集合里
-		List<FilmDao> filmDaoList = filmmanager.getAllFilmDao();
+		List<FilmIntroduction> filmDaoList = filmmanager.getAllFilmDao();
 		
 		System.out.println("结果集："+filmDaoList.size());
 		
@@ -38,32 +38,35 @@ public class TestAction extends ActionSupport{
 		ac.getSession().put("filmDaoList", filmDaoList);
 		
 		
-		List<PostTie> postTieList = posttiemanager.getAllPostTie();
-		System.out.println("结果集："+postTieList.size());
-		ac.getSession().put("postTieList", postTieList);
+//		List<PostTie> postTieList = posttiemanager.getAllPostTie();
+//		System.out.println("结果集："+postTieList.size());
+//		ac.getSession().put("postTieList", postTieList);
 		
 		
 		return SUCCESS;
 	}
+
 	public UserManager getUsermanager() {
 		return usermanager;
-		 //
 	}
+
 	public void setUsermanager(UserManager usermanager) {
 		this.usermanager = usermanager;
 	}
-	
-	public FilmManager getFilmManager() {
+
+	public FilmManager getFilmmanager() {
 		return filmmanager;
 	}
-	public void setFilmManager(FilmManager filmmanager) {
+
+	public void setFilmmanager(FilmManager filmmanager) {
 		this.filmmanager = filmmanager;
 	}
-	
-	public PostTieManager getPostTieManager() {
+
+	public PostTieManager getPosttiemanager() {
 		return posttiemanager;
 	}
-	public void setPostTieManager(PostTieManager posttiemanager) {
+
+	public void setPosttiemanager(PostTieManager posttiemanager) {
 		this.posttiemanager = posttiemanager;
 	}
 	

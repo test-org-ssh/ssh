@@ -21,21 +21,23 @@ public class FilmDao {
 	 * @param 影视信息展示
 	 * @return 影视信息字符串
 	 */
-	public List<FilmDao> getAllFilmDao(){
+	public List<FilmIntroduction> getAllFilmDao(){
 		//获取session
 		Session session = factory.openSession();
+		 System.out.println(1);
 		//开启事务
     	Transaction tx = session.beginTransaction();
-    	
+    	 System.out.println(2);
     	//后面当使用JPA的时候，EntityManager 类似于 Session
-    	Query query = session.createQuery("from FilmDao");
-    	
+    	Query query = session.createQuery("from FilmIntroduction");
+    	 System.out.println(3);
     	//将所有的数据查询出来并放到List集合里
-    	List<FilmDao> list = query.getResultList();
-    	
+    	List<FilmIntroduction> list = query.getResultList();
+    	 System.out.println(4);
     	//将集合遍历循环
-    	for(FilmDao filmDao:list){
+    	for(FilmIntroduction filmDao:list){
     		//打印输出到控制台
+    		 System.out.println(5);
              System.out.println(filmDao);
     	}
 

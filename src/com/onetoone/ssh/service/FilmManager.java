@@ -11,5 +11,5 @@ public interface FilmManager {
 	 * 获取所有影视
 	 * @return
 	 */
-	public List<FilmDao> getAllFilmDao();
+	public List<FilmIntroduction> getAllFilmDao();
 }
