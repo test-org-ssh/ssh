@@ -81,73 +81,17 @@
                     Film sharing
                 </div>
                 <div class="film-wrap">
-                	<s:iterator value="#filmDaoList" status="bcs">
+                	<s:iterator value="#filmDaoList" status="bcs" begin="0" end="5">
                			<div class="film-box">
                 			<div class="film-box-img">
-                				<a href="film_detail.jsp" target="_blank"> <img src="${pageContext.request.contextPath }/static/img/film/1.jpg"></a>
+                				<a href="film_detail.jsp" target="_blank"> <img src="${pageContext.request.contextPath }<s:property value="picPath"></s:property>"></a>
                 			</div>
                 			<div class="film-box-word">
                             	<a href="film_detailjsp" target="_blank"><span class="film-box-word-name"><s:property value="name"></s:property></span></a>
                             	<span class="film-box-word-grade">评分：<s:property value="score"></s:property></span>
                         	</div>
                 		</div>
-                		<s:property value="picPath"></s:property>
                 	</s:iterator>
-                	
-                    <!--<div class="film-box">
-                        <div class="film-box-img">
-                            <a href="film_detail.jsp" target="_blank"> <img src="<%=path %>/static/img/move.jpg"></a>
-                        </div>
-                        <div class="film-box-word">
-                            <a href="film_detailjsp" target="_blank"><span class="film-box-word-name">奇门遁甲</span></a>
-                            <span class="film-box-word-grade">评分：5</span>
-                        </div>
-                    </div>
-                    <div class="film-box left">
-                        <div class="film-box-img">
-                            <a href="#"> <img src="<%=path %>/static/img/move.jpg"></a>
-                        </div>
-                        <div class="film-box-word">
-                            <a href="#"><span class="film-box-word-name">奇门遁甲</span></a>
-                            <span class="film-box-word-grade">评分：5</span>
-                        </div>
-                    </div>
-                    <div class="film-box left">
-                        <div class="film-box-img">
-                            <a href="#"> <img src="<%=path %>/static/img/move.jpg"></a>
-                        </div>
-                        <div class="film-box-word">
-                            <a href="#"><span class="film-box-word-name">奇门遁甲</span></a>
-                            <span class="film-box-word-grade">评分：5</span>
-                        </div>
-                    </div>
-                    <div class="film-box">
-                        <div class="film-box-img">
-                            <a href="#"> <img src="<%=path %>/static/img/move.jpg"></a>
-                        </div>
-                        <div class="film-box-word">
-                            <a href="#"><span class="film-box-word-name">奇门遁甲</span></a>
-                            <span class="film-box-word-grade">评分：5</span>
-                        </div>
-                    </div>
-                    <div class="film-box left">
-                        <div class="film-box-img">
-                            <a href="#"> <img src="<%=path %>/static/img/move.jpg"></a>
-                        </div>
-                        <div class="film-box-word">
-                            <a href="#"><span class="film-box-word-name">奇门遁甲</span></a>
-                            <span class="film-box-word-grade">评分：5</span>
-                        </div>
-                    </div>
-                    <div class="film-box left">
-                        <div class="film-box-img">
-                            <a href="#"> <img src="<%=path %>/static/img/move.jpg"></a>
-                        </div>
-                        <div class="film-box-word">
-                            <a href="#"><span class="film-box-word-name">奇门遁甲</span></a>
-                            <span class="film-box-word-grade">评分：5</span>
-                        </div>
-                    </div>  -->
                 </div>
             </div>
 
@@ -156,10 +100,10 @@
                     Hot topic
                 </div>
                 <div class="forum-wrap">
-                	<s:iterator value="#postTieList" status="bcs">
+                	<s:iterator value="#postTieList" status="bcs" begin="0" end="3">
                 		<div class="forum-box forum-left">
-	                        <a href="noteDetail.jsp"><span class="forum-box-title"><s:property value="title"></s:property></span></a>
-	                        <a href="noteDetail.jsp"><div class="forum-box-content"><s:property value="content"></s:property> </div></a>
+	                        <a href="noteDetail.jsp" target="_blank"><span class="forum-box-title"><s:property value="title"></s:property></span></a>
+	                        <a href="noteDetail.jsp" target="_blank"><div class="forum-box-content"><s:property value="content"></s:property> </div></a>
 	                        <div class="forum-funs icon-left">
 	                            <span class="forum-icon"><img src="${pageContext.request.contextPath }/static/img/icon/jushoucang.png" style="width:20px;height:20px;"></span>
 	                            <span class="forum-count">(<s:property value="agreeNum"></s:property>)</span>
@@ -170,59 +114,6 @@
 	                        </div>
 	                    </div>
                 	</s:iterator>
-                    <!--<div class="forum-box">
-                        <a href="noteDetail.jsp" target="_blank"><span class="forum-box-title">奇门遁甲</span></a>
-                        <a href="noteDetail.jsp" target="_blank"><div class="forum-box-content">奇幻3D巨制《奇门遁甲》由徐克监制、编剧，袁和平执导，将于2017年12月15日贺岁档震撼公映。该片讲述的是一个妖孽横行，天象大乱的时代，外星妖物侵袭而来。此时江湖上精通“奇门遁甲”之术的神秘组织“雾隐门”挺身而出，其首领老大（伍佰 饰）、弟子诸葛青云（大鹏 饰）
-                            、铁蜻蜓（倪妮 饰）和雾隐七子等众人各怀所长。另一方面，诸葛青云途中寻找新一代掌门小圆（周冬雨 饰）之时，新晋捕快刀宜长（李治廷 饰）为 </div></a>
-                        <div class="forum-funs icon-left">
-                            <span class="forum-icon"><img src="<%=path %>/static/img/icon/jushoucang.png" style="width:20px;height:20px;"></span>
-                            <span class="forum-count">(110)</span>
-                        </div>
-                        <div class="forum-comment icon-left">
-                            <span class="forum-icon"><img src="<%=path %>/static/img/icon/xxcenter.png" style="width:20px;height:20px;"></span>
-                            <span class="forum-count">(9)</span>
-                        </div>
-                    </div>
-                    <div class="forum-box forum-left">
-                        <a href="#"><span class="forum-box-title">奇门遁甲</span></a>
-                        <a href="#"><div class="forum-box-content">奇幻3D巨制《奇门遁甲》由徐克监制、编剧，袁和平执导，将于2017年12月15日贺岁档震撼公映。该片讲述的是一个妖孽横行，天象大乱的时代，外星妖物侵袭而来。此时江湖上精通“奇门遁甲”之术的神秘组织“雾隐门”挺身而出，其首领老大（伍佰 饰）、弟子诸葛青云（大鹏 饰）
-                            、铁蜻蜓（倪妮 饰）和雾隐七子等众人各怀所长。另一方面，诸葛青云途中寻找新一代掌门小圆（周冬雨 饰）之时，新晋捕快刀宜长（李治廷 饰）为 </div></a>
-                        <div class="forum-funs icon-left">
-                            <span class="forum-icon"><img src="<%=path %>/static/img/icon/jushoucang.png" style="width:20px;height:20px;"></span>
-                            <span class="forum-count">(110)</span>
-                        </div>
-                        <div class="forum-comment icon-left">
-                            <span class="forum-icon"><img src="<%=path %>/static/img/icon/xxcenter.png" style="width:20px;height:20px;"></span>
-                            <span class="forum-count">(9)</span>
-                        </div>
-                    </div>
-
-                    <div class="forum-box">
-                        <a href="#"><span class="forum-box-title">奇门遁甲</span></a>
-                        <a href="#"><div class="forum-box-content">奇幻3D巨制《奇门遁甲》由徐克监制、编剧，袁和平执导，将于2017年12月15日贺岁档震撼公映。该片讲述的是一个妖孽横行，天象大乱的时代，外星妖物侵袭而来。此时江湖上精通“奇门遁甲”之术的神秘组织“雾隐门”挺身而出，其首领老大（伍佰 饰）、弟子诸葛青云（大鹏 饰）
-                            、铁蜻蜓（倪妮 饰）和雾隐七子等众人各怀所长。另一方面，诸葛青云途中寻找新一代掌门小圆（周冬雨 饰）之时，新晋捕快刀宜长（李治廷 饰）为 </div></a>
-                        <div class="forum-funs icon-left">
-                            <span class="forum-icon"><img src="<%=path %>/static/img/icon/jushoucang.png" style="width:20px;height:20px;"></span>
-                            <span class="forum-count">(110)</span>
-                        </div>
-                        <div class="forum-comment icon-left">
-                            <span class="forum-icon"><img src="<%=path %>/static/img/icon/xxcenter.png" style="width:20px;height:20px;"></span>
-                            <span class="forum-count">(9)</span>
-                        </div>
-                    </div>
-                    <div class="forum-box forum-left">
-                        <a href="#"><span class="forum-box-title">奇门遁甲</span></a>
-                        <a href="#"><div class="forum-box-content">奇幻3D巨制《奇门遁甲》由徐克监制、编剧，袁和平执导，将于2017年12月15日贺岁档震撼公映。该片讲述的是一个妖孽横行，天象大乱的时代，外星妖物侵袭而来。此时江湖上精通“奇门遁甲”之术的神秘组织“雾隐门”挺身而出，其首领老大（伍佰 饰）、弟子诸葛青云（大鹏 饰）
-                            、铁蜻蜓（倪妮 饰）和雾隐七子等众人各怀所长。另一方面，诸葛青云途中寻找新一代掌门小圆（周冬雨 饰）之时，新晋捕快刀宜长（李治廷 饰）为 </div></a>
-                        <div class="forum-funs icon-left">
-                            <span class="forum-icon"><img src="<%=path %>/static/img/icon/jushoucang.png" style="width:20px;height:20px;"></span>
-                            <span class="forum-count">(110)</span>
-                        </div>
-                        <div class="forum-comment icon-left">
-                            <span class="forum-icon"><img src="<%=path %>/static/img/icon/xxcenter.png" style="width:20px;height:20px;"></span>
-                            <span class="forum-count">(9)</span>
-                        </div>
-                    </div>-->
 
                 </div>
             </div>
