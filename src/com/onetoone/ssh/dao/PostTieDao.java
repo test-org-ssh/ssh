@@ -38,7 +38,7 @@ public class PostTieDao {
 			list = new ArrayList<PostTie>();
 		}
 		
-		tx.commit();
+		//tx.commit();
         session.close();
         
 		return list;

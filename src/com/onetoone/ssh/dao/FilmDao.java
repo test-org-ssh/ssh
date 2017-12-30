@@ -16,15 +16,6 @@ public class FilmDao {
 	ClassPathXmlApplicationContext ac=(ClassPathXmlApplicationContext) ApplicationContextUtil.getApplicationContext();
 	SessionFactory factory = (SessionFactory) ac.getBean("sessionFactory");
 	
-	
-	//在SSH的设计理念：要使用某个实例，那么就定义声明一个对象，然后
-	//给它添加set方法（用于spring注入进来）
-	//实现不要关注这个实例来自于那里，以及怎么创建，或者它是谁    
-//	private SessionFactory sessionFactory;
-//    
-//	public void setSessionFactory(SessionFactory sessionFactory) {
-//	   this.sessionFactory = sessionFactory;
-//	}
 	/**
 	 * 查询影视信息
 	 * @param 影视信息展示

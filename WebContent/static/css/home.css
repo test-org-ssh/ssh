@@ -152,7 +152,7 @@ a:hover{text-decoration:underline;}
 .futures_bg{
     position:absolute;
     z-index:1;
-    top:800px;
+    top:500px;
     left:-200px;
     opacity: 0.1;
     width:1300px !important;
@@ -163,14 +163,15 @@ a:hover{text-decoration:underline;}
 }
 /*影视分享*/
 .film-content{
-    width:1100px;
+    width:1180px;
     height:auto;
     margin:0 auto;
     padding-top:40px;
     z-index: 9999;
+    margin-left:125px;
 }
 .film-title{
-    width:100%;
+    width:1180px;
     font-size:28px;
     font-family: Arial;
     color:black;
@@ -179,17 +180,19 @@ a:hover{text-decoration:underline;}
     padding-top:30px;
 }
 .film-wrap{
-    width:100%;
+    width:1180px;
     height:auto;
     overflow:hidden
 }
 .film-box{
-    width:30%;
+    width:300px;
+    /*height:389px;*/
     height:auto;
     overflow:hidden;
-    margin-left:0px;
+    /*margin-left:0px;*/
     margin-bottom:35px;
     float:left;
+    margin-left:45px;
     border-left:0.5px solid #cdcdcd;
     border-right:0.5px solid #cdcdcd;
     -moz-box-shadow: 0px 5px 2.5px #cdcdcd; /* 老的 Firefox */
@@ -200,7 +203,9 @@ a:hover{text-decoration:underline;}
     float:left;
 }
 .film-box-img{
-    width:90%;
+    width:250px;
+    height:350.453px;
+    background-color:#dddddd;
     padding-top:10px;
     margin:0 auto;
 }
@@ -211,7 +216,7 @@ a:hover{text-decoration:underline;}
     text-align: center;
 }
 .film-box-word{
-    width:95%;
+    width:336px;
     padding-top:15px;
     margin:0 auto;
     overflow: hidden;
@@ -241,13 +246,14 @@ a:hover{text-decoration:underline;}
 
 /*热门话题*/
 .forum-content{
-    width:80%;
+    width:1080px;
     height:auto;
     margin:0 auto;
     padding-top:50px;
     padding-bottom:70px;
     overflow: hidden;
     z-index: 9999;
+    margin-left:125px;
 }
 
 .forum-content a{
@@ -255,7 +261,7 @@ a:hover{text-decoration:underline;}
 }
 
 .forum-title{
-    width:100%;
+    width:1080px;
     font-size:28px;
     font-family: Arial;
     color:black;
@@ -264,12 +270,12 @@ a:hover{text-decoration:underline;}
     padding-top:30px;
 }
 .forum-wrap{
-    width:100%;
+    width:1080px;
     height:auto;
     overflow:hidden
 }
 .forum-box{
-    width:45%;
+    width:485px;
     height:auto;
     overflow:hidden;
     margin-left:0px;

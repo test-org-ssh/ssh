@@ -40,9 +40,10 @@ public class TestAction extends ActionSupport{
 		ac.put("filmDaoList", filmDaoList);
 		
 		
-//		List<PostTie> postTieList = posttiemanager.getAllPostTie();
-//		System.out.println("结果集："+postTieList.size());
-//		ac.getSession().put("postTieList", postTieList);
+		List<PostTie> postTieList = posttiemanager.getAllPostTie();
+		System.out.println("结果集："+postTieList.size());
+		ac.getSession().put("postTieList", postTieList);
+		ac.put("postTieList", postTieList);
 		
 		
 		return SUCCESS;
