@@ -64,39 +64,6 @@ angular.module('app')
                                 }]
                         }
                     })
-                    // system
-                    .state('access', {
-                        url: '/access',
-                        template: '<div ui-view class="fade-in-right-big smooth"></div>'
-                    })
-                    .state('access.signin', {
-                        url: '/signin',
-                        templateUrl: '../static/admin/tpl/page_signin.html',
-                        resolve: {
-                            deps: ['uiLoad',
-                                function( uiLoad ){
-                                    return uiLoad.load( ['../static/admin/js/controllers/signin.js'] );
-                                }]
-                        }
-                    })
-                    .state('access.signup', {
-                        url: '/signup',
-                        templateUrl: '../static/admin/tpl/page_signup.html',
-                        resolve: {
-                            deps: ['uiLoad',
-                                function( uiLoad ){
-                                    return uiLoad.load( ['../static/admin/js/controllers/signup.js'] );
-                                }]
-                        }
-                    })
-                    .state('access.forgotpwd', {
-                        url: '/forgotpwd',
-                        templateUrl: '../static/admin/tpl/page_forgotpwd.html'
-                    })
-                    .state('access.404', {
-                        url: '/404',
-                        templateUrl: '../static/admin/tpl/page_404.html'
-                    })
             }
         ]
     );

@@ -82,12 +82,30 @@
 		</action>
 	</package>
 	
+	<!-- 管理员端 -->
 	<package name="admin" extends="struts-default" namespace="/admin">
-		<action name="login" class="AdminLoginAction" method="login">
-			<result name="success">/WEB-INF/admin/index.html</result>
+		<global-results>
+			<result name="login">/WEB-INF/admin/page_signin.html</result>
+		</global-results>
+		<action name="*" class="AdminLoginAction" method="login">
+			<result name="success">/WEB-INF/admin/page_signin.html</result>
 		</action>
-		<action name="*Mgmt" class="Admin{1}MgmtAction" method="listByPage">
-			<result name="success">/WEB-INF/admin/index.html</result>
+	</package>
+	<package name="adminRESTful" extends="json-default" namespace="/admin">
+		<action name="get_user_by_page" class="AdminUserMgmtAction" method="getUserByPage">
+			<result name="success" type="json">
+				<param name="root">returndata</param>
+			</result>
+		</action>
+		<action name="sou_user" class="AdminUserMgmtAction" method="souUser">
+			<result name="success" type="json">
+				<param name="root">returndata</param>
+			</result>
+		</action>
+		<action name="delete_user" class="AdminUserMgmtAction" method="deleteUser">
+			<result name="success" type="json">
+				<param name="root">returndata</param>
+			</result>
 		</action>
 	</package>
 </struts>
