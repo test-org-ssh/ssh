@@ -7,7 +7,7 @@ app.controller('UserMgmtCtrl', ['$scope', 'resource', 'myPaginationService', '_m
         $scope.userPageObject = {
             currentPageList: $scope.users, //当前页面显示的数据列表
             currentPage: 1, //当前页，初始化为1
-            totalPage: 0, //总页数
+            totalPage: 1, //总页数
             pageSize: 10, //页面大小
             pages: [] //前台页面按钮显示内容
         };

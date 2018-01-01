@@ -1,69 +1,65 @@
 <div ng-controller="CommentMgmtCtrl">
     <div class="wrapper-md bg-light b-b">
-        <h1 class="m-n font-thin h3">璇勮绠＄悊</h1>
+        <h1 class="m-n font-thin h3">评论管理</h1>
     </div>
     <div class="wrapper-md ng-scope">
         <toaster-container></toaster-container>
         <div class="panel panel-default">
             <div class="row wrapper">
                 <div class="col-sm-10">
+                    <div>
+                        <button class="btn m-b-xs btn-sm btn-primary btn-addon" ng-click="detail()"><i
+                                class="fa fa-plus fa-fw"></i>添加
+                        </button>
+                    </div>
                 </div>
                 <div class="input-group col-sm-2" style="right: 1%">
                     <input id="_keyword" type="text" class="form-control input-sm w-sm inline m-r" ng-model="keyword"
-                           placeholder="杈撳叆鎼滅储鍏抽敭璇�/> <span class="input-group-btn">
+                           placeholder="输入搜索关键词"/> <span class="input-group-btn">
                             <button id="searchBtn" class="btn m-b-xs btn-sm btn-primary btn-addon"
-                                    ng-click="loadData()">鎼滅储</button>
+                                    ng-click="loadData()">搜索</button>
                     </span>
                 </div>
             </div>
             <div>
-                <!-- 琛ㄦ牸 -->
+                <!-- 表格 -->
                 <table class="table table-striped b-t m-b-none">
                     <thead>
                     <tr>
                         <th></th>
-                        <th>澶村儚</th>
-                        <th>鐢ㄦ埛鍚�</th>
-                        <th>鍋滅敤/鍚敤</th>
-                        <th>鎿嶄綔</th>
+                        <th>海报</th>
+                        <th>名称</th>
+                        <th>描述</th>
+                        <th>评分</th>
+                        <th>操作</th>
                     </tr>
                     </thead>
                     <tbody>
                     <div id='content'>
                         <!-- ngRepeat: nav in items -->
-                        <tr ng-repeat="item in users">
+                        <tr ng-repeat="item in films">
                             <td class="ng-binding"><input type="checkbox"></td>
-                            <td><img ng-src="../{{item.iconPath}}"
+                            <td><img ng-src="../{{item.posterPath}}"
                                      alt="" class="img-thumbnail thumb-xl"></td>
-                            <td class="ng-binding">{{item.username}}</td>
-                            <td class="ng-binding">
-                                <button class="btn m-b-xs btn-sm"
-                                        ng-class="item.status == 0 ? 'btn-danger' : 'btn-success'"
-                                        ng-click="switchStatus(item)">
-                                    <div ng-show="item.status == 0 ? true : false"><i
-                                            class="m-r-xs fa fa-unlock-alt fa-fw"></i>鍋滅敤
-                                    </div>
-                                    <div ng-show="item.status == 1 ? true : false"><i
-                                            class="m-r-xs fa fa-unlock-alt fa-fw"></i>鍚敤
-                                    </div>
-                                </button>
-                            </td>
+                            <td class="ng-binding">{{item.name}}</td>
+                            <td class="ng-binding">{{item.description}}</td>
+                            <td class="ng-binding">{{item.score}}</td>
                             <td>
                                 <button class="btn btn-success m-b-xs btn-sm" ng-click="detail(item)">
-                                    <i class="m-r-xs fa fa-pencil fa-fw"></i>鏌ョ湅淇敼
+                                    <i class="m-r-xs fa fa-pencil fa-fw"></i>查看修改
                                 </button>
                                 <button class="btn btn-danger m-b-xs btn-sm" ng-click="remove(item)">
-                                    <i class="m-r-xs fa fa-times fa-fw"></i>鍒犻櫎
+                                    <i class="m-r-xs fa fa-times fa-fw"></i>删除
                                 </button>
                             </td>
                         </tr>
                     </div>
                     </tbody>
                 </table>
-                <!-- 鍒嗛〉鎺т欢 -->
+                <!-- 分页控件 -->
                 <div my-pagination page-object="userPageObject"></div>
-                <!-- 鍒嗛〉鎺т欢 -->
             </div>
         </div>
     </div>
 </div>
+
