@@ -9,6 +9,7 @@ import org.hibernate.Transaction;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.onetoone.ssh.dao.UserDao;
+import com.onetoone.ssh.entity.PageBean;
 import com.onetoone.ssh.entity.User;
 import com.onetoone.ssh.form.UserForm;
 import com.onetoone.ssh.service.UserManager;
@@ -80,6 +81,28 @@ public class UserManagerImpl implements UserManager{
 		}
 		
 		return list;
+	}
+	
+	@Override
+	//分页查询user的方法
+	public PageBean<User> getUserInfoByPage(Integer currPage,Integer pageSize) {
+		PageBean<User> pageBean = new PageBean<User>();
+		
+		//封装PageBean里的数据
+		pageBean.setCurrPage(currPage);
+		pageBean.setPageSize(pageSize);
+		int totalCount = userdao.findCount();
+		pageBean.setTotalCount(totalCount);
+		double tc = totalCount;
+		Double num = Math.ceil(tc / pageSize);
+		pageBean.setTotalPage(num.intValue());
+		
+		//封装每页线束的数据
+		int begin = (currPage - 1) * pageSize;
+		List<User> list = userdao.findByPage(begin,pageSize);
+		pageBean.setList(list);
+		
+		return pageBean;
 	}
 
 	

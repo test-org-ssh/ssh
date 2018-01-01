@@ -2,6 +2,7 @@ package com.onetoone.ssh.service;
 
 import java.util.List;
 
+import com.onetoone.ssh.entity.PageBean;
 import com.onetoone.ssh.entity.PostTie;
 import com.onetoone.ssh.entity.User;
 import com.onetoone.ssh.form.UserForm;
@@ -27,4 +28,6 @@ public interface UserManager {
 	 * @return
 	 */
 	public List<User> getAllUser();
+	
+	public PageBean<User> getUserInfoByPage(Integer currPage,Integer pageSize);
 }
