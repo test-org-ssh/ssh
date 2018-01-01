@@ -81,4 +81,13 @@
 			</result>
 		</action>
 	</package>
+	
+	<package name="admin" extends="struts-default" namespace="/admin">
+		<action name="login" class="AdminLoginAction" method="login">
+			<result name="success">/WEB-INF/admin/index.html</result>
+		</action>
+		<action name="*Mgmt" class="Admin{1}MgmtAction" method="listByPage">
+			<result name="success">/WEB-INF/admin/index.html</result>
+		</action>
+	</package>
 </struts>
