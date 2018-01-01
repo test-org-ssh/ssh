@@ -9,15 +9,14 @@ app.controller('SigninFormController', ['$scope', '$http', '$state', function ($
         $scope.authError = null;
         // Try to login
         //   TODO
-        $http.post('api/login', {email: $scope.user.email, password: $scope.user.password})
+        $http.post('api/login', {username: $scope.user.username, password: $scope.user.password})
             .then(function (response) {
-                if (response.data.user.name != $scope.user.name && response.data.user.password != $scope.password) {
+                if (response.result == 'error') {
                     $scope.authError = '账号或密码有误';
+                    $scope.user = {};
                 } else {
                     $state.go('app.user');
                 }
-            }, function (x) {
-                $scope.authError = '错误';
             });
     };
 }])
