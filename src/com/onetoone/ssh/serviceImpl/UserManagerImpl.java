@@ -85,7 +85,7 @@ public class UserManagerImpl implements UserManager{
 	
 	@Override
 	//分页查询user的方法
-	public PageBean<User> getUserInfoByPage(Integer currPage,Integer pageSize) {
+	public PageBean<User> getUserByPage(Integer currPage,Integer pageSize) {
 		PageBean<User> pageBean = new PageBean<User>();
 		
 		//封装PageBean里的数据

@@ -1,45 +1,41 @@
-app.controller('UserMgmtCtrl', ['$scope', 'resource', 'myPaginationService', '_ms','$modal',
+app.controller('UserMgmtCtrl', ['$scope', 'resource', 'myPaginationService', '_ms', '$modal',
     function ($scope, resource, myPaginationService, _ms, $modal) {
         $scope.user = {};
-        $scope.users = [{username: 'abc', status: 1}, {username: 'zxc', status: 0}];
 
         //查询用户，并分页显示
         $scope.userPageObject = {
-            currentPageList: $scope.users, //当前页面显示的数据列表
+            currentPageList: [], //当前页面显示的数据列表
             currentPage: 1, //当前页，初始化为1
             totalPage: 0, //总页数
-            pageSize: 10, //页面大小
-            pages: [1,2,3] //前台页面按钮显示内容
+            pageSize: 3, //页面大小
+            pages: [] //前台页面按钮显示内容
         };
 
-        $scope.userSelect = {};
-        $scope.getAllUser = function () {
-            $scope.userSearch = {
-                params: {
-                    pageSize: $scope.userPageObject.pageSize,
-                    currentPage: $scope.userPageObject.currentPage
-                }
+        $scope.loadPage = function () {
+            $scope.loadPageData = {
+                currPage: $scope.userPageObject.currentPage,
+                pageSize: $scope.userPageObject.pageSize
             };
-            //TODO
-            // $http.get("/api/user", $scope.userSearch).success(function (data, status, headers) {
-            //     $scope.userPageObject.totalPage = headers('Page-Count');
-            //     $scope.userPageObject.currentPageList = data;
-            // }).error(function (err) {
-            //     $scope.users = [];
-            //     console.log(err);
-            // });
+            resource.get('get_user_by_page', $scope.loadPageData)
+                .then(function (result) {
+                    console.log(result);
+                    $scope.userPageObject.currentPageList = result.data.list;
+                    $scope.userPageObject.totalPage = result.data.totalPage;
+                    $scope.userPageObject.pages = [];
+                    $scope.userPageObject.pages.push($scope.userPageObject.currentPage);
+                    $scope.userPageObject.pages.push($scope.userPageObject.currentPage+1);
+                });
         };
-        $scope.getAllUser();
 
         $scope.init = function () {
-            $scope.getAllUser();
+            $scope.loadPage();
             $scope.$watch('userPageObject.totalPage', function () {
                 myPaginationService.showFirstPageContent($scope.userPageObject, 1);
             });
         };
         $scope.init();
         $scope.$watch('userPageObject.currentPage', function () {
-            $scope.getAllUser();
+            $scope.loadPage();
         });
 
         //---------------------
@@ -51,9 +47,9 @@ app.controller('UserMgmtCtrl', ['$scope', 'resource', 'myPaginationService', '_m
 
         // 查看修改添加
         $scope.detail = function (item) {
-            $scope.user = (item)?item:{};
+            $scope.user = (item) ? item : {};
             var modalInstance = $modal.open({
-                templateUrl: 'tpl/modal/userModal.html',
+                templateUrl: '../static/admin/tpl/modal/userModal.html',
                 controller: 'UserModalCtrl',
                 backdrop: 'static',
                 size: 'lg',
@@ -75,14 +71,14 @@ app.controller('UserMgmtCtrl', ['$scope', 'resource', 'myPaginationService', '_m
         $scope.remove = function (item) {
             $scope.user = item;
             var modalInstance = $modal.open({
-                templateUrl: 'tpl/modal/removeModal.html',
+                templateUrl: '../static/admin/tpl/modal/removeModal.html',
                 controller: 'RemoveModalCtrl',
                 backdrop: 'static',
                 size: 's',
                 resolve: {}
             });
             modalInstance.result.then(function (result) {
-                if(result){
+                if (result) {
                     // TODO 向服务器发送删除请求
                 }
             });

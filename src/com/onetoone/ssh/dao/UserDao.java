@@ -75,7 +75,7 @@ public class UserDao{
 	 */
 	public List<User> getAllUser(){
 		Session session = factory.openSession();
-    	Transaction tx = session.beginTransaction();
+		Transaction tx = session.beginTransaction();
 		List<User> list=null;
 		
 		session = factory.openSession();
@@ -88,7 +88,7 @@ public class UserDao{
 		}
 		
 		tx.commit();
-        session.close();
+		session.close();
         
 		return list;
 	}
@@ -98,7 +98,7 @@ public class UserDao{
 		// TODO Auto-generated method stub
 		
 		Session session = factory.openSession();
-    	Transaction tx = session.beginTransaction();
+		Transaction tx = session.beginTransaction();
 		List<User> list=null;
 		
 		session = factory.openSession();
@@ -110,7 +110,7 @@ public class UserDao{
 			return list.size();
 		}
 		tx.commit();
-        session.close();
+		session.close();
 		return 0;
 	}
 	
@@ -124,16 +124,16 @@ public class UserDao{
 	public List<User> findByPage(int begin, Integer pageSize) {
 		// TODO Auto-generated method stub
 		Session session = factory.openSession();
-    	Transaction tx = session.beginTransaction();
-    	
-    	Criteria criteria = session.createCriteria(User.class);
-    	criteria.setFirstResult(begin);
-    	criteria.setMaxResults(pageSize);
-    	
-    	List<User> list = criteria.list();
-    	System.out.println(list.size());
-    	tx.commit();
-        session.close();
+        	Transaction tx = session.beginTransaction();
+        	
+        	Criteria criteria = session.createCriteria(User.class);
+        	criteria.setFirstResult(begin);
+        	criteria.setMaxResults(pageSize);
+        	
+        	List<User> list = criteria.list();
+        	System.out.println(list.size());
+        	tx.commit();
+        	session.close();
 		return list;
 	}
 
