@@ -101,6 +101,7 @@
 		</action>
 	</package>
 	<package name="adminRESTful" extends="json-default" namespace="/admin">
+		<!-- 用户管理 -->
 		<action name="get_user_by_page" class="AdminUserAction" method="getUserByPage">
 			<result name="success" type="json">
 				<param name="root">returndata</param>
@@ -122,6 +123,40 @@
 			</result>
 		</action>
 		<action name="update_user_status" class="AdminUserAction" method="updateUserStatus">
+			<result name="success" type="json">
+				<param name="root">returndata</param>
+			</result>
+		</action>
+		
+		<!-- 发帖管理 -->
+		<action name="get_post_by_page" class="AdminPostAction" method="getPostByPage">
+			<result name="success" type="json">
+				<param name="root">returndata</param>
+			</result>
+		</action>
+		<action name="delete_post" class="AdminPostAction" method="deletePost">
+			<result name="success" type="json">
+				<param name="root">returndata</param>
+			</result>
+		</action>
+		<action name="get_post_by_id" class="AdminPostAction" method="getPostById">
+			<result name="success" type="json">
+				<param name="root">returndata</param>
+			</result>
+		</action>
+		
+		<!-- 评论管理 -->
+		<action name="get_comment_by_page" class="AdminCommentAction" method="getCommentByPage">
+			<result name="success" type="json">
+				<param name="root">returndata</param>
+			</result>
+		</action>
+		<action name="delete_comment" class="AdminCommentAction" method="deleteComment">
+			<result name="success" type="json">
+				<param name="root">returndata</param>
+			</result>
+		</action>
+		<action name="get_comment_by_id" class="AdminCommentAction" method="getCommentById">
 			<result name="success" type="json">
 				<param name="root">returndata</param>
 			</result>

@@ -32,8 +32,8 @@ public class AdminUserAction extends ActionSupport{
 
 	
 	//∑÷“≥≤È—Ø
-	private Integer currPage = 1;
-	private Integer pageSize = 5;
+	private Integer currPage;
+	private Integer pageSize;
 	
 	public void setCurrPage(Integer currPage) {
 		this.currPage = currPage;

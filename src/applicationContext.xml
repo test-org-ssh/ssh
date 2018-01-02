@@ -146,4 +146,14 @@
             <ref bean="usermanager" />  
         </property>
 	</bean>
+	<bean id="AdminPostAction" class="com.onetoone.ssh.action.AdminPostAction" scope="prototype">
+		<property name="posttiemanager">  
+            <ref bean="posttiemanager" />  
+        </property>
+	</bean>
+	<bean id="AdminCommentAction" class="com.onetoone.ssh.action.AdminCommentAction" scope="prototype">
+		<property name="commentmanager">  
+            <ref bean="commentmanager" />  
+        </property>
+	</bean>
 </beans>

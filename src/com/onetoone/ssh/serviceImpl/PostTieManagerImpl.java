@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.onetoone.ssh.dao.PostTieDao;
+import com.onetoone.ssh.entity.PageBean;
 import com.onetoone.ssh.entity.PostTie;
+import com.onetoone.ssh.entity.User;
 import com.onetoone.ssh.service.PostTieManager;
 
 public class PostTieManagerImpl implements PostTieManager{
@@ -26,6 +28,50 @@ public class PostTieManagerImpl implements PostTieManager{
 	}
 	public void setPosttiedao(PostTieDao posttiedao) {
 		this.posttiedao = posttiedao;
+	}
+
+	/**
+	 * 根据分页获取帖子
+	 */
+	@Override
+	public PageBean<PostTie> getPostByPage(Integer currPage, Integer pageSize) {
+		PageBean<PostTie> pageBean = new PageBean<PostTie>();
+		
+		//封装PageBean里的数据
+		pageBean.setCurrPage(currPage);
+		pageBean.setPageSize(pageSize);
+		int totalCount = posttiedao.findCount();
+		pageBean.setTotalCount(totalCount);
+		double tc = totalCount;
+		Double num = Math.ceil(tc / pageSize);
+		pageBean.setTotalPage(num.intValue());
+		
+		//封装每页线束的数据
+		int begin = (currPage - 1) * pageSize;
+		List<PostTie> list = posttiedao.findByPage(begin,pageSize);
+		pageBean.setList(list);
+		
+		return pageBean;
+	}
+
+	/**
+	 * 根据id获取帖子
+	 */
+	@Override
+	public List<PostTie> getPostById(Integer id) {
+		// TODO Auto-generated method stub
+		List<PostTie> list =posttiedao.findById(id);
+		
+		return list;
+	}
+
+	/**
+	 * 删除帖子
+	 */
+	@Override
+	public Integer deletePost(Integer id) {
+		// TODO Auto-generated method stub
+		return posttiedao.deletePostTieById(id);
 	}
 	
 }
