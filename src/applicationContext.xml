@@ -137,6 +137,13 @@
 		</property>
 	</bean>
 	
+
 	<!-- 管理页面 -->
 	<bean id="AdminLoginAction" class="com.onetoone.ssh.action.AdminLoginAction" scope="prototype"></bean>
+	<!-- 管理端的Action配置 -->
+	<bean id="AdminUserMgmtAction" class="com.onetoone.ssh.action.AdminUserMgmtAction" scope="prototype">
+		<property name="usermanager">  
+            <ref bean="usermanager" />  
+        </property>
+	</bean>
 </beans>

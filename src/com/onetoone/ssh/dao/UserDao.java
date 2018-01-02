@@ -3,9 +3,11 @@ package com.onetoone.ssh.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.query.Query;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -18,7 +20,7 @@ import com.onetoone.ssh.util.ApplicationContextUtil;
  * @author wanghaixue
  *
  */
-public class UserDao {
+public class UserDao{
 	ClassPathXmlApplicationContext ac=(ClassPathXmlApplicationContext) ApplicationContextUtil.getApplicationContext();
 	SessionFactory factory = (SessionFactory) ac.getBean("sessionFactory");
 	
@@ -90,5 +92,50 @@ public class UserDao {
         
 		return list;
 	}
+
+	
+	public int findCount() {
+		// TODO Auto-generated method stub
+		
+		Session session = factory.openSession();
+    	Transaction tx = session.beginTransaction();
+		List<User> list=null;
+		
+		session = factory.openSession();
+		tx = session.beginTransaction();
+		
+		Query query = session.createQuery("from User");
+		list = query.getResultList();
+		if(list.size()>0){
+			return list.size();
+		}
+		tx.commit();
+        session.close();
+		return 0;
+	}
+	
+	
+	/**
+	 * 分页查询用户
+	 * @param begin
+	 * @param pageSize
+	 * @return
+	 */
+	public List<User> findByPage(int begin, Integer pageSize) {
+		// TODO Auto-generated method stub
+		Session session = factory.openSession();
+    	Transaction tx = session.beginTransaction();
+    	
+    	Criteria criteria = session.createCriteria(User.class);
+    	criteria.setFirstResult(begin);
+    	criteria.setMaxResults(pageSize);
+    	
+    	List<User> list = criteria.list();
+    	System.out.println(list.size());
+    	tx.commit();
+        session.close();
+		return list;
+	}
+
 	
 }
