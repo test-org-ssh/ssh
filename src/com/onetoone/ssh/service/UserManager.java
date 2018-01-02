@@ -29,5 +29,11 @@ public interface UserManager {
 	 */
 	public List<User> getAllUser();
 	
-	public PageBean<User> getUserInfoByPage(Integer currPage,Integer pageSize);
+	/**
+	 * 根据分页获取用户
+	 * @param currPage
+	 * @param pageSize
+	 * @return
+	 */
+	public PageBean<User> getUserByPage(Integer currPage,Integer pageSize);
 }

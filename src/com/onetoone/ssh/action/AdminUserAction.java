@@ -44,7 +44,7 @@ public class AdminUserAction extends ActionSupport{
 	}
 
 	public String getUserByPage(){
-		PageBean<User> pageBean = usermanager.getUserInfoByPage(currPage,pageSize);
+		PageBean<User> pageBean = usermanager.getUserByPage(currPage,pageSize);
 		System.out.println("返回user的总条数"+pageBean.getTotalCount());
 		System.out.println("返回user"+pageBean.getList());
 		System.out.println("返回user的总页数"+pageBean.getTotalPage());

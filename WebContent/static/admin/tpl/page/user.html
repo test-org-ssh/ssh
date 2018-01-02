@@ -36,7 +36,7 @@
                     <tbody>
                     <div id='content'>
                         <!-- ngRepeat: nav in items -->
-                        <tr ng-repeat="item in users">
+                        <tr ng-repeat="item in userPageObject.currentPageList">
                             <td class="ng-binding"><input type="checkbox"></td>
                             <td><img ng-src="../{{item.iconPath}}"
                                      alt="" class="img-thumbnail thumb-xl"></td>

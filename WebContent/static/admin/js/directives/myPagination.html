@@ -1,7 +1,7 @@
 <div style="text-align: center;">
         <ul class="pagination pagination-sm">
 
-            <li ng-class="{true:'active'}[pageObject.currentPage==1]">
+            <li ng-class="{true:'disabled'}[pageObject.currentPage==1]">
                 <a ng-click="showFirstPage(1)">&laquo;</a>
             </li>
 
@@ -17,7 +17,7 @@
                 <a ng-click="downPageClick(pageObject.currentPage+1)">&rsaquo;</a>
             </li>
 
-            <li ng-class="{true:'active'}[pageObject.currentPage==pageObject.totalPage]">
+            <li ng-class="{true:'disabled'}[pageObject.currentPage==pageObject.totalPage]">
                 <a ng-click="showLastPage(pageObject.totalPage)">&raquo;</a>
             </li>
 
