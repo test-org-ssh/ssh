@@ -101,17 +101,17 @@
 		</action>
 	</package>
 	<package name="adminRESTful" extends="json-default" namespace="/admin">
-		<action name="get_user_by_page" class="AdminUserMgmtAction" method="getUserByPage">
+		<action name="get_user_by_page" class="AdminUserAction" method="getUserByPage">
 			<result name="success" type="json">
 				<param name="root">returndata</param>
 			</result>
 		</action>
-		<action name="sou_user" class="AdminUserMgmtAction" method="souUser">
+		<action name="sou_user" class="AdminUserAction" method="souUser">
 			<result name="success" type="json">
 				<param name="root">returndata</param>
 			</result>
 		</action>
-		<action name="delete_user" class="AdminUserMgmtAction" method="deleteUser">
+		<action name="delete_user" class="AdminUserAction" method="deleteUser">
 			<result name="success" type="json">
 				<param name="root">returndata</param>
 			</result>

@@ -43,7 +43,7 @@ public class AdminUserAction extends ActionSupport{
 		this.pageSize = pageSize;
 	}
 
-	public String getUserInfoByPage(){
+	public String getUserByPage(){
 		PageBean<User> pageBean = usermanager.getUserInfoByPage(currPage,pageSize);
 		System.out.println("返回user的总条数"+pageBean.getTotalCount());
 		System.out.println("返回user"+pageBean.getList());
