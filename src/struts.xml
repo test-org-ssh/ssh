@@ -116,5 +116,15 @@
 				<param name="root">returndata</param>
 			</result>
 		</action>
+		<action name="get_user_by_id" class="AdminUserAction" method="getUserById">
+			<result name="success" type="json">
+				<param name="root">returndata</param>
+			</result>
+		</action>
+		<action name="update_user_status" class="AdminUserAction" method="updateUserStatus">
+			<result name="success" type="json">
+				<param name="root">returndata</param>
+			</result>
+		</action>
 	</package>
 </struts>

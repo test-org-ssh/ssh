@@ -39,7 +39,8 @@ app.controller('UserMgmtCtrl', ['$scope', 'resource', 'myPaginationService', '_m
         });
 
         //---------------------
-
+        
+        
         // 切换用户停用/启用状态
         $scope.switchStatus = function (item) {
             _ms.msg('s', 'done');

@@ -104,6 +104,50 @@ public class UserManagerImpl implements UserManager{
 		
 		return pageBean;
 	}
+	
+	
+	@Override
+	//根据id查找用户
+	public List<User> getUserById(Integer id) {
+		// TODO Auto-generated method stub
+		List<User> list =userdao.findById(id);
+		
+		return list;
+	}
+	
+	
+	@Override
+	//添加用户
+	public int addUser(String username, String photo, String jianjie) {
+		// TODO Auto-generated method stub
+		int count =userdao.addUser(username,photo,jianjie);
+		return count;
+	}
+	
+	
+	@Override
+	//修改用户
+	public int updateUserById(Integer id,String username, String photo, String jianjie) {
+		// TODO Auto-generated method stub
+		int count =userdao.updateUser(id,username,photo,jianjie);
+		return count;
+	}
+	
+	
+	@Override
+	//修改用户状态
+	public int updateUserStatus(Integer id, Integer status) {
+		// TODO Auto-generated method stub
+		int count =userdao.updateStatus(id,status);
+		return count;
+	}
+	
+	@Override
+	public int deleteUser(Integer id) {
+		// TODO Auto-generated method stub
+		int count =userdao.deleteUser(id);
+		return count;
+	}
 
 	
 }
