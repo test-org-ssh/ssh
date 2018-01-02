@@ -217,10 +217,6 @@ public class AdminUserAction extends ActionSupport{
 		return SUCCESS;
 	}
 	
-	public String deleteUser(){
-		int count = usermanager.deleteUser(id);
-		return SUCCESS;
-	}
 	
 	public Map<String, Object> getReturndata() {
 		return returndata;

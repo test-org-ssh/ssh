@@ -142,12 +142,6 @@ public class UserManagerImpl implements UserManager{
 		return count;
 	}
 	
-	@Override
-	public int deleteUser(Integer id) {
-		// TODO Auto-generated method stub
-		int count =userdao.deleteUser(id);
-		return count;
-	}
 
 	
 }

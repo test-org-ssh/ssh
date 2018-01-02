@@ -239,19 +239,6 @@ public class UserDao{
 		return 1;
 	}
 
-	public int deleteUser(Integer id) {
-		// TODO Auto-generated method stub
-		Session session = factory.openSession();
-    	Transaction tx = session.beginTransaction();
-        
-        User user = (User)session.get(User.class,id);
-        //user.setStatus(status);
-        
-        session.delete(user);
-        tx.commit();
-        session.close();
-		return 1;
-	}
 
 
 	

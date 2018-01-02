@@ -67,6 +67,4 @@ public interface UserManager {
 	 */
 	public int updateUserStatus(Integer id, Integer status);
 	
-	
-	public int deleteUser(Integer id);
 }
