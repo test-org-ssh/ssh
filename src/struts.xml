@@ -97,7 +97,7 @@
 			<result name="login">/WEB-INF/admin/page_signin.html</result>
 		</global-results>
 		<action name="*" class="AdminLoginAction" method="login">
-			<result name="success">/WEB-INF/admin/page_signin.html</result>
+			<result name="success">/WEB-INF/admin/index.html</result>
 		</action>
 	</package>
 	<package name="adminRESTful" extends="json-default" namespace="/admin">
