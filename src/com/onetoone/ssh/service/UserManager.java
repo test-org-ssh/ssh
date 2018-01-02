@@ -43,4 +43,35 @@ public interface UserManager {
 	 * @return
 	 */
 	public int deleteUser(Integer id);
+
+	/**
+	 * 根据id查找用户
+	 * @param id
+	 * @return
+	 */
+	public List<User> getUserById(Integer id);
+	
+	/**
+	 * 添加用户
+	 * @return
+	 */
+	public int addUser(String username, String photo, String jianjie);
+	
+	/**
+	 * 修改用户
+	 * @param username
+	 * @param photo
+	 * @param jianjie
+	 * @return
+	 */
+	public int updateUserById(Integer id,String username, String photo, String jianjie);
+	
+	/**
+	 * 修改用户状态
+	 * @param id
+	 * @param status
+	 * @return
+	 */
+	public int updateUserStatus(Integer id, Integer status);
+	
 }
