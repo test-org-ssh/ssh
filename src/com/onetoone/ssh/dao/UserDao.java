@@ -137,5 +137,39 @@ public class UserDao{
 		return list;
 	}
 
+	/**
+	 * 根据id查找用户
+	 * @param id
+	 * @return
+	 */
+	public User getUserById(Integer id) {
+	    	Session session = factory.openSession();
+	    	User user = new User();
+		
+		session = factory.openSession();
+		user = (User)session.get(User.class, id);
+
+		session.close();
+		return user;
+	}
+	
+	/**
+	 * 根据ID删除用户
+	 * @param id
+	 * @return
+	 */
+	public int deleteUserById(Integer id) {
+	    	Session session = factory.openSession();
+		Transaction tx = session.beginTransaction();
+		
+		session = factory.openSession();
+		tx = session.beginTransaction();
+		User user = this.getUserById(id);
+		session.delete(user);
+		tx.commit();
+		session.close();
+    	    
+    	    	return 0;
+	}
 	
 }

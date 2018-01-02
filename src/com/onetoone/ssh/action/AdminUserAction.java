@@ -70,5 +70,31 @@ public class AdminUserAction extends ActionSupport{
 	public Integer getPageSize() {
 		return pageSize;
 	}
+	
+	//É¾³ıÓÃ»§
+	private Integer id;
+
+	public Integer getId() {
+	    return id;
+	}
+
+	public void setId(Integer id) {
+	    this.id = id;
+	}
+
+	public String deleteUser(){
+	    Integer result = usermanager.deleteUser(id);
+	    if(result==1) {
+		returndata.put("data","É¾³ıÊ§°Ü");  
+		returndata.put("status",result);
+		returndata.put("success", false);
+	    } else {
+		returndata.put("data","É¾³ı³É¹¦");  
+		returndata.put("status",result);
+		returndata.put("success", true);
+	    }
+	    System.out.println(returndata);
+	    return SUCCESS;
+	}
 
 }

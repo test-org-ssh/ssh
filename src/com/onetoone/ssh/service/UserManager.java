@@ -36,4 +36,11 @@ public interface UserManager {
 	 * @return
 	 */
 	public PageBean<User> getUserByPage(Integer currPage,Integer pageSize);
+	
+	/**
+	 * 根据id删除用户
+	 * @param id
+	 * @return
+	 */
+	public int deleteUser(Integer id);
 }

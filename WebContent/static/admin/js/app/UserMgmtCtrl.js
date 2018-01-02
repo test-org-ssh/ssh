@@ -75,11 +75,17 @@ app.controller('UserMgmtCtrl', ['$scope', 'resource', 'myPaginationService', '_m
                 controller: 'RemoveModalCtrl',
                 backdrop: 'static',
                 size: 's',
-                resolve: {}
+                resolve: {
+                    param:function () {
+                    return item;
+                }}
             });
             modalInstance.result.then(function (result) {
                 if (result) {
-                    // TODO 向服务器发送删除请求
+                    resource.get('delete_user',{id:$scope.user.id})
+                        .then(function (result) {
+                            console.log(result);
+                        });
                 }
             });
         }

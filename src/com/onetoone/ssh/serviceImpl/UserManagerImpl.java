@@ -104,6 +104,12 @@ public class UserManagerImpl implements UserManager{
 		
 		return pageBean;
 	}
+	
+	// 根据id删除用户
+	@Override
+	public int deleteUser(Integer id) {
+	    return userdao.deleteUserById(id);
+	}
 
 	
 }
