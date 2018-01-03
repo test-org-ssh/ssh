@@ -6,6 +6,7 @@
 <struts>
 	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
 	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.multipart.saveDir" value="/tmp"/>
 	<!-- 静态资源映射 -->
 	<constant name="struts.action.excludePattern" value="/static/.*?" />
 	<package name="001pck" extends="struts-default">
@@ -101,6 +102,11 @@
 		</action>
 	</package>
 	<package name="adminRESTful" extends="json-default" namespace="/admin">
+		<action name="upload_user_photo" class="AdminUploadAction" method="uploadUserPhoto">
+			<result name="success" type="json">
+				<param name="root">returndata</param>
+			</result>
+		</action>
 		<action name="get_user_by_page" class="AdminUserAction" method="getUserByPage">
 			<result name="success" type="json">
 				<param name="root">returndata</param>
