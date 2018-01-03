@@ -13,6 +13,14 @@ public class User implements Serializable{
 	private int fnum;	//用户粉丝数
 	private int status;	// 0:账号冻结	1:账号可用
 	
+	private Set<Comment> commentSet = new HashSet<>(); //实现一对多
+	
+	public Set<Comment> getCommentSet() {
+		return commentSet;
+	}
+	public void setCommentSet(Set<Comment> commentSet) {
+		this.commentSet = commentSet;
+	}
 	public int getId() {
 		return id;
 	}
