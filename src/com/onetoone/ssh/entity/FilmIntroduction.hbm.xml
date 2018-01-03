@@ -16,7 +16,7 @@
      
         <set name="scoreSet"  inverse="true" table="score">
             <key column="film_id"></key>
-            <one-to-many class="Score"/>
+            <one-to-many class="Score" not-found="ignore" />
         </set>
   
     </class>  

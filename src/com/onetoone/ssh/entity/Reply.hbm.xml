@@ -8,9 +8,9 @@
             <generator class="native"></generator>  
         </id> 
         <property name="content" column="content" type="java.lang.String" not-null="true"></property> 
-        <many-to-one name="postTie" class="PostTie" column="reply_to_tieid" />
-        <many-to-one name="getuser" class="User" column="reply_to_userid" />
-        <many-to-one name="giveuser" class="User" column="reply_from_userid" />
-    	<many-to-one name="comment" class="Comment" column="reply_to_commentid" />
+        <many-to-one name="postTie" class="PostTie" column="reply_to_tieid" not-found="ignore"/>
+        <many-to-one name="getuser" class="User" column="reply_to_userid" not-found="ignore"/>
+        <many-to-one name="giveuser" class="User" column="reply_from_userid" not-found="ignore"/>
+    	<many-to-one name="comment" class="Comment" column="reply_to_commentid" not-found="ignore"/>
     </class>  
 </hibernate-mapping>

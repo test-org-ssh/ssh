@@ -10,6 +10,6 @@
         </id>  
         <property name="score" column="score" type="java.lang.Float"  
             not-null="true" scale="1"></property>  
-        <many-to-one name="fi" class="FilmIntroduction" column="film_id" />
+        <many-to-one name="fi" class="FilmIntroduction" column="film_id" not-found="ignore" lazy="false"/>
     </class>  
 </hibernate-mapping>

@@ -22,7 +22,7 @@
         <property name="commentNum" column="comment_num" type="java.lang.Integer"/>  
         <set name="commentSet" lazy="false"  inverse="true" table="comment" >
             <key column="give_agree_to_tieid"></key>
-            <one-to-many class="Comment"/>
+            <one-to-many class="Comment" not-found="ignore"/>
         </set>   
     </class>  
 </hibernate-mapping>

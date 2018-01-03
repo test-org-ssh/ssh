@@ -9,7 +9,7 @@
             <generator class="native"></generator>  
         </id> 
         <property name="content" column="content" type="java.lang.String" not-null="true"></property> 
-        <many-to-one name="postTie" class="PostTie" column="give_agree_to_tieid" lazy="false"/>
-        <many-to-one name="user" class="User" column="get_agree_from_userid" lazy="false"/>
+        <many-to-one name="postTie" class="PostTie" column="give_agree_to_tieid" lazy="false" not-found="ignore"/>
+        <many-to-one name="user" class="User" column="get_agree_from_userid" lazy="false" not-found="ignore"/>
     </class>  
 </hibernate-mapping>
