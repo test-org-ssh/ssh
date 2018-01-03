@@ -23,7 +23,7 @@ app.controller('UserMgmtCtrl', ['$scope', 'resource', 'myPaginationService', '_m
                     $scope.userPageObject.totalPage = result.data.totalPage;
                     $scope.userPageObject.pages = [];
                     $scope.userPageObject.pages.push($scope.userPageObject.currentPage);
-                    $scope.userPageObject.pages.push($scope.userPageObject.currentPage+1);
+                    $scope.userPageObject.pages.push($scope.userPageObject.currentPage + 1);
                 });
         };
 
@@ -39,11 +39,18 @@ app.controller('UserMgmtCtrl', ['$scope', 'resource', 'myPaginationService', '_m
         });
 
         //---------------------
-        
-        
+
+
         // 切换用户停用/启用状态
         $scope.switchStatus = function (item) {
-            _ms.msg('s', 'done');
+            var status = (item.status == 0) ? 1 : 0;
+            resource.get('update_user_status', {id: item.id, status: status})
+                .then(function (result) {
+                    if (result.success) {
+                        _ms.msg('s', '状态更新成功');
+                        $scope.loadPage();
+                    }
+                });
         };
 
         // 查看修改添加
@@ -61,10 +68,14 @@ app.controller('UserMgmtCtrl', ['$scope', 'resource', 'myPaginationService', '_m
                 }
             });
             modalInstance.result.then(function (result) {
-                console.log(result);
-                //TODO
-                // resource.post('sou_user', result).then(function (response) {
-                // });
+                resource.get('sou_user', result)
+                    .then(function (result) {
+                        console.log(result);
+                        if (result.success) {
+                            _ms.msg('s', result.msg);
+                            $scope.loadPage();
+                        }
+                    });
             });
         };
 
@@ -77,18 +88,49 @@ app.controller('UserMgmtCtrl', ['$scope', 'resource', 'myPaginationService', '_m
                 backdrop: 'static',
                 size: 's',
                 resolve: {
-                    param:function () {
-                    return item;
-                }}
+                    param: function () {
+                        return item;
+                    }
+                }
             });
             modalInstance.result.then(function (result) {
                 if (result) {
-                    resource.get('delete_user',{id:$scope.user.id})
+                    resource.get('delete_user', {id: $scope.user.id})
                         .then(function (result) {
-                            console.log(result);
+                            if (result.success) {
+                                _ms.msg('s', '删除成功');
+                            }
                         });
                 }
             });
         }
+    }])
+;
+
+app.controller('UserPhotoUploadCtrl', ['$scope', 'FileUploader', '$http', '_ms',
+    function ($scope, FileUploader, $http, _ms) {
+        var uploader = $scope.uploader = new FileUploader({
+            url: 'upload_user_photo',
+            removeAfterUpload: true,
+            queueLimit: 1,
+            headers: {'Content-Type': undefined}
+        });
+
+        $scope.startUpload = function (item) {
+            var fd = new FormData();
+            fd.append('file', item._file);
+
+            $http({
+                method: 'post',
+                url: "upload_user_photo",
+                data: fd,
+                headers: {'Content-Type': undefined},
+                transformRequest: angular.identity
+            }).then(function (result) {
+                $scope.user.photo = result.url;
+                _ms('s', result.msg);
+            });
+        }
+
     }])
 ;
