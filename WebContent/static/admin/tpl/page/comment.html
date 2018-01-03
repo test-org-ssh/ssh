@@ -27,10 +27,9 @@
                     <thead>
                     <tr>
                         <th></th>
-                        <th>海报</th>
-                        <th>名称</th>
-                        <th>描述</th>
-                        <th>评分</th>
+                        <th>评论的帖子</th>
+                        <th>评论的用户</th>
+                        <th>内容</th>
                         <th>操作</th>
                     </tr>
                     </thead>
@@ -39,14 +38,12 @@
                         <!-- ngRepeat: nav in items -->
                         <tr ng-repeat="item in commentPageObject.currentPageList">
                             <td class="ng-binding"><input type="checkbox"></td>
-                            <td><img ng-src="../{{item.posterPath}}"
-                                     alt="" class="img-thumbnail thumb-xl"></td>
-                            <td class="ng-binding">{{item.name}}</td>
-                            <td class="ng-binding">{{item.description}}</td>
-                            <td class="ng-binding">{{item.score}}</td>
+                            <td class="ng-binding">{{item.postTie.title}}</td>
+                            <td class="ng-binding">{{item.user.username}}</td>
+                            <td class="ng-binding">{{item.content | cut:true:60:' ...' }}</td>
                             <td>
                                 <button class="btn btn-success m-b-xs btn-sm" ng-click="detail(item)">
-                                    <i class="m-r-xs fa fa-pencil fa-fw"></i>查看修改
+                                    <i class="m-r-xs fa fa-pencil fa-fw"></i>查看
                                 </button>
                                 <button class="btn btn-danger m-b-xs btn-sm" ng-click="remove(item)">
                                     <i class="m-r-xs fa fa-times fa-fw"></i>删除

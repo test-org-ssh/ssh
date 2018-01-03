@@ -15,6 +15,11 @@
         <property name="photo" column="photo" type="java.lang.String"/>  
         <property name="jianjie" column="jianjie" type="java.lang.String"/>
         <property name="fnum" column="fnum" type="java.lang.Integer"/>
-        <property name="status" column="status" type="java.lang.Integer"/>
+        <property name="status" column="status" type="java.lang.Integer"/> 
+        
+        <set name="commentSet" lazy="false"  inverse="true" table="comment">
+            <key column="get_agree_from_userid"></key>
+            <one-to-many class="Comment"/>
+        </set>
     </class>  
 </hibernate-mapping>

@@ -1,6 +1,8 @@
 package com.onetoone.ssh.entity;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 
 //测试 需要外键
@@ -13,7 +15,16 @@ public class PostTie implements Serializable{
 	private String picPath;//图片地址
 	private int agreeNum;//点赞数
 	private int commentNum;//评论条数
-
+	
+	private Set<Comment> commentSet = new HashSet<>(); //实现一对多
+	
+	public Set<Comment> getCommentSet() {
+		return commentSet;
+	}
+	public void setCommentSet(Set<Comment> commentSet) {
+		this.commentSet = commentSet;
+	}
+	
 	public int getCommentNum() {
 		return commentNum;
 	}

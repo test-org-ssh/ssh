@@ -7,6 +7,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 import org.hibernate.query.Query;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -105,8 +106,7 @@ public class CommentDao {
     	criteria.setMaxResults(pageSize);
     	
     	List<Comment> list = criteria.list();
-    	//System.out.println("comment分页查询结果"+list);
-    	//System.out.println(list.size());
+  
     	tx.commit();
     	session.close();
 		return list;

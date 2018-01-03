@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="../static/admin/css/simple-line-icons.css" type="text/css" />
   <link rel="stylesheet" href="../static/admin/css/font.css" type="text/css" />
   <link rel="stylesheet" href="../static/admin/css/app.css" type="text/css" />
+  <link rel="stylesheet" href="../static/admin/umeditor/themes/default/css/umeditor.css" type="text/css" />
 </head>
 <body ng-controller="AppCtrl">
   <div class="app" id="app" ng-class="{'app-header-fixed':app.settings.headerFixed, 'app-aside-fixed':app.settings.asideFixed, 'app-aside-folded':app.settings.asideFolded, 'app-aside-dock':app.settings.asideDock, 'container':app.settings.container}" ui-view></div>
@@ -49,6 +50,7 @@
   <script src="../static/admin/js/services/ui-load.js"></script>
   <script src="../static/admin/js/directives/ui-jq.js"></script>
   <script src="../static/admin/js/directives/ui-validate.js"></script>
+  <script src="../static/admin/js/directives/editor.js"></script>
 
   <!--service/directive-->
   <script src="../static/admin/js/services/resource.js"></script>
@@ -62,5 +64,9 @@
   <script src="../static/admin/js/app/FilmMgmtCtrl.js"></script>
   <script src="../static/admin/js/app/PostMgmtCtrl.js"></script>
   <!-- Lazy loading -->
+  
+  <!-- umeditor -->
+  <script src="../static/admin/umeditor/umeditor.js"></script>
+  <script src="../static/admin/umeditor/umeditor.config.js"></script>
 </body>
 </html>
