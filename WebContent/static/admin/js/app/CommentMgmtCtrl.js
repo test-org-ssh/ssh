@@ -94,13 +94,17 @@ app.controller('CommentMgmtCtrl', ['$scope', 'resource', 'myPaginationService', 
 
         // 删除
         $scope.remove = function (item) {
-        	$scope.comment = (item)?item:{};
+            $scope.comment = item;
             var modalInstance = $modal.open({
-                templateUrl: 'tpl/modal/removeModal.html',
+                templateUrl: '../static/admin/tpl/modal/removeModal.html',
                 controller: 'RemoveModalCtrl',
                 backdrop: 'static',
                 size: 's',
-                resolve: {}
+                resolve: {
+                	param:function(){
+                		return item;
+                	}
+                }
             });
             modalInstance.result.then(function (result) {
                 if(result){

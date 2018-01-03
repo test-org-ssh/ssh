@@ -90,7 +90,7 @@ public class AdminPostAction extends ActionSupport{
 		this.id = id;
 	}
 	
-	//根据id查找用户
+	//根据id查找帖子
 	public String getPostById(){
 		String msg = "";
 		Boolean flag = true;
@@ -119,7 +119,7 @@ public class AdminPostAction extends ActionSupport{
 	}
 
 	
-	//删除用户
+	//删除帖子
 	public String deletePost(){
 	    Integer result = posttiemanager.deletePost(id);
 	    

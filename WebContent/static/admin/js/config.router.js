@@ -50,7 +50,7 @@ angular.module('app')
                         resolve: {
                             deps: ['$ocLazyLoad',
                                 function ($ocLazyLoad) {
-                                    return $ocLazyLoad.load(['toaster','../static/admin/js/app/PostMgmtCtrl.js','../static/admin/js/directives/editor.js']);
+                                    return $ocLazyLoad.load(['toaster','../static/admin/js/app/PostMgmtCtrl.js']);
                                 }]
                         }
                     })
@@ -60,7 +60,7 @@ angular.module('app')
                         resolve: {
                             deps: ['$ocLazyLoad',
                                 function ($ocLazyLoad) {
-                                    return $ocLazyLoad.load(['toaster','../static/admin/js/app/CommentMgmtCtrl.js','../static/admin/js/directives/editor.js']);
+                                    return $ocLazyLoad.load(['toaster','../static/admin/js/app/CommentMgmtCtrl.js']);
                                 }]
                         }
                     })

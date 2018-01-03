@@ -19,6 +19,10 @@
         <property name="picPath" column="pic_path" type="java.lang.String"  
             not-null="true"/>  
         <property name="agreeNum" column="agree_num" type="java.lang.Integer"/>
-        <property name="commentNum" column="comment_num" type="java.lang.Integer"/>     
+        <property name="commentNum" column="comment_num" type="java.lang.Integer"/>  
+        <set name="commentSet" lazy="false"  inverse="true" table="comment" >
+            <key column="give_agree_to_tieid"></key>
+            <one-to-many class="Comment"/>
+        </set>   
     </class>  
 </hibernate-mapping>
