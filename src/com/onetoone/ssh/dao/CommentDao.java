@@ -3,6 +3,7 @@ package com.onetoone.ssh.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -60,4 +61,113 @@ public class CommentDao {
 		
 	
 	}
+	
+	
+	/**
+	 * 查询Comment的总记录数
+	 * @return
+	 */
+	public int findCount() {
+		// TODO Auto-generated method stub
+		
+		Session session = factory.openSession();
+		Transaction tx = session.beginTransaction();
+		List<Comment> list=null;
+		
+		session = factory.openSession();
+		tx = session.beginTransaction();
+		
+		Query query = session.createQuery("from Comment");
+		list = query.getResultList();
+		if(list.size()>0){
+			//System.out.println("comment的总条数"+list.size());
+			return list.size();
+		}
+		tx.commit();
+		session.close();
+		return 0;
+	}
+	
+	
+	/**
+	 * 分页查询评论
+	 * @param begin
+	 * @param pageSize
+	 * @return
+	 */
+	public List<Comment> findByPage(int begin, Integer pageSize) {
+		// TODO Auto-generated method stub
+		Session session = factory.openSession();
+    	Transaction tx = session.beginTransaction();
+    	
+    	Criteria criteria = session.createCriteria(Comment.class);
+    	criteria.setFirstResult(begin);
+    	criteria.setMaxResults(pageSize);
+    	
+    	List<Comment> list = criteria.list();
+    	//System.out.println("comment分页查询结果"+list);
+    	//System.out.println(list.size());
+    	tx.commit();
+    	session.close();
+		return list;
+	}
+
+	/**
+	 * 根据id查找评论
+	 * @param id
+	 * @return
+	 */
+	public Comment getCommentById(Integer id) {
+	    Session session = factory.openSession();
+	    Comment comment = new Comment();
+		
+		session = factory.openSession();
+		comment = (Comment)session.get(Comment.class, id);
+
+		session.close();
+		return comment;
+	}
+	
+	/**
+	 * 根据ID删除评论
+	 * @param id
+	 * @return
+	 */
+	public int deleteCommentById(Integer id) {
+	    Session session = factory.openSession();
+		Transaction tx = session.beginTransaction();
+		
+		session = factory.openSession();
+		tx = session.beginTransaction();
+		Comment comment = this.getCommentById(id);
+		session.delete(comment);
+		tx.commit();
+		session.close();
+    	    
+    	return 1;
+	}
+	
+	/**
+	 * 根据id查找用户
+	 * @param id
+	 * @return
+	 */
+	public List<Comment> findById(Integer id) {
+		// TODO Auto-generated method stub
+		Session session = factory.openSession();
+    	Transaction tx = session.beginTransaction();
+    	List<Comment> list=null;
+		
+		session = factory.openSession();
+		tx = session.beginTransaction();
+    	
+		Query query = session.createQuery("from Comment where id=?");
+		query.setParameter(0, id);
+		list = query.getResultList();
+		
+		tx.commit();
+		session.close();
+		return list;
+	}
+
 }

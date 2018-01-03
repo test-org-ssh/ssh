@@ -37,7 +37,7 @@
                     <tbody>
                     <div id='content'>
                         <!-- ngRepeat: nav in items -->
-                        <tr ng-repeat="item in films">
+                        <tr ng-repeat="item in commentPageObject.currentPageList">
                             <td class="ng-binding"><input type="checkbox"></td>
                             <td><img ng-src="../{{item.posterPath}}"
                                      alt="" class="img-thumbnail thumb-xl"></td>
@@ -57,7 +57,7 @@
                     </tbody>
                 </table>
                 <!-- 分页控件 -->
-                <div my-pagination page-object="userPageObject"></div>
+                <div my-pagination page-object="commentPageObject"></div>
             </div>
         </div>
     </div>

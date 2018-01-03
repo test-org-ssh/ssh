@@ -1,0 +1,39 @@
+<div class="modal-header">
+    <h3 class="modal-title">发帖管理</h3>
+</div>
+<div class="modal-body ng-scope">
+    <form name="formValidate" novalidate="" class="ng-pristine ng-invalid ng-invalid-required">
+        <div class="form-group pull-in clearfix">
+        	<div class="col-sm-12">
+           		<label>标题</label>
+            	<input type="text" class="form-control" ng-model="post.title" ng-disabled="true">
+            </div>
+        </div>
+        <div class="form-group pull-in clear">
+        	<div class="col-sm-12">
+             	<label>话题</label>
+             	<input type="text" class="form-control" ng-model="post.topic" ng-disabled="true">
+             </div>
+        </div>
+        <div class="form-group pull-in clear">
+            <div class="col-sm-12">
+                <label>内容</label>
+                <editor id="editor" config="post" style="height: 300px;"></editor>
+            </div>
+        </div>
+        <div class="form-group pull-in clear">
+            <div class="col-sm-4">
+                <label>点赞数</label>
+				<input type="text" class="form-control" ng-model="post.agreeNum" ng-disabled="true">
+            </div>
+            <div class="col-sm-4">
+                <label>评论数</label>
+				<input type="text" class="form-control" ng-model="post.commentNum" ng-disabled="true">
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="submit()" ng-disabled="formValidate.$invalid">提交</button>
+    <button class="btn btn-default" ng-click="close()">关闭</button>
+</div>

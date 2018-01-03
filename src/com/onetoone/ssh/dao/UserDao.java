@@ -163,7 +163,7 @@ public class UserDao{
 	 * @return
 	 */
 	public int deleteUserById(Integer id) {
-	    	Session session = factory.openSession();
+	    Session session = factory.openSession();
 		Transaction tx = session.beginTransaction();
 		
 		session = factory.openSession();
@@ -173,7 +173,7 @@ public class UserDao{
 		tx.commit();
 		session.close();
     	    
-    	    	return 0;
+    	return 0;
 	}
 	
 	/**

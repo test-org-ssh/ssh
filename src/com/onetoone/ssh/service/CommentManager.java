@@ -3,6 +3,8 @@ package com.onetoone.ssh.service;
 import java.util.List;
 
 import com.onetoone.ssh.entity.Comment;
+import com.onetoone.ssh.entity.PageBean;
+import com.onetoone.ssh.entity.User;
 
 public interface CommentManager {
 	/**
@@ -27,4 +29,26 @@ public interface CommentManager {
 	 * @throws
 	 */
 	public List<Comment> getAllComment(int id);
+	
+	/**
+	 * 根据分页获取评论
+	 * @param currPage
+	 * @param pageSize
+	 * @return
+	 */
+	public PageBean<Comment> getCommentByPage(Integer currPage, Integer pageSize);
+	
+	/**
+	 * 根据id获取评论
+	 * @param id
+	 * @return
+	 */
+	public List<Comment> getCommentById(Integer id);
+	
+	/**
+	 * 删除评论
+	 * @param id
+	 * @return
+	 */
+	public Integer deleteComment(Integer id);
 }

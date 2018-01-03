@@ -5,7 +5,8 @@ import java.util.List;
 
 import com.onetoone.ssh.dao.CommentDao;
 import com.onetoone.ssh.entity.Comment;
-
+import com.onetoone.ssh.entity.PageBean;
+import com.onetoone.ssh.entity.User;
 import com.onetoone.ssh.service.CommentManager;
 import com.onetoone.ssh.util.MD5Util;
 
@@ -36,6 +37,51 @@ public class CommentManagerImpl implements CommentManager {
 		} 
 		
 		return commentlist;
+	}
+	
+	
+	/**
+	 * 根据分页获取评论
+	 */
+	@Override
+	public PageBean<Comment> getCommentByPage(Integer currPage, Integer pageSize) {
+		PageBean<Comment> pageBean = new PageBean<Comment>();
+		
+		//封装PageBean里的数据
+		pageBean.setCurrPage(currPage);
+		pageBean.setPageSize(pageSize);
+		int totalCount = commentDao.findCount();
+		pageBean.setTotalCount(totalCount);
+		double tc = totalCount;
+		Double num = Math.ceil(tc / pageSize);
+		pageBean.setTotalPage(num.intValue());
+		
+		//封装每页线束的数据
+		int begin = (currPage - 1) * pageSize;
+		List<Comment> list = commentDao.findByPage(begin,pageSize);
+		pageBean.setList(list);
+		
+		return pageBean;
+	}
+	
+	/**
+	 * 根据id获取评论
+	 */
+	@Override
+	public List<Comment> getCommentById(Integer id) {
+		// TODO Auto-generated method stub
+		List<Comment> list =commentDao.findById(id);
+		
+		return list;
+	}
+	
+	/**
+	 * 删除评论
+	 */
+	@Override
+	public Integer deleteComment(Integer id) {
+		// TODO Auto-generated method stub
+		return commentDao.deleteCommentById(id);
 	}
 
 }

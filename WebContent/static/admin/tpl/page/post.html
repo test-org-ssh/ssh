@@ -22,35 +22,27 @@
                     <thead>
                     <tr>
                         <th></th>
-                        <th>头像</th>
-                        <th>用户名</th>
-                        <th>停用/启用</th>
+                        <th>标题</th>
+                        <th>话题</th>
+                        <th>内容</th>
+                        <th>点赞数</th>
+                        <th>评论数</th>
                         <th>操作</th>
                     </tr>
                     </thead>
                     <tbody>
                     <div id='content'>
                         <!-- ngRepeat: nav in items -->
-                        <tr ng-repeat="item in users">
+                        <tr ng-repeat="item in postPageObject.currentPageList">
                             <td class="ng-binding"><input type="checkbox"></td>
-                            <td><img ng-src="../{{item.iconPath}}"
-                                     alt="" class="img-thumbnail thumb-xl"></td>
-                            <td class="ng-binding">{{item.username}}</td>
-                            <td class="ng-binding">
-                                <button class="btn m-b-xs btn-sm"
-                                        ng-class="item.status == 0 ? 'btn-danger' : 'btn-success'"
-                                        ng-click="switchStatus(item)">
-                                    <div ng-show="item.status == 0 ? true : false"><i
-                                            class="m-r-xs fa fa-unlock-alt fa-fw"></i>停用
-                                    </div>
-                                    <div ng-show="item.status == 1 ? true : false"><i
-                                            class="m-r-xs fa fa-unlock-alt fa-fw"></i>启用
-                                    </div>
-                                </button>
-                            </td>
+                            <td class="ng-binding">{{item.title}}</td>
+                            <td class="ng-binding">{{item.topic}}</td>
+                            <td class="ng-binding">{{item.content | cut:true:60:' ...' }}</td>
+                            <td class="ng-binding">{{item.agreeNum}}</td>
+                            <td class="ng-binding">{{item.commentNum}}</td>
                             <td>
                                 <button class="btn btn-success m-b-xs btn-sm" ng-click="detail(item)">
-                                    <i class="m-r-xs fa fa-pencil fa-fw"></i>查看修改
+                                    <i class="m-r-xs fa fa-pencil fa-fw"></i>查看
                                 </button>
                                 <button class="btn btn-danger m-b-xs btn-sm" ng-click="remove(item)">
                                     <i class="m-r-xs fa fa-times fa-fw"></i>删除
@@ -61,7 +53,7 @@
                     </tbody>
                 </table>
                 <!-- 分页控件 -->
-                <div my-pagination page-object="userPageObject"></div>
+                <div my-pagination page-object="postPageObject"></div>
                 <!-- 分页控件 -->
             </div>
         </div>
