@@ -22,8 +22,17 @@ app.controller('UserMgmtCtrl', ['$scope', 'resource', 'myPaginationService', '_m
                     $scope.userPageObject.currentPageList = result.data.list;
                     $scope.userPageObject.totalPage = result.data.totalPage;
                     $scope.userPageObject.pages = [];
-                    $scope.userPageObject.pages.push($scope.userPageObject.currentPage);
-                    $scope.userPageObject.pages.push($scope.userPageObject.currentPage + 1);
+                    if(result.data.totalPage == 1){
+                        $scope.userPageObject.pages.push($scope.userPageObject.currentPage);
+                    }else{
+                        if($scope.userPageObject.currentPage == result.data.totalPage){
+                            $scope.userPageObject.pages.push($scope.userPageObject.currentPage-1);
+                            $scope.userPageObject.pages.push($scope.userPageObject.currentPage);
+                        }else{
+                            $scope.userPageObject.pages.push($scope.userPageObject.currentPage);
+                            $scope.userPageObject.pages.push($scope.userPageObject.currentPage+1);
+                        }
+                    }
                 });
         };
 
@@ -107,8 +116,8 @@ app.controller('UserMgmtCtrl', ['$scope', 'resource', 'myPaginationService', '_m
     }])
 ;
 
-app.controller('UserPhotoUploadCtrl', ['$scope', 'FileUploader', '$http', '_ms',
-    function ($scope, FileUploader, $http, _ms) {
+app.controller('UserPhotoUploadCtrl', ['$scope', 'FileUploader', '$http', 'toaster',
+    function ($scope, FileUploader, $http, toaster) {
         var uploader = $scope.uploader = new FileUploader({
             url: 'upload_user_photo',
             removeAfterUpload: true,
@@ -126,9 +135,9 @@ app.controller('UserPhotoUploadCtrl', ['$scope', 'FileUploader', '$http', '_ms',
                 data: fd,
                 headers: {'Content-Type': undefined},
                 transformRequest: angular.identity
-            }).then(function (result) {
+            }).success(function (result) {
                 $scope.user.photo = result.url;
-                _ms('s', result.msg);
+                toaster.pop('error', result.msg);
             });
         }
 

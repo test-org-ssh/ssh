@@ -102,12 +102,12 @@
 		</action>
 	</package>
 	<package name="adminRESTful" extends="json-default" namespace="/admin">
+		<!-- 用户管理 -->
 		<action name="upload_user_photo" class="AdminUploadAction" method="uploadUserPhoto">
 			<result name="success" type="json">
 				<param name="root">returndata</param>
 			</result>
 		</action>
-		<!-- 用户管理 -->
 		<action name="get_user_by_page" class="AdminUserAction" method="getUserByPage">
 			<result name="success" type="json">
 				<param name="root">returndata</param>
@@ -133,7 +133,27 @@
 				<param name="root">returndata</param>
 			</result>
 		</action>
-		
+		<!-- 影视管理 -->
+		<action name="upload_film_photo" class="AdminUploadAction" method="uploadFilmPhoto">
+			<result name="success" type="json">
+				<param name="root">returndata</param>
+			</result>
+		</action>
+		<action name="get_film_by_page" class="AdminFilmAction" method="getFilmByPage">
+			<result name="success" type="json">
+				<param name="root">returndata</param>
+			</result>
+		</action>
+		<action name="sou_film" class="AdminFilmAction" method="souFilm">
+			<result name="success" type="json">
+				<param name="root">returndata</param>
+			</result>
+		</action>
+		<action name="delete_film" class="AdminFilmAction" method="deleteFilm">
+			<result name="success" type="json">
+				<param name="root">returndata</param>
+			</result>
+		</action>
 		<!-- 发帖管理 -->
 		<action name="get_post_by_page" class="AdminPostAction" method="getPostByPage">
 			<result name="success" type="json">

@@ -89,5 +89,34 @@ public class AdminUploadAction extends ActionSupport {
 
 	return SUCCESS;
     }
+    
+    public String uploadFilmPhoto() throws Exception {
+	String path = ServletActionContext.getServletContext().getRealPath("/static/img/film");
+	System.out.println(ServletActionContext.getServletContext().getRealPath("/"));
+        try {
+            File f = this.getFile();
+            FileInputStream inputStream = new FileInputStream(f);
+            FileOutputStream outputStream = new FileOutputStream(path + "/"+ System.currentTimeMillis()+"_"+this.getFileFileName());
+            byte[] buf = new byte[1024];
+            int length = 0;
+            while ((length = inputStream.read(buf)) != -1) {
+                outputStream.write(buf, 0, length);
+            }
+            inputStream.close();
+            outputStream.flush();
+
+            String dburl = "static/images/"+ System.currentTimeMillis()+"_"+this.getFileFileName();
+            returndata.put("msg","文件上传成功");
+            returndata.put("url",dburl);
+            returndata.put("success", true);
+        } catch (Exception e) {
+            e.printStackTrace();
+            message = "文件上传失败";
+            returndata.put("msg",message);
+            returndata.put("success", false);
+        }
+
+	return SUCCESS;
+    }
 
 }

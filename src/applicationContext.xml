@@ -147,6 +147,11 @@
             <ref bean="usermanager" />  
         </property>
 	</bean>
+	<bean id="AdminFilmAction" class="com.onetoone.ssh.action.AdminFilmAction" scope="prototype">
+		<property name="filmmanager">  
+            <ref bean="filmmanager" />  
+        </property>
+	</bean>
 	<bean id="AdminPostAction" class="com.onetoone.ssh.action.AdminPostAction" scope="prototype">
 		<property name="posttiemanager">  
             <ref bean="posttiemanager" />  
