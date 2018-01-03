@@ -16,15 +16,6 @@ public class PostTie implements Serializable{
 	private int agreeNum;//点赞数
 	private int commentNum;//评论条数
 	
-	private Set<Comment> commentSet = new HashSet<>(); //实现一对多
-	
-	public Set<Comment> getCommentSet() {
-		return commentSet;
-	}
-	public void setCommentSet(Set<Comment> commentSet) {
-		this.commentSet = commentSet;
-	}
-	
 	public int getCommentNum() {
 		return commentNum;
 	}
