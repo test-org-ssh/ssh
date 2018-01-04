@@ -3,13 +3,10 @@ package com.onetoone.ssh.entity;
 import java.io.Serializable;
 
 public class Agree implements Serializable{
-
 	private int id;//点赞的id
-	/*private int giveAgreeId;//点赞的用户id
-	private int getAgreeId;//得到赞的贴的id*/
-	
 	private PostTie postTie;//映射一对多的关系  postTieid
 	private User user;//映射一对多的关系   userid
+	
 	public PostTie getPostTie() {
 		return postTie;
 	}
@@ -28,17 +25,4 @@ public class Agree implements Serializable{
 	public void setId(int id) {
 		this.id = id;
 	}
-	/*public int getGiveAgreeId() {
-		return giveAgreeId;
-	}
-	public void setGiveAgreeId(int giveAgreeId) {
-		this.giveAgreeId = giveAgreeId;
-	}
-	public int getGetAgreeId() {
-		return getAgreeId;
-	}
-	public void setGetAgreeId(int getAgreeId) {
-		this.getAgreeId = getAgreeId;
-	}*/
-	
 }

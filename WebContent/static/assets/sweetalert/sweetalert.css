@@ -19,9 +19,9 @@ body.stop-scrolling {
 .sweet-alert {
   background-color: white;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  width: 478px;
-  padding: 17px;
-  border-radius: 5px;
+  width: 350px;
+  padding: 12px;
+  border-radius: 3px;
   text-align: center;
   position: fixed;
   left: 50%;
@@ -31,7 +31,7 @@ body.stop-scrolling {
   overflow: hidden;
   display: none;
   z-index: 99999; }
-  @media all and (max-width: 540px) {
+  @media all and (max-width: 350px) {
     .sweet-alert {
       width: auto;
       margin-left: 0;
@@ -77,7 +77,7 @@ body.stop-scrolling {
       max-height: 100px;
       webkit-transition: padding 0.2s, max-height 0.2s;
       transition: padding 0.25s, max-height 0.25s; }
-    .sweet-alert .sa-error-container .icon {
+    /* .sweet-alert .sa-error-container .icon {
       display: inline-block;
       width: 24px;
       height: 24px;
@@ -86,7 +86,7 @@ body.stop-scrolling {
       color: white;
       line-height: 24px;
       text-align: center;
-      margin-right: 3px; }
+      margin-right: 3px; } */
     .sweet-alert .sa-error-container p {
       display: inline-block; }
   .sweet-alert .sa-input-error {
@@ -213,9 +213,9 @@ body.stop-scrolling {
     box-shadow: none !important; }
   .sweet-alert[data-has-confirm-button=false][data-has-cancel-button=false] {
     padding-bottom: 40px; }
-  .sweet-alert .sa-icon {
-    width: 80px;
-    height: 80px;
+/*   .sweet-alert .sa-icon {
+    width: 0px;
+    height: 0px;
     border: 4px solid gray;
     -webkit-border-radius: 40px;
     border-radius: 40px;
@@ -223,8 +223,8 @@ body.stop-scrolling {
     margin: 20px auto;
     padding: 0;
     position: relative;
-    box-sizing: content-box; }
-    .sweet-alert .sa-icon.sa-error {
+    box-sizing: content-box; } */
+   /*  .sweet-alert .sa-icon.sa-error {
       border-color: #F27474; }
       .sweet-alert .sa-icon.sa-error .sa-x-mark {
         position: relative;
@@ -244,8 +244,8 @@ body.stop-scrolling {
         .sweet-alert .sa-icon.sa-error .sa-line.sa-right {
           -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
-          right: 16px; }
-    .sweet-alert .sa-icon.sa-warning {
+          right: 16px; } */
+ /*    .sweet-alert .sa-icon.sa-warning {
       border-color: #F8BB86; }
       .sweet-alert .sa-icon.sa-warning .sa-body {
         position: absolute;
@@ -268,8 +268,8 @@ body.stop-scrolling {
         bottom: 10px;
         background-color: #F8BB86; }
     .sweet-alert .sa-icon.sa-info {
-      border-color: #C9DAE1; }
-      .sweet-alert .sa-icon.sa-info::before {
+      border-color: #C9DAE1; } */
+    /*   .sweet-alert .sa-icon.sa-info::before {
         content: "";
         position: absolute;
         width: 5px;
@@ -288,8 +288,8 @@ body.stop-scrolling {
         margin-left: -3px;
         top: 19px;
         background-color: #C9DAE1;
-        left: 50%; }
-    .sweet-alert .sa-icon.sa-success {
+        left: 50%; } */
+  /*   .sweet-alert .sa-icon.sa-success {
       border-color: #A5DC86; }
       .sweet-alert .sa-icon.sa-success::before, .sweet-alert .sa-icon.sa-success::after {
         content: '';
@@ -319,8 +319,8 @@ body.stop-scrolling {
         -webkit-transform: rotate(-45deg);
         transform: rotate(-45deg);
         -webkit-transform-origin: 0px 60px;
-        transform-origin: 0px 60px; }
-      .sweet-alert .sa-icon.sa-success .sa-placeholder {
+        transform-origin: 0px 60px; } */
+/*       .sweet-alert .sa-icon.sa-success .sa-placeholder {
         width: 80px;
         height: 80px;
         border: 4px solid rgba(165, 220, 134, 0.2);
@@ -331,8 +331,8 @@ body.stop-scrolling {
         position: absolute;
         left: -4px;
         top: -4px;
-        z-index: 2; }
-      .sweet-alert .sa-icon.sa-success .sa-fix {
+        z-index: 2; } */
+     /*  .sweet-alert .sa-icon.sa-success .sa-fix {
         width: 5px;
         height: 90px;
         background-color: white;
@@ -366,7 +366,7 @@ body.stop-scrolling {
       border-radius: 0;
       border: none;
       background-position: center center;
-      background-repeat: no-repeat; }
+      background-repeat: no-repeat; } */
 
 /*
  * Animations

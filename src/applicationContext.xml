@@ -25,18 +25,15 @@
 	</bean>
 	
 	<!-- dao bean -->
-	<bean id="userdao" class="com.onetoone.ssh.dao.UserDao" scope="prototype">	
-	</bean>
-	<bean id="posttiedao" class="com.onetoone.ssh.dao.PostTieDao" scope="prototype">	
-	</bean>
+	<bean id="userdao" class="com.onetoone.ssh.dao.UserDao" scope="prototype"></bean>
+	<bean id="posttiedao" class="com.onetoone.ssh.dao.PostTieDao" scope="prototype"></bean>
 	<bean id="agreeDao" class="com.onetoone.ssh.dao.AgreeDao" scope="prototype"></bean>
 	<bean id="commentDao" class="com.onetoone.ssh.dao.CommentDao" scope="prototype"></bean>
-	<bean id="filmDao" class="com.onetoone.ssh.dao.FilmDao" scope="prototype">
-		
-	</bean>
+	<bean id="filmDao" class="com.onetoone.ssh.dao.FilmDao" scope="prototype"></bean>
 	<bean id="replyDao" class="com.onetoone.ssh.dao.ReplyDao" scope="prototype"></bean>
 	<bean id="scoreDao" class="com.onetoone.ssh.dao.ScoreDao" scope="prototype"></bean>
 	<bean id="tieDao" class="com.onetoone.ssh.dao.TieDao" scope="prototype"></bean>
+	<bean id="adminDao" class="com.onetoone.ssh.dao.AdminDao" scope="prototype"></bean>
 		
 	<!-- manager bean -->
     <bean id="agreemanager" class="com.onetoone.ssh.serviceImpl.AgreeManagerImpl" scope="prototype"> 
@@ -79,14 +76,12 @@
 			<ref bean="userdao"/>
 		</property> 
     </bean>
-    
-    <!-- Form Bean -->
-    <!-- <bean id="userForm" class="com.onetoone.ssh.form.UserForm" scope="prototype">
-		<property name="username" value=""></property>
-		<property name="password" value=""></property>
-		<property name="confirm" value=""></property>
-	</bean> -->
-	
+    <bean id="adminmanager" class="com.onetoone.ssh.serviceImpl.AdminManagerImpl" scope="prototype"> 
+		<property name="adminDao">
+			<ref bean="adminDao"/>
+		</property> 
+    </bean>
+
     <!-- Action Bean -->
 	<bean id="myTestAction" class="com.onetoone.ssh.action.TestAction" scope="prototype">
 		<property name="usermanager">  
@@ -105,18 +100,13 @@
 		</property>
 	</bean>
 	<bean id="registerAction" class="com.onetoone.ssh.action.RegisterAction" scope="prototype">
-		<!-- <property name="userform">
-			<ref bean="userForm"/>
-		</property> -->
 		<property name="usermanager">
 			<ref bean="usermanager" />
 		</property>
 	</bean>
-	
 	<bean id="myselfAction" class="com.onetoone.ssh.action.MyselfAction" scope="prototype"></bean>
 	<!-- 影视列表 -->
-	<bean id="FilmListAction" class="com.onetoone.ssh.action.FilmListAction" scope="prototype">
-	</bean>
+	<bean id="FilmListAction" class="com.onetoone.ssh.action.FilmListAction" scope="prototype"></bean>
 	<!-- 影视详情 -->
 	<bean id="FilmDetailAction" class="com.onetoone.ssh.action.FilmDetailAction" scope="prototype"></bean>
 	<!-- 帖子详情 -->
@@ -135,8 +125,22 @@
 		<property name="usermanager">
 			<ref bean="usermanager" />
 		</property>
+		<property name="agreemanager">
+			<ref bean="agreemanager" />
+		</property>
 	</bean>
-	
+	<bean id="sendnoteAction" class="com.onetoone.ssh.action.SendNoteAction" scope="prototype">
+		<property name="ptiemanager">
+			<ref bean="posttiemanager" />
+		</property>
+	</bean>
+	<bean id="adminLoginAction" class="com.onetoone.ssh.action.AdminLoginAction" scope="prototype">
+		<property name="adminmanager">
+			<ref bean="adminmanager" />
+		</property>
+	</bean>
+	<bean id="imgAction" class="com.onetoone.ssh.action.ImgAction" scope="prototype">
+	</bean>
 
 	<!-- 管理页面 -->
 	<bean id="AdminLoginAction" class="com.onetoone.ssh.action.AdminLoginAction" scope="prototype"></bean>

@@ -35,4 +35,11 @@ public interface PostTieManager {
 	 */
 	public Integer deletePost(Integer id);
 	
+	public void savePostTie(PostTie ptie);
+	
+	public List<PostTie> getLikePostTie(String title);
+	
+	public PostTie getPTById(int id);
+	
+	public void uppost(PostTie p);
 }

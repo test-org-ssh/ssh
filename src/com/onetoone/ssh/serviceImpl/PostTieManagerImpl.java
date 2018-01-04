@@ -14,20 +14,44 @@ public class PostTieManagerImpl implements PostTieManager{
 	@Override
 	public List<PostTie> getAllPostTie() {
 		List<PostTie> list = null;
-		
+
 		list = posttiedao.getAllPostTie();
 		if (list == null){
 			list = new ArrayList<PostTie>();
 		}
 		return list;
 	}
-	
-	// getter & setter method
-	public PostTieDao getPosttiedao() {
-		return posttiedao;
+
+	@Override
+	public void savePostTie(PostTie ptie) {
+		// TODO Auto-generated method stub
+		posttiedao.insertPostTie(ptie);
 	}
-	public void setPosttiedao(PostTieDao posttiedao) {
-		this.posttiedao = posttiedao;
+	
+	@Override
+	public PostTie getPTById(int id) {
+		PostTie p = posttiedao.getPTById(0);
+		
+		if (p == null){
+			p = new PostTie();
+		}
+		
+		return p;
+	}
+	
+	@Override
+	public void uppost(PostTie p) {
+		posttiedao.uppost(p);
+		
+	}
+	
+	@Override
+	public List<PostTie> getLikePostTie(String title) {
+		List<PostTie> list = posttiedao.getLikePostTie(title);
+		if (list == null){
+			list = new ArrayList<>();
+		}
+		return list;
 	}
 
 	/**
@@ -36,7 +60,7 @@ public class PostTieManagerImpl implements PostTieManager{
 	@Override
 	public PageBean<PostTie> getPostByPage(Integer currPage, Integer pageSize) {
 		PageBean<PostTie> pageBean = new PageBean<PostTie>();
-		
+
 		//封装PageBean里的数据
 		pageBean.setCurrPage(currPage);
 		pageBean.setPageSize(pageSize);
@@ -45,12 +69,12 @@ public class PostTieManagerImpl implements PostTieManager{
 		double tc = totalCount;
 		Double num = Math.ceil(tc / pageSize);
 		pageBean.setTotalPage(num.intValue());
-		
+
 		//封装每页线束的数据
 		int begin = (currPage - 1) * pageSize;
 		List<PostTie> list = posttiedao.findByPage(begin,pageSize);
 		pageBean.setList(list);
-		
+
 		return pageBean;
 	}
 
@@ -61,7 +85,7 @@ public class PostTieManagerImpl implements PostTieManager{
 	public List<PostTie> getPostById(Integer id) {
 		// TODO Auto-generated method stub
 		List<PostTie> list =posttiedao.findById(id);
-		
+
 		return list;
 	}
 
@@ -73,5 +97,13 @@ public class PostTieManagerImpl implements PostTieManager{
 		// TODO Auto-generated method stub
 		return posttiedao.deletePostTieById(id);
 	}
-	
+
+	// getter & setter method
+	public PostTieDao getPosttiedao() {
+		return posttiedao;
+	}
+	public void setPosttiedao(PostTieDao posttiedao) {
+		this.posttiedao = posttiedao;
+	}
+
 }
