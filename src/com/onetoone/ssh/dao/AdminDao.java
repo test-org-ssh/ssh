@@ -23,6 +23,7 @@ public class AdminDao {
 	 * @return 查询得到的记录条数
 	 */
 	public List<Admin> getAdminByName(String username){
+		System.out.println("没错");
 		Session session = factory.openSession();
     	Transaction tx = session.beginTransaction();
     	
@@ -33,7 +34,6 @@ public class AdminDao {
     		adminlist = new ArrayList<Admin>();
     	}
     	
-    	tx.commit();
         session.close();
     	
     	return adminlist;
@@ -43,10 +43,10 @@ public class AdminDao {
 	 * 获取所有用户
 	 * @return
 	 */
-	public List<AdminDao> getAllAdmin(){
+	public List<Admin> getAllAdmin(){
 		Session session = factory.openSession();
     	Transaction tx = session.beginTransaction();
-		List<AdminDao> list=null;
+		List<Admin> list=null;
 		
 		session = factory.openSession();
 		tx = session.beginTransaction();
@@ -54,7 +54,7 @@ public class AdminDao {
 		Query query = session.createQuery("from Admin");
 		list = query.list();
 		if (list == null){
-			list = new ArrayList<AdminDao>();
+			list = new ArrayList<Admin>();
 		}
 		
 		tx.commit();

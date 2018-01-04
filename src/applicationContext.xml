@@ -143,7 +143,11 @@
 	</bean>
 
 	<!-- 管理页面 -->
-	<bean id="AdminLoginAction" class="com.onetoone.ssh.action.AdminLoginAction" scope="prototype"></bean>
+	<bean id="AdminLoginAction" class="com.onetoone.ssh.action.AdminLoginAction" scope="prototype">
+<!-- 		<property name="adminmanager">
+			<ref bean="adminmanager" />
+		</property> -->
+	</bean>
 	<!-- 管理端的Action配置 -->
 	<bean id="AdminUploadAction" class="com.onetoone.ssh.action.AdminUploadAction" scope="prototype"></bean>
 	<bean id="AdminUserAction" class="com.onetoone.ssh.action.AdminUserAction" scope="prototype">
