@@ -13,11 +13,11 @@
         <property name="picPath" column="pic_path" type="java.lang.String"/>
         <property name="description" column="description" type="java.lang.String" length="10050"/>  
         <property name="score" column="score" type="java.lang.Float" scale="1"/>
-     
-        <set name="scoreSet"  inverse="true" table="score"  lazy="false">
+     <!--  
+        <set name="scoreSet"  inverse="true" table="score">
             <key column="film_id"></key>
             <one-to-many class="Score" not-found="ignore" />
-        </set>
+        </set>-->
   
     </class>  
 </hibernate-mapping>

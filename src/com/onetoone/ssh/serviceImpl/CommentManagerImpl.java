@@ -6,6 +6,7 @@ import java.util.List;
 import com.onetoone.ssh.dao.CommentDao;
 import com.onetoone.ssh.entity.Comment;
 import com.onetoone.ssh.entity.PageBean;
+import com.onetoone.ssh.entity.PostTie;
 import com.onetoone.ssh.entity.User;
 import com.onetoone.ssh.service.CommentManager;
 import com.onetoone.ssh.util.MD5Util;
@@ -84,4 +85,9 @@ public class CommentManagerImpl implements CommentManager {
 		return commentDao.deleteCommentById(id);
 	}
 
+	@Override
+	public int InsertNewComment(User user, PostTie postTie, String commentcontent) {
+		return commentDao.InsertNewComment(user,postTie,commentcontent);
+		
+	}
 }

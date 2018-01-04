@@ -17,7 +17,7 @@
 			<!-- 重新封装一个默认的拦截器栈 -->
 			<interceptor-stack name="myDefaultStack">
 				<interceptor-ref name="loginInterceptor">
-					<param name="excludeMethods">testadminlogin,login,index,register,getregister,getloginexecute,postloginexecute</param>
+					<param name="excludeMethods">testadminlogin,login,index,register,getregister,getloginexecute,postloginexecute,filmlist,getAllFilm,getNoteDetailexecute</param>
 				</interceptor-ref>
 				<interceptor-ref name="defaultStack" />
 			</interceptor-stack>
@@ -36,7 +36,7 @@
 		</action>
 		<action name="*LoginAction" class="loginAction" method="{1}loginexecute">
 			<result name="success">/WEB-INF/web/login.jsp</result>
-			<result name="loginsuccess">/WEB-INF/web/home.jsp</result>
+			<result name="loginsuccess" type="redirect">Index</result>
 			<result name="error">/WEB-INF/web/login.jsp</result>
 		</action>
 		
@@ -55,15 +55,7 @@
 			<result name="success">/WEB-INF/web/communication.jsp</result>
 		</action>
 
-		<action name="FilmListAction" class="FilmListAction" method="execute">
-			<result name="success">/WEB-INF/web/film_list.jsp</result>
-
-		</action>
-		<action name="FilmDetailAction" class="FilmDetailAction"
-			method="execute">
-			<result name="success">/WEB-INF/web/film_detail.jsp</result>
-
-		</action>
+		
 		<action name="getNoteDetail*" class="NoteDetailAction" method="getNoteDetailexecute">
 			<result name="success">/WEB-INF/web/noteDetail.jsp</result>
 
@@ -77,6 +69,20 @@
 		<action name="LikePostTieAction" class="communicationAction" method="getlikept">
 			<result name="success">/WEB-INF/web/communication.jsp</result>
 		</action>
+		<!-- <<<<<<<<<<tannanlin -->
+		<action name="FilmList" class="FilmListAction" method="filmlist">
+			<result name="success">/WEB-INF/web/film_list.jsp</result>
+			
+		</action>
+		<!-- 第一次打开影视详情页面 初始化 -->
+		<action name="gotoFilmDetail*" class="FilmDetailAction" method="isGaveScore">
+			<result name="success">/WEB-INF/web/film_detail.jsp</result>
+		</action>
+		
+		<action name="NoteDetail*" class="NoteDetailAction" method="getNoteDetailexecute">
+			<result name="success">/WEB-INF/web/noteDetail.jsp</result>
+		</action>
+		<!-- tannanlin>>>>>>>>>> -->
 	</package>
 	<package name="default" extends="struts-default,json-default" namespace="/">
 		<!-- 下面是我们要声明配置的action -->
@@ -134,6 +140,45 @@
 					<param name="root">returndata</param>
 			</result>
 		</action>
+		<!-- <<<<<<<<<<tannanlin -->
+        <!-- 处理提交的新评论 -->
+        <action name="commitNewComment" class="NoteDetailAction" method="commitNewComment">
+            <result name="success" type="json">
+                <param name="root">returndata</param>
+            </result>
+        </action>
+        <!-- 处理提交的新回复 -->
+        <action name="commitReply" class="NoteDetailAction" method="commitReply">
+            <result name="success" type="json">
+                <param name="root">returndata</param>
+            </result>
+        </action>
+        <!-- 处理提交的赞结果 -->
+        <action name="commitAgree" class="NoteDetailAction" method="commitAgree">
+            <result name="success" type="json">
+                <param name="root">returndata</param>
+            </result>
+        </action>
+        <!-- 更新赞的数目 -->
+        <action name="updateAgreeNum" class="NoteDetailAction" method="updateAgreeNum">
+            <result name="success" type="json">
+                <param name="root">returndata</param>
+            </result>
+        </action>
+        <!-- 获取所有的影视信息数据 -->
+        <action name="getAllFilm" class="FilmListAction" method="getAllFilm">
+            <result name="success" type="json">
+                <param name="root">returndata</param>
+            </result>
+        </action>
+        <!-- 评分 -->
+        <action name="giveScore" class="FilmDetailAction" method="giveScore">
+			<result name="success" type="json">
+                <param name="root">returndata</param>
+            </result>
+		</action>
+       
+      <!-- tannanlin>>>>>>>>>> -->
 	</package>
 	
 	<!-- 管理员端 -->

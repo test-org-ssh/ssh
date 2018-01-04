@@ -106,9 +106,20 @@
 	</bean>
 	<bean id="myselfAction" class="com.onetoone.ssh.action.MyselfAction" scope="prototype"></bean>
 	<!-- 影视列表 -->
-	<bean id="FilmListAction" class="com.onetoone.ssh.action.FilmListAction" scope="prototype"></bean>
+	<bean id="FilmListAction" class="com.onetoone.ssh.action.FilmListAction" scope="prototype">
+		<property name="filmmanager">
+			<ref bean="filmmanager" />
+		</property>
+	</bean>
 	<!-- 影视详情 -->
-	<bean id="FilmDetailAction" class="com.onetoone.ssh.action.FilmDetailAction" scope="prototype"></bean>
+	<bean id="FilmDetailAction" class="com.onetoone.ssh.action.FilmDetailAction" scope="prototype">
+		<property name="filmmanager">
+			<ref bean="filmmanager" />
+		</property>
+		<property name="scoremanager">
+		<ref bean="scoremanager" />
+		</property>
+	</bean>
 	<!-- 帖子详情 -->
 	<bean id="NoteDetailAction" class="com.onetoone.ssh.action.NoteDetailAction" scope="prototype">
 		<property name="commentmanager">
@@ -116,6 +127,12 @@
 		</property>
 		<property name="replymanager">
 			<ref bean="replymanager" />
+		</property>
+		<property name="tiemanager">
+			<ref bean="tiemanager" />
+		</property>
+		<property name="agreemanager">
+			<ref bean="agreemanager" />
 		</property>
 	</bean>
 	<bean id="communicationAction" class="com.onetoone.ssh.action.CommunicationAction" scope="prototype">

@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.onetoone.ssh.dao.ReplyDao;
-
+import com.onetoone.ssh.entity.Comment;
+import com.onetoone.ssh.entity.PostTie;
 import com.onetoone.ssh.entity.Reply;
+import com.onetoone.ssh.entity.User;
 import com.onetoone.ssh.service.ReplyManager;
 
 public class ReplyManagerImpl implements ReplyManager {
@@ -22,6 +24,7 @@ public class ReplyManagerImpl implements ReplyManager {
 	public void setReplyDao(ReplyDao replyDao) {
 		this.replyDao = replyDao;
 	}
+
 	@Override
 	public List<Reply> getALLReply(int id) {
 		List<Reply> replylist;
@@ -37,5 +40,12 @@ public class ReplyManagerImpl implements ReplyManager {
 		return replylist;
 	}
 	
+	
+	@Override
+	public int InsertNewReply(User replyFromUser, User replyToUser, PostTie replyToTie, Comment replyToCom,String replycontent) {
+		System.out.println("进入回复接口");
+		return replyDao.insertNewReply(replyFromUser,replyToUser,replyToTie,replyToCom,replycontent);
+	
+	}
 
 }

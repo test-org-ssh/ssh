@@ -37,6 +37,7 @@ public class TestAction extends ActionSupport{
 		ActionContext ac = ActionContext.getContext();
 		//将filmDaoList集合添加到session里
 		ac.getSession().put("filmDaoList", filmDaoList);
+		ac.getSession().put("filmlist", filmDaoList); //tannanlin  影视列表页面需要
 		ac.put("filmDaoList", filmDaoList);
 		
 		

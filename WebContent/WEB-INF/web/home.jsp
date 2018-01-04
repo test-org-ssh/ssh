@@ -64,7 +64,7 @@
             <div class="nav_wrap" id="nav_wrap">
                 <div class="wrap_layer">
                     <div class="wrap_tab"><a class="tab active" href="${pageContext.request.contextPath }/Index">Home</a></div>
-                    <div class="wrap_tab"><a class="tab" href="film_list.jsp">影视</a></div>
+                    <div class="wrap_tab"><a class="tab" href="${pageContext.request.contextPath }/FilmList" target="_blank">影视</a></div>
                     <div class="wrap_tab"><a class="tab" href="${pageContext.request.contextPath }/getCommunicationAction">论坛</a></div>
                     <div class="wrap_tab last_wrap_tab"><a class="tab" href="${pageContext.request.contextPath }/getMyselfAction">个人中心</a></div>
                 </div>
@@ -84,10 +84,10 @@
                 	<s:iterator value="#filmDaoList" status="bcs" begin="0" end="5">
                			<div class="film-box">
                 			<div class="film-box-img">
-                				<a href="film_detail.jsp" target="_blank"> <img src="${pageContext.request.contextPath }<s:property value="picPath"></s:property>"></a>
+                				<a href="${pageContext.request.contextPath }/gotoFilmDetail?filmindex=${bcs.index}" target="_blank"> <img src="${pageContext.request.contextPath }<s:property value="picPath"></s:property>"></a>
                 			</div>
                 			<div class="film-box-word">
-                            	<a href="film_detailjsp" target="_blank"><span class="film-box-word-name"><s:property value="name"></s:property></span></a>
+                            	<a href="${pageContext.request.contextPath }/gotoFilmDetail?filmindex=${bcs.index}" target="_blank"><span class="film-box-word-name"><s:property value="name"></s:property></span></a>
                             	<span class="film-box-word-grade">评分：<s:property value="score"></s:property></span>
                         	</div>
                 		</div>
@@ -101,15 +101,17 @@
                 </div>
                 <div class="forum-wrap">
                 	<s:iterator value="#postTieList" status="bcs" begin="0" end="3">
+                		
                 		<div class="forum-box forum-left">
-	                        <a href="noteDetail.jsp" target="_blank"><span class="forum-box-title"><s:property value="title"></s:property></span></a>
-	                        <a href="noteDetail.jsp" target="_blank"><div class="forum-box-content"><s:property value="content"></s:property> </div></a>
+	                        <a href="${pageContext.request.contextPath }/NoteDetail?tieid=<s:property value="id"></s:property>&tieindex=${bcs.index}" target="_blank"><span class="forum-box-title"><s:property value="title"></s:property></span></a>
+	                        <a href="${pageContext.request.contextPath }/NoteDetail?tieid=<s:property value="id"></s:property>&tieindex=${bcs.index}" target="_blank"><div class="forum-box-content"><s:property value="content"></s:property> </div></a>
+	                        
 	                        <div class="forum-funs icon-left">
 	                            <span class="forum-icon"><img src="${pageContext.request.contextPath }/static/img/icon/jushoucang.png" style="width:20px;height:20px;"></span>
 	                            <span class="forum-count">(<s:property value="agreeNum"></s:property>)</span>
 	                        </div>
 	                        <div class="forum-comment icon-left">
-	                            <span class="forum-icon"><img src="${pageContext.request.contextPath }/static/img/icon/xxcenter.png" style="width:20px;height:20px;"></span>
+	                            <span class="forum-icon"><a href="${pageContext.request.contextPath }/NoteDetail?tieid=<s:property value="id"></s:property>&tieindex=${bcs.index}"><img src="${pageContext.request.contextPath }/static/img/icon/xxcenter.png" style="width:20px;height:20px;"></a></span>
 	                            <span class="forum-count">(<s:property value="commentNum"></s:property>)</span>
 	                        </div>
 	                    </div>

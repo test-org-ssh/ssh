@@ -38,7 +38,16 @@ public class FilmManagerImpl implements FilmManager {
 		// TODO Auto-generated method stub
 
 	}
-	
+	@Override
+	public List<FilmIntroduction> getAllFilms() {
+		// TODO Auto-generated method stub
+		return filmDao.getAllFilms();
+	}
+	@Override
+	public int updateScore(FilmIntroduction curfilm) {
+		// TODO Auto-generated method stub
+		return filmDao.updateScore(curfilm);
+	}
 	
 
 	// π‹¿Ì∂À
@@ -83,4 +92,6 @@ public class FilmManagerImpl implements FilmManager {
 	public int addFilm(String name, String path, String desc) {
 	    return filmDao.addFilm(name, path, desc);
 	}
+
+	
 }

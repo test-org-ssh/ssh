@@ -54,4 +54,29 @@ public interface FilmManager {
 	 * @return
 	 */
 	public int updateFilmById(Integer id,String name, String path, String desc);
+	/**
+	 * 
+	 *方法功能说明：  得到所有的影视列表信息
+	 * 创建：2017年12月31日 by Judy   
+	 * 修改：日期 by 修改者  
+	 * 修改内容：  
+	 * @parms参数： @return      
+	 * @return List<FilmIntroduction>     
+	 * @throws
+	 */
+	public List<FilmIntroduction> getAllFilms();
+	/**
+	 * 
+	 *方法功能说明：  修改影视评分
+	 * 创建：2018年1月3日 by Judy   
+	 * 修改：日期 by 修改者  
+	 * 修改内容：  
+	 * @parms参数： @param curfilm
+	 * @parms参数： @return      
+	 * @return int     
+	 * @throws
+	 */
+	public int updateScore(FilmIntroduction curfilm);
+
+
 }

@@ -96,6 +96,8 @@ public class CommunicationAction extends ActionSupport{
 				if (posttielist.get(j).getId() == postid){
 					pp = posttielist.get(j);
 					pp.setAgreeNum(pp.getAgreeNum()-1);
+					posttielist.set(j, pp);
+					System.out.println("ppnum"+pp.getAgreeNum());
 				}
 			}
 			manager.uppost(pp);
@@ -108,13 +110,18 @@ public class CommunicationAction extends ActionSupport{
 				if (posttielist.get(j).getId() == postid){
 					pp = posttielist.get(j);
 					pp.setAgreeNum(pp.getAgreeNum()+1);
+					System.out.println("ppnum"+pp.getAgreeNum());
+					posttielist.set(j, pp);
 				}
 			}
 			manager.uppost(pp);
-			pp.setId(postid);
 			agreemanager.insertNewAgreeByTieAndUser(pp, myself);
 			returndata.put("status",1); 
 		}
+		ac = ActionContext.getContext();
+		ac.getSession().put("posttiemap", posttielist);
+		ac.getSession().put("postTieList", posttielist);
+	
 		returndata.put("status",0); 
 		returndata.put("success", true);
 		return SUCCESS;

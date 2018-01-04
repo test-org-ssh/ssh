@@ -18,34 +18,6 @@ public class AgreeDao {
 	ClassPathXmlApplicationContext ac=(ClassPathXmlApplicationContext) ApplicationContextUtil.getApplicationContext();
 	SessionFactory factory = (SessionFactory) ac.getBean("sessionFactory");
 
-	/**
-	 * 
-	 *方法功能说明： 通过帖子id和用户id获取当前用户的点赞对象 
-	 * 创建：2017年12月29日 by Judy   
-	 * 修改：日期 by 修改者  
-	 * 修改内容：  
-	 * @parms参数： @param tieid
-	 * @parms参数： @param userid
-	 * @parms参数： @return      
-	 * @return Agree     
-	 * @throws
-	 */
-	public Agree getAgreeByTieIdAndUserId(int tieid, int userid) {
-		Session session = factory.openSession();
-		Transaction tx = session.beginTransaction();
-		Query query = session.createQuery("FROM Agree a LEFT OUTER JOIN FETCH a.postTie LEFT OUTER JOIN FETCH a.user where a.postTie.id=? and a.user.id=?");//
-		query.setParameter(0, tieid);
-		query.setParameter(1, userid);
-		List<Agree> agreelist = query.list();
-		if (agreelist == null){
-			agreelist = new ArrayList<Agree>();
-		}
-		tx.commit();
-		session.close();
-
-		return agreelist.size()==0?null:agreelist.get(0);
-	}
-
 	public List<Agree> getAllAgree(int userid){
 		Session session = factory.openSession();
 		Transaction tx = session.beginTransaction();
@@ -67,6 +39,38 @@ public class AgreeDao {
 		return agreelist;
 	}
 
+	
+
+	/**
+	 * 
+	 *方法功能说明： 通过帖子id和用户id获取当前用户的点赞对象 
+	 * 创建：2017年12月29日 by Judy   
+	 * 修改：日期 by 修改者  
+	 * 修改内容：  
+	 * @parms参数： @param tieid
+	 * @parms参数： @param userid
+	 * @parms参数： @return      
+	 * @return Agree     
+	 * @throws
+	 */
+	public Agree getAgreeByTieIdAndUserId(int tieid, int userid) {
+		Session session = factory.openSession();
+    	Transaction tx = session.beginTransaction();
+    	System.out.println("开始通过链接查数据");
+    	Query query = session.createQuery("FROM Agree a LEFT OUTER JOIN FETCH a.postTie LEFT OUTER JOIN FETCH a.user where a.postTie.id=? and a.user.id=?");//
+    	query.setParameter(0, tieid);
+    	query.setParameter(1, userid);
+    	List<Agree> agreelist = query.list();
+    	if (agreelist == null){
+    		System.out.println("进来了list为null");
+    		agreelist = new ArrayList<Agree>();
+    	}
+    	tx.commit();
+        session.close();
+    	
+    	return agreelist.size()==0?null:agreelist.get(0);
+	}
+
 	/**
 	 * 
 	 *方法功能说明：  插入新赞
@@ -81,15 +85,15 @@ public class AgreeDao {
 	 */
 	public int insertNewAgreeByTieAndUser(PostTie postTie, User myself) {
 		Session session = factory.openSession();
-		Transaction tx = session.beginTransaction();
-		Agree agree = new Agree();
-		agree.setPostTie(postTie);
-		agree.setUser(myself);
-		session.save(agree);
-		tx.commit();
-		session.close(); 
+    	Transaction tx = session.beginTransaction();
+    	Agree agree = new Agree();
+    	agree.setPostTie(postTie);
+    	agree.setUser(myself);
+        session.save(agree);
+        tx.commit();
+        session.close(); 
 		return agree.getId();
-
+		
 	}
 
 	/**
@@ -104,17 +108,17 @@ public class AgreeDao {
 	 * @return int     
 	 * @throws
 	 */
-
+	
 	public int deleteAgreeById(int toAgreeid) {
 		Session session = factory.openSession();
-		Transaction tx = session.beginTransaction();
-		String hql="delete Agree as a where a.id=?";
-		Query query=session.createQuery(hql);
-		query.setParameter(0,toAgreeid);
-		query.executeUpdate();
-
-		tx.commit();
-		session.close();
+    	Transaction tx = session.beginTransaction();
+    	String hql="delete Agree as a where a.id=?";
+    	Query query=session.createQuery(hql);
+    	query.setParameter(0,toAgreeid);
+    	query.executeUpdate();
+    	
+        tx.commit();
+        session.close();
 		return 0;
 	}
 
