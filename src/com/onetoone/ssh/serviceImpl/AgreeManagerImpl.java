@@ -41,16 +41,25 @@ public class AgreeManagerImpl implements AgreeManager {
 
 
 	@Override
-	public int deleteAgreeById(int toAgreeid) {
-		int res = agreeDao.deleteAgreeById(toAgreeid);
-		return res;
+	public Agree getAgreeByTieIdAndUserId(int tieid, int userid) {
+		
+		return agreeDao.getAgreeByTieIdAndUserId(tieid, userid);
 	}
 
 
 	@Override
 	public int insertNewAgreeByTieAndUser(PostTie postTie, User myself) {
-		int res = agreeDao.insertNewAgreeByTieAndUser(postTie, myself);
-		return res;
+	
+		return agreeDao.insertNewAgreeByTieAndUser(postTie, myself);
 	}
+
+
+
+	@Override
+	public int deleteAgreeById(int toAgreeid) {
+		// TODO Auto-generated method stub
+		return agreeDao.deleteAgreeById(toAgreeid);
+	}
+
 
 }

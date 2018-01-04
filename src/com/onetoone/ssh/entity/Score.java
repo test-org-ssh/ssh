@@ -6,6 +6,7 @@ public class Score implements Serializable{
 	private int id;//评分id
 	/*private int filmId;//影视id*/
 	private float score;//影视评分
+	private User giver; //实现多对一    2017-12-31添加的字段 为了让用户不能重复给一个影视打分
 	
 	private FilmIntroduction fi;//实现多对一
 	public FilmIntroduction getFi() {
@@ -31,6 +32,12 @@ public class Score implements Serializable{
 	}
 	public void setScore(float score) {
 		this.score = score;
+	}
+	public User getGiver() {
+		return giver;
+	}
+	public void setGiver(User giver) {
+		this.giver = giver;
 	}
 	
 }

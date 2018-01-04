@@ -4,13 +4,11 @@
                             "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >  
   
 <hibernate-mapping package="com.onetoone.ssh.entity">  
-    <class name="Score" table="score">  
-        <id name="id" column="id">  
+    <class name="Fans" table="fans">  
+        <id name="ID" column="ID">  
             <generator class="native"></generator>  
         </id>  
-        <property name="score" column="score" type="java.lang.Float"  
-            not-null="true" scale="1"></property>  
-        <many-to-one name="fi" class="FilmIntroduction" column="film_id" not-found="ignore" lazy="false"/>
-         <many-to-one name="giver" class="User" column="giver_id" not-found="ignore" lazy="false"/>
+         <many-to-one name="followed" class="User" column="followedID" lazy="false" />
+        <many-to-one name="follow" class="User" column="followID" lazy="false"/>
     </class>  
 </hibernate-mapping>

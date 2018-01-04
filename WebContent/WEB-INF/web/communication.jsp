@@ -172,7 +172,7 @@
 									<div class="next_icon">
 										<i class="iconfont icon-zhankai1" style="font-size: 35x;"></i>
 									</div>
-									<div class="next_txt">详情</div>
+									<div class="next_txt"><a href="<%=path %>/NoteDetail?tieid=<%=posttiemap.get(i).getId()%>&tieindex=<%=i%>" target="">详情</a></div>
 								</div>
 								<div class="lib_box">
 									<span class="iconfont icon-biaoqian1" style="font-size: 20px;"></span>#安利君#
@@ -206,8 +206,9 @@
 										<%
 									} %>
 								<div class="icon_box">
+								<a href="<%=path %>/NoteDetail?tieid=<%=posttiemap.get(i).getId()%>&tieindex=<%=i%>" target="_blank">
 									<i class="iconfont icon-xiaoxi1"
-										style="font-size: 20px; cursor: pointer;"></i>(<%=posttiemap.get(i).getCommentNum()%>)
+										style="font-size: 20px; cursor: pointer;"></i></a>(<%=posttiemap.get(i).getCommentNum()%>)
 								</div>
 							</div>
 
@@ -283,13 +284,13 @@
 			}
 		}
 		function like(num) {
-			alert(num);
+		/* 	alert(num); */
 			var op = 0; 
 			var kk = $('#kk').val();
 			var ptmapid = num;
 			// 操作，取消赞还是点赞
-			alert(num);
-			alert(kk);
+		/* 	alert(num);
+			alert(kk); */
 			//num为帖子id
 			var str1 = "likeNum" + num;
 			var str2 = "userID" + num;

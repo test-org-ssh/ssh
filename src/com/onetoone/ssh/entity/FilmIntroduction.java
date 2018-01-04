@@ -15,7 +15,7 @@ public class FilmIntroduction implements Serializable{
 	private String description;//对影视的描述
 	private float score;//对影视的评分 求评分表中的平均分
 	
-	private Set<Score> scoreSet = new HashSet<>(); //实现一对多
+	//private Set<Score> scoreSet = new HashSet<>(); //实现一对多
 	public int getId() {
 		return id;
 	}
@@ -23,12 +23,12 @@ public class FilmIntroduction implements Serializable{
 		this.id = id;
 	}
 	
-	public Set<Score> getScoreSet() {
+/*	public Set<Score> getScoreSet() {
 		return scoreSet;
 	}
 	public void setScoreSet(Set<Score> scoreSet) {
 		this.scoreSet = scoreSet;
-	}
+	}*/
 	public String getName() {
 		return name;
 	}

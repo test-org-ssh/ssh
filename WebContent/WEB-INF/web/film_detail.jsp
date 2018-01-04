@@ -1,3 +1,7 @@
+<%@page import="com.onetoone.ssh.entity.FilmIntroduction"%>
+<%@page import="com.onetoone.ssh.entity.Score"%>
+<%@page import="com.onetoone.ssh.entity.User"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -6,7 +10,25 @@
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <%
 	String path = request.getContextPath();
+	int filmindex = (Integer)request.getAttribute("filmindex"); //在影视列表中的下标
+    ArrayList<FilmIntroduction> filmlist = (ArrayList<FilmIntroduction>)session.getAttribute("filmlist");
+	FilmIntroduction fi = filmlist.get(filmindex);//获得当前影视
+	
+	User myself = (User)session.getAttribute("myself");
+	
+	Score curScore = (Score)request.getAttribute("curScore"); //获取当前用户的评分对象
+	int isLogin = 1;//默认已经登录
+	if(myself == null ){
+		isLogin = 0;//0表示未登录
+	}
+	int isGave = 1;  //默认已经评分
+	if(curScore == null){  //还没评过分
+		curScore = new Score();
+		isGave = 0;//0表示未评分
+	}
+	
 %>
+
 <title>OneTOone影视详情页</title>
     <link rel="stylesheet" href="<%=path %>/static/css/film_detail.css">
     <link rel="stylesheet" href="<%=path %>/static/assets/bootstrap/css/bootstrap.min.css">
@@ -14,13 +36,16 @@
     <link rel="stylesheet" href="<%=path %>/static/assets/starability-minified/starability-all.min.css">
     <link href="<%=path %>/static/css/communication.css" rel="stylesheet" style="text/css"/>
     <link href="<%=path %>/static/assets/font/download12/font_503801_6ri7xb94hdr3haor/iconfont.css" rel="stylesheet" style="text/css"/>
+    <link rel="stylesheet" href="<%=path %>/static/assets/layui/css/layui.css">
 </head>
 
 <body>
+<!-- 添加评分对象时 -->
+<input type="hidden" value="<%=filmindex %>" id="filmindex" name="filmindex"/> 
 <div id="nav_box">
     <div class="nav_box">
         <div class="logo_box">
-            <img src="<%=path %>/static/img\logo.png">
+            <img src="<%=path %>/static/img/logo.png">
         </div>
         <div class="titile_box">
             <div class="title">
@@ -33,42 +58,33 @@
             </div>
             <div class="title2">
                 <ul>
-                    <a href="home.html"><li>&nbsp;首页</li></a>
-                    <a href="film_list.html" style="color:#ccc;"><li>&nbsp;影视</li></a>
+                    <a href="<%=path %>/Index" target="_blank"><li>&nbsp;首页</li></a>
+                    <li><a href="<%=path %>/FilmList" target="_blank" style="color:#ccc;">&nbsp;影视</a></li>
                     <a href="communication.html"><li>论坛</li></a>
                     <li><a href="myself.html">个人中心</a></li>
                 </ul>
             </div>
 
         </div>
-        <div class="searchbox">
-            <div class="search_boxfor_Three">
-                <div class="three_right"><span class="iconfont icon-search" style="font-size:28px;"></span></div>
-                <div class="three_input"><input type="text" value="搜索" class="serach_input" /></div>
-            </div>
-            <div class="zc_search_box"><a href="register.html"><span class="iconfont icon-zhuce-" style="font-size:20px;"></span> 注册</div></a>
-        </div>
+       
     </div><!--classnav_box-->
-    <div class="login_search_box"><a href="login.html"><span class="iconfont icon-denglu-copy" style="font-size:24px"></span>登录</div> </a><!--login-->
-</div><!--idnav_box-->
-<div class="nav_b"> </div>
+   <div class="login_search_box"><a href="login.html"><span class="iconfont icon-denglu-copy" style="font-size:24px"></span>登录</div> </a><!--login-->
+	</div><!--idnav_box-->
+      <div class="nav_b"> </div>
 <!--body-->
 
     <div class="film-de-ban">
-        <img src="<%=path %>/static/img/film_de_ban.png">
+        <img src="<%=path %>/static/img/film_de_ban.png"> <!--  -->
     </div>
     <div class="film-de-contenter">
         <div class="film-de-title">
-            奇门遁甲简介
+          <%=filmlist.get(filmindex).getName() %>简介
         </div>
         <div class="film-de-word">
-            <p>奇门遁甲号称帝王之学，为古代不传秘术之一，与太乙神数，大六壬统称为古三式。其本质是一门高等的天文物理学，揭示了太阳系八大行星和地球磁场的作用情况。奇门有天地人三盘。天盘在古为钦天监可用，主测天灾人祸，地盘为行军布阵，在于现代多用于环境调理，非将相之才不传。而人盘则为人世间的吉凶祸福。</p>
-            <p>南斗僧，北斗将，南斗星云，北斗祸福。在古，认为北斗掌管世间万物的吉凶祸福。所以奇门遁甲采用北斗九皇（即大熊星座）。</p>
-            <p>奇门遁甲中将一切事物的成败归纳为五大因素，即天时、地利、人和、神助，格局组合。它包含有天文学、历法学、战争学、谋略学、哲学等。是古人长期观察天体对地球自转公转的影响，运用阴阳的理论，将这种规律通过奇门遁甲来演示，模拟世间万物的吉凶祸福。</p>
-            <p>民间流传的俗语有“学会奇门遁，来人不用问。”当下奇门遁甲应用于婚恋、工作、事业、环境（风水）、财运的预测、调理、化解和运筹等诸多方面。</p>
+            <%=filmlist.get(filmindex).getDescription()  %>
         </div>
         <div class="film-de-total-score">
-            总评分：<span>4.5</span>
+            总评分：<span id="score"><%=filmlist.get(filmindex).getScore() %></span>
         </div>
         <div class="film-de-score">
             <div class="film-de-score-wrap">
@@ -98,18 +114,95 @@
                     </div>
                 </div>
                 <div class="score-word">
-                    请给该影视评分
+                <%if(isLogin != 1){%>
+                	请先登录
+                <%}else{ %>
+                		<% if(isGave == 0){ %>
+                			请评分
+                		<%}else{%>
+                			已评分
+						<% }
+					}%>
                 </div>
-
-            <button class="btn btn-save">提交</button>
+			
+            <button id="btnCommit" class="btn btn-save" <% if(isGave == 0 && isLogin == 1){%>
+            	onclick="giveScore();"
+           <%}else{ %> style="cursor:not-allowed;background-color:#c5c5c5;" <%} %> >
+          	  提交</button>
         </div>
     </div>
     <div class="footer-content">
         @2017 Power by 成都信息工程大学
     </div>
 </body>
+
     <script type="text/javascript" src="<%=path %>/static/assets/jquery/jquery-3.2.0.js"></script>
     <script type="text/javascript" src="<%=path %>/static/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="<%=path %>/static/assets/layui/layui.js"></script>
     <!--<script type="text/javascript" src="assets/score/score.js"></script>-->
-    <script src="<%=path %>/static/js/film_detail.js"></script>
+    <script type="text/javascript" src="<%=path %>/static/js/film_detail.js"></script>
+    <link rel="stylesheet" href="<%=path %>/static/assets/sweetalert/sweetalert.css" >
+    <script type="text/javascript" src="<%=path %>/static/assets/sweetalert/sweetalert.min.js"></script>
+	<script type="text/javascript">
+	/**
+	 * 处理影视详情页面的js请求
+	 */
+
+	    	/*
+	    	 * 用户评分  然后就停在本页面 一颗星也没有表示0分
+	    	 */
+	    	function giveScore(){
+	    		var rating = document.getElementsByName("rating");
+	    		var doGiving = 0;  //评分默认为0
+	    		var filmindex=$("#filmindex").val(); //评分的影视
+	    		for(var i=0;i<rating.length;i++){
+	    			if(rating[i].checked){ 
+	    				doGiving=rating[i].value;  //得到分
+	    				//alert(doGiving);
+	    				break; 
+	    			}
+	    		}
+	    		var mytest={
+	    				"doGiving":doGiving,
+	    				"filmindex":filmindex
+	    		}
+	    		
+	    		$.ajax({
+			        url:'giveScore',
+			        type:'post',
+			        data:mytest,
+			        dataType:"json",
+			        success:function(data){
+			            result = data.status;
+			            if (result == 1){
+			            	swal({
+								title:"评分成功",
+								//text:"写点什么吧！",
+								type:"info",
+						        //confirmButtonText: "Ok",
+						        confirmButtonColor: "#134723"
+							})
+
+			            	
+			            	//alert(data.updatescore);
+			            	$(".score-word").html("");
+			            	$(".score-word").html("已评分");
+			            	$("#score").html("");
+			            	$("#score").html(data.updatescore);
+			            	$("#btnCommit").removeAttr("onclick");
+			            	$("#btnCommit").attr("style","cursor:not-allowed;background-color:#c5c5c5;");
+			            }else{
+			            	swal({
+								title:"评分失败",
+								//text:"写点什么吧！",
+								type:"info",
+						        //confirmButtonText: "Ok",
+						        confirmButtonColor: "#134723"
+							})
+			            }
+			        }
+			    });
+	    		
+	    	}
+	</script>
 </html>

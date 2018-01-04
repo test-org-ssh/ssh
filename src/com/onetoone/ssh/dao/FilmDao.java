@@ -31,7 +31,7 @@ public class FilmDao {
 	// Transaction tx = session.beginTransaction();
 
 	// 后面当使用JPA的时候，EntityManager 类似于 Session
-	Query query = session.createQuery("from FilmIntroduction");
+	Query query = session.createQuery("from FilmIntroduction f order by f.score desc");
 
 	// 将所有的数据查询出来并放到List集合里
 	List<FilmIntroduction> list = query.getResultList();
@@ -179,4 +179,54 @@ public class FilmDao {
 	session.close();
 	return 1;
     }
+    
+    /**
+	 * 
+	 *方法功能说明： 获取所有的影视列表 
+	 * 创建：2017年12月31日 by Judy   
+	 * 修改：日期 by 修改者  
+	 * 修改内容：  
+	 * @parms参数： @return      
+	 * @return List<FilmIntroduction>     
+	 * @throws
+	 */
+	public List<FilmIntroduction> getAllFilms() {
+		Session session = factory.openSession();
+    	Transaction tx = session.beginTransaction();
+    	System.out.println("开始通过链接查数据");
+    	Query query = session.createQuery("FROM FilmIntroduction f order by f.score desc");//
+    	
+    	List<FilmIntroduction> filmlist = query.list();
+    	if (filmlist == null){
+    		System.out.println("进来了list为null");
+    		filmlist = new ArrayList<FilmIntroduction>();
+    	}
+    	tx.commit();
+        session.close();
+    	
+    	return filmlist;
+		
+	}
+	
+	/**
+	 * 
+	 *方法功能说明：  更新影视的评分
+	 * 创建：2018年1月1日 by Judy   
+	 * 修改：日期 by 修改者  
+	 * 修改内容：  
+	 * @parms参数： @param curfilm
+	 * @parms参数： @return      
+	 * @return int     
+	 * @throws
+	 */
+	public int updateScore(FilmIntroduction curfilm) {
+		Session session = factory.openSession();
+    	Transaction tx = session.beginTransaction();
+		session.saveOrUpdate(curfilm);
+		tx.commit();
+		session.close();
+		return 1;
+	}
+
+
 }

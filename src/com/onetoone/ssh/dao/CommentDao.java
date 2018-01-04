@@ -12,6 +12,7 @@ import org.hibernate.query.Query;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.onetoone.ssh.entity.Comment;
+import com.onetoone.ssh.entity.PostTie;
 import com.onetoone.ssh.entity.User;
 import com.onetoone.ssh.util.ApplicationContextUtil;
 
@@ -30,7 +31,6 @@ public class CommentDao {
 
 	ClassPathXmlApplicationContext ac=(ClassPathXmlApplicationContext) ApplicationContextUtil.getApplicationContext();
 	SessionFactory factory = (SessionFactory) ac.getBean("sessionFactory");
-	
 	/**
 	 * 
 	 *方法功能说明：通过帖子id获得其下所有的评论  
@@ -62,6 +62,33 @@ public class CommentDao {
 		
 	
 	}
+	/**
+	 * 
+	 *方法功能说明：  插入新评论
+	 * 创建：2017年12月29日 by Judy   
+	 * 修改：日期 by 修改者  
+	 * 修改内容：  
+	 * @parms参数： @param userid
+	 * @parms参数： @param tieid
+	 * @parms参数： @param commentcontent
+	 * @parms参数： @return      
+	 * @return int     
+	 * @throws
+	 */
+		public int InsertNewComment(User user, PostTie postTie, String commentcontent) {
+			Session session = factory.openSession();
+	    	Transaction tx = session.beginTransaction();
+	    	Comment c = new Comment();
+	    	c.setContent(commentcontent);
+	    	c.setPostTie(postTie);
+	    	c.setUser(user);
+	        session.save(c);
+	        tx.commit();
+	        session.close();
+			return 0;
+			
+		}
+
 	
 	
 	/**

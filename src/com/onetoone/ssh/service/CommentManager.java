@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.onetoone.ssh.entity.Comment;
 import com.onetoone.ssh.entity.PageBean;
+import com.onetoone.ssh.entity.PostTie;
 import com.onetoone.ssh.entity.User;
 
 public interface CommentManager {
@@ -18,6 +19,7 @@ public interface CommentManager {
 	 * @throws
 	 */
 	public void saveComment();
+	
 	/**
 	 * 
 	 *方法功能说明：获取id帖子下的所有评论  
@@ -29,6 +31,20 @@ public interface CommentManager {
 	 * @throws
 	 */
 	public List<Comment> getAllComment(int id);
+	/**
+	 * 
+	 *方法功能说明：  插入新评论
+	 * 创建：2017年12月29日 by Judy   
+	 * 修改：日期 by 修改者  
+	 * 修改内容：  
+	 * @parms参数： @param userid
+	 * @parms参数： @param tieid
+	 * @parms参数： @param commentcontent
+	 * @parms参数： @return      
+	 * @return int     
+	 * @throws
+	 */
+	public int InsertNewComment(User user, PostTie postTie, String commentcontent);
 	
 	/**
 	 * 根据分页获取评论
