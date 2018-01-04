@@ -36,7 +36,7 @@ app.controller('CommentMgmtCtrl', ['$scope', 'resource', 'myPaginationService', 
                 currPage: $scope.commentPageObject.currentPage,
                 pageSize: $scope.commentPageObject.pageSize
             };
-            resource.get('get_comment_by_page', $scope.loadPageData)
+            resource.get('./admin/get_comment_by_page', $scope.loadPageData)
                 .then(function (result) {
                     console.log(result);
                     $scope.commentPageObject.currentPageList = result.data.list;
@@ -74,7 +74,7 @@ app.controller('CommentMgmtCtrl', ['$scope', 'resource', 'myPaginationService', 
         $scope.detail = function (item) {
             $scope.comment = (item)?item:{};
             var modalInstance = $modal.open({
-                templateUrl: '../static/admin/tpl/modal/commentModal.html',
+                templateUrl: './static/admin/tpl/modal/commentModal.html',
                 controller: 'CommentModalCtrl',
                 backdrop: 'static',
                 size: 'lg',
@@ -96,7 +96,7 @@ app.controller('CommentMgmtCtrl', ['$scope', 'resource', 'myPaginationService', 
         $scope.remove = function (item) {
             $scope.comment = item;
             var modalInstance = $modal.open({
-                templateUrl: '../static/admin/tpl/modal/removeModal.html',
+                templateUrl: './static/admin/tpl/modal/removeModal.html',
                 controller: 'RemoveModalCtrl',
                 backdrop: 'static',
                 size: 's',
@@ -109,7 +109,7 @@ app.controller('CommentMgmtCtrl', ['$scope', 'resource', 'myPaginationService', 
             modalInstance.result.then(function (result) {
                 if(result){
                     // TODO 向服务器发送删除请求
-                	resource.get('delete_comment',{id:$scope.comment.id}).then(function (result) {
+                	resource.get('./admin/delete_comment',{id:$scope.comment.id}).then(function (result) {
                         console.log(result);
                         if (result.success == true) {
                             toaster.pop('success', '提示', result.msg);

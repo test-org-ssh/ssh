@@ -14,7 +14,7 @@
         <property name="description" column="description" type="java.lang.String" length="10050"/>  
         <property name="score" column="score" type="java.lang.Float" scale="1"/>
      
-        <set name="scoreSet"  inverse="true" table="score">
+        <set name="scoreSet"  inverse="true" table="score"  lazy="false">
             <key column="film_id"></key>
             <one-to-many class="Score" not-found="ignore" />
         </set>

@@ -22,45 +22,45 @@ angular.module('app')
                     .state('app', {
                         abstract: true,
                         url: '/app',
-                        templateUrl: '../static/admin/tpl/app.html'
+                        templateUrl: './static/admin/tpl/app.html'
                     })
                     .state('app.user', {
                         url: '/user',
-                        templateUrl: '../static/admin/tpl/page/user.html',
+                        templateUrl: './static/admin/tpl/page/user.html',
                         resolve: {
                             deps: ['$ocLazyLoad',
                                 function ($ocLazyLoad) {
-                                    return $ocLazyLoad.load(['toaster','../static/admin/js/app/UserMgmtCtrl.js']);
+                                    return $ocLazyLoad.load(['toaster','./static/admin/js/app/UserMgmtCtrl.js']);
                                 }]
                         }
                     })
                     .state('app.film', {
                         url: '/film',
-                        templateUrl: '../static/admin/tpl/page/film.html',
+                        templateUrl: './static/admin/tpl/page/film.html',
                         resolve: {
                             deps: ['$ocLazyLoad',
                                 function ($ocLazyLoad) {
-                                    return $ocLazyLoad.load(['toaster','../static/admin/js/app/FilmMgmtCtrl.js']);
+                                    return $ocLazyLoad.load(['toaster','./static/admin/js/app/FilmMgmtCtrl.js']);
                                 }]
                         }
                     })
                     .state('app.post', {
                         url: '/post',
-                        templateUrl: '../static/admin/tpl/page/post.html',
+                        templateUrl: './static/admin/tpl/page/post.html',
                         resolve: {
                             deps: ['$ocLazyLoad',
                                 function ($ocLazyLoad) {
-                                    return $ocLazyLoad.load(['toaster','../static/admin/js/app/PostMgmtCtrl.js']);
+                                    return $ocLazyLoad.load(['toaster','./static/admin/js/app/PostMgmtCtrl.js']);
                                 }]
                         }
                     })
                     .state('app.comment', {
                         url: '/comment',
-                        templateUrl: '../static/admin/tpl/page/comment.html',
+                        templateUrl: './static/admin/tpl/page/comment.html',
                         resolve: {
                             deps: ['$ocLazyLoad',
                                 function ($ocLazyLoad) {
-                                    return $ocLazyLoad.load(['toaster','../static/admin/js/app/CommentMgmtCtrl.js']);
+                                    return $ocLazyLoad.load(['toaster','./static/admin/js/app/CommentMgmtCtrl.js']);
                                 }]
                         }
                     })

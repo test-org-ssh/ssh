@@ -1,4 +1,4 @@
-app.controller('RemoveModalCtrl', ['$scope', '$modalInstance', 'param', 'resource', function ($scope, $modalInstance, param, resource) {
+app.controller('FilmModalCtrl', ['$scope', '$modalInstance', 'param', 'resource', function ($scope, $modalInstance, param, resource) {
     $scope.film = param;
 
     // 提交

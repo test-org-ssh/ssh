@@ -2,7 +2,7 @@ app.controller('FilmMgmtCtrl', ['$scope', 'resource', 'myPaginationService', '_m
     function ($scope, resource, myPaginationService, _ms, $modal) {
         $scope.film = {};
 
-        //查询用户，并分页显示
+        //配置
         $scope.filmPageObject = {
             currentPageList: [], //当前页面显示的数据列表
             currentPage: 1, //当前页，初始化为1
@@ -16,11 +16,12 @@ app.controller('FilmMgmtCtrl', ['$scope', 'resource', 'myPaginationService', '_m
                 currPage: $scope.filmPageObject.currentPage,
                 pageSize: $scope.filmPageObject.pageSize
             };
-            resource.get('get_film_by_page', $scope.loadPageData)
+            resource.get('./admin/get_film_by_page', $scope.loadPageData)
                 .then(function (result) {
                     console.log(result);
                     $scope.filmPageObject.currentPageList = result.data.list;
                     $scope.filmPageObject.totalPage = result.data.totalPage;
+                    $scope.filmPageObject.currentPage = result.data.currPage;
                     $scope.filmPageObject.pages = [];
                     if(result.data.totalPage == 1){
                         $scope.filmPageObject.pages.push($scope.filmPageObject.currentPage);
@@ -37,6 +38,7 @@ app.controller('FilmMgmtCtrl', ['$scope', 'resource', 'myPaginationService', '_m
         };
 
         $scope.init = function () {
+            $scope.filmPageObject.currentPage=1;
             $scope.loadPage();
             $scope.$watch('filmPageObject.totalPage', function () {
                 myPaginationService.showFirstPageContent($scope.filmPageObject, 1);
@@ -53,7 +55,7 @@ app.controller('FilmMgmtCtrl', ['$scope', 'resource', 'myPaginationService', '_m
         $scope.detail = function (item) {
             $scope.film = (item) ? item : {};
             var modalInstance = $modal.open({
-                templateUrl: '../static/admin/tpl/modal/filmModal.html',
+                templateUrl: './static/admin/tpl/modal/filmModal.html',
                 controller: 'FilmModalCtrl',
                 backdrop: 'static',
                 size: 'lg',
@@ -64,7 +66,7 @@ app.controller('FilmMgmtCtrl', ['$scope', 'resource', 'myPaginationService', '_m
                 }
             });
             modalInstance.result.then(function (result) {
-                resource.get('sou_film', result)
+                resource.get('./admin/sou_film', result)
                     .then(function (result) {
                         console.log(result);
                         if (result.success) {
@@ -79,7 +81,7 @@ app.controller('FilmMgmtCtrl', ['$scope', 'resource', 'myPaginationService', '_m
         $scope.remove = function (item) {
             $scope.film = item;
             var modalInstance = $modal.open({
-                templateUrl: '../static/admin/tpl/modal/removeModal.html',
+                templateUrl: './static/admin/tpl/modal/removeModal.html',
                 controller: 'RemoveModalCtrl',
                 backdrop: 'static',
                 size: 's',
@@ -91,10 +93,11 @@ app.controller('FilmMgmtCtrl', ['$scope', 'resource', 'myPaginationService', '_m
             });
             modalInstance.result.then(function (result) {
                 if (result) {
-                    resource.get('delete_film', {id: $scope.film.id})
+                    resource.get('./admin/delete_film', {id: $scope.film.id})
                         .then(function (result) {
                             if (result.success) {
                                 _ms.msg('s', '删除成功');
+                                $scope.loadPage();
                             }
                         });
                 }
@@ -103,10 +106,10 @@ app.controller('FilmMgmtCtrl', ['$scope', 'resource', 'myPaginationService', '_m
     }])
 ;
 
-app.controller('UserPhotoUploadCtrl', ['$scope', 'FileUploader', '$http', 'toaster',
+app.controller('FilmPhotoUploadCtrl', ['$scope', 'FileUploader', '$http', 'toaster',
     function ($scope, FileUploader, $http, toaster) {
         var uploader = $scope.uploader = new FileUploader({
-            url: 'upload_film_photo',
+            url: './admin/upload_film_photo',
             removeAfterUpload: true,
             queueLimit: 1,
             headers: {'Content-Type': undefined}
@@ -118,12 +121,12 @@ app.controller('UserPhotoUploadCtrl', ['$scope', 'FileUploader', '$http', 'toast
 
             $http({
                 method: 'post',
-                url: "upload_film_photo",
+                url: "./admin/upload_film_photo",
                 data: fd,
                 headers: {'Content-Type': undefined},
                 transformRequest: angular.identity
             }).success(function (result) {
-                $scope.film.photo = result.url;
+                $scope.film.picPath = result.url;
                 toaster.pop('error', result.msg);
             });
         }

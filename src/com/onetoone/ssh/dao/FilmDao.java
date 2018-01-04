@@ -143,6 +143,7 @@ public class FilmDao {
     public int addFilm(String name, String path, String desc) {
 	FilmIntroduction film = new FilmIntroduction();
 
+	System.out.println("film_name="+name);
 	Session session = factory.openSession();
 	Transaction tx = session.beginTransaction();
 

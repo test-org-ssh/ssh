@@ -16,7 +16,7 @@ app.controller('UserMgmtCtrl', ['$scope', 'resource', 'myPaginationService', '_m
                 currPage: $scope.userPageObject.currentPage,
                 pageSize: $scope.userPageObject.pageSize
             };
-            resource.get('get_user_by_page', $scope.loadPageData)
+            resource.get('./admin/get_user_by_page', $scope.loadPageData)
                 .then(function (result) {
                     console.log(result);
                     $scope.userPageObject.currentPageList = result.data.list;
@@ -53,7 +53,7 @@ app.controller('UserMgmtCtrl', ['$scope', 'resource', 'myPaginationService', '_m
         // 切换用户停用/启用状态
         $scope.switchStatus = function (item) {
             var status = (item.status == 0) ? 1 : 0;
-            resource.get('update_user_status', {id: item.id, status: status})
+            resource.get('./admin/update_user_status', {id: item.id, status: status})
                 .then(function (result) {
                     if (result.success) {
                         _ms.msg('s', '状态更新成功');
@@ -66,7 +66,7 @@ app.controller('UserMgmtCtrl', ['$scope', 'resource', 'myPaginationService', '_m
         $scope.detail = function (item) {
             $scope.user = (item) ? item : {};
             var modalInstance = $modal.open({
-                templateUrl: '../static/admin/tpl/modal/userModal.html',
+                templateUrl: './static/admin/tpl/modal/userModal.html',
                 controller: 'UserModalCtrl',
                 backdrop: 'static',
                 size: 'lg',
@@ -77,7 +77,7 @@ app.controller('UserMgmtCtrl', ['$scope', 'resource', 'myPaginationService', '_m
                 }
             });
             modalInstance.result.then(function (result) {
-                resource.get('sou_user', result)
+                resource.get('./admin/sou_user', result)
                     .then(function (result) {
                         console.log(result);
                         if (result.success) {
@@ -92,7 +92,7 @@ app.controller('UserMgmtCtrl', ['$scope', 'resource', 'myPaginationService', '_m
         $scope.remove = function (item) {
             $scope.user = item;
             var modalInstance = $modal.open({
-                templateUrl: '../static/admin/tpl/modal/removeModal.html',
+                templateUrl: './static/admin/tpl/modal/removeModal.html',
                 controller: 'RemoveModalCtrl',
                 backdrop: 'static',
                 size: 's',
@@ -104,10 +104,11 @@ app.controller('UserMgmtCtrl', ['$scope', 'resource', 'myPaginationService', '_m
             });
             modalInstance.result.then(function (result) {
                 if (result) {
-                    resource.get('delete_user', {id: $scope.user.id})
+                    resource.get('./admin/delete_user', {id: $scope.user.id})
                         .then(function (result) {
                             if (result.success) {
                                 _ms.msg('s', '删除成功');
+                                $scope.loadPage();
                             }
                         });
                 }
@@ -119,7 +120,7 @@ app.controller('UserMgmtCtrl', ['$scope', 'resource', 'myPaginationService', '_m
 app.controller('UserPhotoUploadCtrl', ['$scope', 'FileUploader', '$http', 'toaster',
     function ($scope, FileUploader, $http, toaster) {
         var uploader = $scope.uploader = new FileUploader({
-            url: 'upload_user_photo',
+            url: './admin/upload_user_photo',
             removeAfterUpload: true,
             queueLimit: 1,
             headers: {'Content-Type': undefined}
@@ -131,7 +132,7 @@ app.controller('UserPhotoUploadCtrl', ['$scope', 'FileUploader', '$http', 'toast
 
             $http({
                 method: 'post',
-                url: "upload_user_photo",
+                url: "./admin/upload_user_photo",
                 data: fd,
                 headers: {'Content-Type': undefined},
                 transformRequest: angular.identity

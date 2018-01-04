@@ -137,7 +137,7 @@
 	</package>
 	
 	<!-- 管理员端 -->
-	<package name="admin" extends="struts-default" namespace="admin">
+	<package name="admin" extends="struts-default" namespace="/admin">
 		<global-results>
 			<result name="login">/WEB-INF/admin/page_signin.html</result>
 		</global-results>

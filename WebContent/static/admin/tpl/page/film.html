@@ -37,12 +37,12 @@
                     <tbody>
                     <div id='content'>
                         <!-- ngRepeat: nav in items -->
-                        <tr ng-repeat="item in films">
+                        <tr ng-repeat="item in filmPageObject.currentPageList">
                             <td class="ng-binding"><input type="checkbox"></td>
-                            <td><img ng-src="..{{item.picPath}}"
-                                     alt="" class="img-thumbnail thumb-xl"></td>
+                            <td><img ng-src="./{{item.picPath}}"
+                                     alt="" class="img-thumbnail thumb-xl" style="max-height: 120px;"></td>
                             <td class="ng-binding">{{item.name}}</td>
-                            <td class="ng-binding">{{item.description}}</td>
+                            <td class="ng-binding">{{item.description | cut:true:120:' ...' }}</td>
                             <td class="ng-binding">{{item.score}}</td>
                             <td>
                                 <button class="btn btn-success m-b-xs btn-sm" ng-click="detail(item)">

@@ -36,7 +36,7 @@ app.controller('PostMgmtCtrl', ['$scope', 'resource', 'myPaginationService', '_m
                 currPage: $scope.postPageObject.currentPage,
                 pageSize: $scope.postPageObject.pageSize
             };
-            resource.get('get_post_by_page', $scope.loadPageData)
+            resource.get('./admin/get_post_by_page', $scope.loadPageData)
                 .then(function (result) {
                     console.log(result);
                     $scope.postPageObject.currentPageList = result.data.list;
@@ -74,7 +74,7 @@ app.controller('PostMgmtCtrl', ['$scope', 'resource', 'myPaginationService', '_m
         $scope.detail = function (item) {
         	$scope.post = (item) ? item : {};
             var modalInstance = $modal.open({
-                templateUrl: '../static/admin/tpl/modal/postModal.html',
+                templateUrl: './static/admin/tpl/modal/postModal.html',
                 controller: 'PostModalCtrl',
                 backdrop: 'static',
                 size: 'lg',
@@ -96,7 +96,7 @@ app.controller('PostMgmtCtrl', ['$scope', 'resource', 'myPaginationService', '_m
         $scope.remove = function (item) {
             $scope.post = item;
             var modalInstance = $modal.open({
-                templateUrl: '../static/admin/tpl/modal/removeModal.html',
+                templateUrl: './static/admin/tpl/modal/removeModal.html',
                 controller: 'RemoveModalCtrl',
                 backdrop: 'static',
                 size: 's',
@@ -109,7 +109,7 @@ app.controller('PostMgmtCtrl', ['$scope', 'resource', 'myPaginationService', '_m
             modalInstance.result.then(function (result) {
                 if(result){
                     // TODO 向服务器发送删除请求
-                	resource.get('delete_post',{id:$scope.post.id}).then(function (result) {
+                	resource.get('./admin/delete_post',{id:$scope.post.id}).then(function (result) {
                         console.log(result);
                         if (result.success == true) {
                             toaster.pop('success', '提示', result.msg);

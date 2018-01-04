@@ -85,7 +85,7 @@ angular.module('app').directive('myPagination', function (myPaginationService) {
         scope: {
             pageObject: '='
         },
-        templateUrl: '../static/admin/js/directives/myPagination.html',
+        templateUrl: './static/admin/js/directives/myPagination.html',
         link: function (scope, element, attrs) {
             scope.upPageClick = function (page) {
                 myPaginationService.upPageClick(scope.pageObject, page);
